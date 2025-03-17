@@ -1,4 +1,4 @@
-<html lang="es" data-darkreader-mode="dynamic" data-darkreader-scheme="dark" class=" zjhlccey idc0_350"><head><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container {
+<html lang="es" data-darkreader-scheme="dark" class=" zjhlccey idc0_350 mjvxrhkc" data-darkreader-mode="dynamic"><head><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container {
     filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
 }</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
   background-color: var(--darkreader-inline-bgcolor) !important;
@@ -641,7 +641,16 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <line x1="5" y1="12" x2="19" y2="12"></line>
           </svg>
-        </div><div class="bookmark-list"></div></div></div>
+        </div><div class="bookmark-list"></div></div><div class="category" data-category="GitHub"><div class="category-header" style="background-color: rgb(128, 0, 255); --darkreader-inline-bgcolor: var(--darkreader-background-8000ff, #6600cc);" data-darkreader-inline-bgcolor="">
+          <span>GitHub</span>
+          <svg class="add-icon" onclick="openNewBookmarkModal('GitHub')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div><div class="bookmark-list"><a href="https://github.com/vtedash/vtedash/blob/main/index.html" class="bookmark" target="_blank">
+            <div class="bookmark-icon"></div>
+            <span class="bookmark-title">DashBoard Code</span>
+          </a></div></div></div>
   </div>
   
   <div id="categoryManagerModal" class="modal" style="display: none;">
@@ -672,6 +681,14 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
             <button onclick="moveCategoryUp(2)">↑</button>
             <button onclick="moveCategoryDown(2)">↓</button>
           </div>
+        </div><div class="category-item">
+          <span>GitHub</span>
+          <div class="category-actions">
+            <button onclick="editCategory(3)">Editar</button>
+            <button onclick="deleteCategory(3)">Eliminar</button>
+            <button onclick="moveCategoryUp(3)">↑</button>
+            <button onclick="moveCategoryDown(3)">↓</button>
+          </div>
         </div></div>
       <h3>Añadir Nueva Categoría</h3>
       <form id="newCategoryForm">
@@ -688,7 +705,7 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
     </div>
   </div>
   
-  <div id="newBookmarkModal" class="modal">
+  <div id="newBookmarkModal" class="modal" style="display: none;">
     <div class="modal-content">
       <span class="close" onclick="closeNewBookmarkModal()">×</span>
       <h2>Añadir Marcador</h2>
@@ -753,6 +770,18 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
     "name": "TEST777",
     "color": "#00ff00",
     "bookmarks": []
+  },
+  {
+    "id": 1742230856985,
+    "name": "GitHub",
+    "color": "#8000ff",
+    "bookmarks": [
+      {
+        "title": "DashBoard Code",
+        "url": "https://github.com/vtedash/vtedash/blob/main/index.html",
+        "icon": ""
+      }
+    ]
   }
 ];
     
@@ -1027,6 +1056,7 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
     loadCategories();
     renderCategories();
   </script>
+
 
 
 </body></html>
