@@ -1,18 +1,11 @@
-/**************************************
- * Gestión de Categorías y Marcadores *
- **************************************/
-
-// Array global de categorías
 let categories = [];
 let selectedCategoryName = null;
 
-// Variables para GitHub
-const GITHUB_TOKEN = "TU_TOKEN_AQUI"; // Reemplaza con tu token (esto es inseguro, más adelante se explica una mejor opción)
-const REPO_OWNER = "TU_USUARIO"; // Reemplaza con tu usuario de GitHub
-const REPO_NAME = "TU_REPOSITORIO"; // Reemplaza con el nombre de tu repositorio
-const FILE_PATH = "data.json"; // Ruta del archivo en el repositorio
+const GITHUB_TOKEN = "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"; // Mejor pedirlo por prompt o usar backend
+const REPO_OWNER = "vtedash ";
+const REPO_NAME = "vtedash ";
+const FILE_PATH = "data.json";
 
-// Funciones para interactuar con la API de GitHub
 async function loadCategoriesFromGitHub() {
   try {
     const response = await fetch(
@@ -24,26 +17,19 @@ async function loadCategoriesFromGitHub() {
         },
       }
     );
-
     if (!response.ok) throw new Error("Error al cargar los datos desde GitHub");
-
     const fileData = await response.json();
-    const content = atob(fileData.content); // Decodificar el contenido base64
+    const content = atob(fileData.content);
     categories = JSON.parse(content);
   } catch (error) {
     console.error("Error al cargar categorías:", error);
-    // Si hay un error, usar las categorías por defecto
     categories = [
       {
         id: 1,
         name: "Trabajo",
         color: "#3498db",
         bookmarks: [
-          {
-            title: "Gmail Corporativo",
-            url: "https://mail.google.com",
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`,
-          },
+          { title: "Gmail Corporativo", url: "https://mail.google.com", icon: "" },
         ],
       },
     ];
@@ -52,7 +38,6 @@ async function loadCategoriesFromGitHub() {
 
 async function saveCategoriesToGitHub() {
   try {
-    // Primero, obtenemos el SHA del archivo actual (necesario para actualizarlo)
     const fileResponse = await fetch(
       `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`,
       {
@@ -62,16 +47,12 @@ async function saveCategoriesToGitHub() {
         },
       }
     );
-
     if (!fileResponse.ok) throw new Error("Error al obtener el SHA del archivo");
-
     const fileData = await fileResponse.json();
     const sha = fileData.sha;
 
-    // Ahora actualizamos el archivo
-    const content = btoa(JSON.stringify(categories, null, 2)); // Codificar en base64
+    const content = btoa(JSON.stringify(categories, null, 2));
     const commitMessage = "Actualizar data.json con nuevas categorías/marcadores";
-
     const updateResponse = await fetch(
       `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`,
       {
@@ -87,19 +68,16 @@ async function saveCategoriesToGitHub() {
         }),
       }
     );
-
     if (!updateResponse.ok) throw new Error("Error al guardar los datos en GitHub");
   } catch (error) {
     console.error("Error al guardar categorías:", error);
-    alert("No se pudo guardar los cambios en GitHub. Revisa la consola para más detalles.");
+    alert("No se pudo guardar los cambios en GitHub.");
   }
 }
 
-// Renderiza el grid del dashboard con las categorías y sus marcadores
 function renderCategories() {
   const grid = document.getElementById("bookmarksGrid");
   grid.innerHTML = "";
-
   categories.forEach((category) => {
     const categoryDiv = document.createElement("div");
     categoryDiv.className = "category";
@@ -108,212 +86,25 @@ function renderCategories() {
     const header = document.createElement("div");
     header.className = "category-header";
     header.style.backgroundColor = category.color;
-    header.innerHTML = `
-      <span>${category.name}</span>
-      <svg class="add-icon" onclick="openNewBookmarkModal('${category.name}')" 
-           xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
-           viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="12" y1="5" x2="12" y2="19"></line>
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-      </svg>
-    `;
-
+    header.innerHTML = `${category.name}`;
     categoryDiv.appendChild(header);
 
     const bookmarkList = document.createElement("div");
     bookmarkList.className = "bookmark-list";
-
     category.bookmarks.forEach((bookmark) => {
       const a = document.createElement("a");
       a.href = bookmark.url;
       a.className = "bookmark";
       a.target = "_blank";
-
-      let iconContent = bookmark.icon;
-      const isSVG = iconContent.trim().startsWith("<svg");
-      if (!isSVG && iconContent.trim() !== "") {
-        iconContent = `<img src="${iconContent}" alt="icon" style="width:16px;height:16px;">`;
-      }
-
-      a.innerHTML = `
-        <div class="bookmark-icon">${iconContent || ""}</div>
-        <span class="bookmark-title">${bookmark.title}</span>
-      `;
+      let iconContent = bookmark.icon || '<span class="default-icon">🔗</span>';
+      a.innerHTML = `${iconContent}${bookmark.title}`;
       bookmarkList.appendChild(a);
     });
-
     categoryDiv.appendChild(bookmarkList);
     grid.appendChild(categoryDiv);
   });
 }
 
-// Renderiza la lista de categorías en el modal de gestión
-function renderCategoryManagementList() {
-  const list = document.getElementById("categoriesList");
-  list.innerHTML = "";
-
-  categories.forEach((category, index) => {
-    const item = document.createElement("div");
-    item.className = "category-item";
-    item.innerHTML = `
-      <span>${category.name}</span>
-      <div class="category-actions">
-        <button onclick="editCategory(${index})">Editar</button>
-        <button onclick="deleteCategory(${index})">Eliminar</button>
-        <button onclick="moveCategoryUp(${index})">↑</button>
-        <button onclick="moveCategoryDown(${index})">↓</button>
-      </div>
-    `;
-    list.appendChild(item);
-  });
-}
-
-// Modal controls para Categorías
-function openCategoryManagerModal() {
-  renderCategoryManagementList();
-  document.getElementById("categoryManagerModal").style.display = "block";
-}
-
-function closeCategoryManagerModal() {
-  document.getElementById("categoryManagerModal").style.display = "none";
-}
-
-// Modal controls para Marcadores
-function openNewBookmarkModal(categoryName) {
-  selectedCategoryName = categoryName;
-  document.getElementById("newBookmarkForm").reset();
-  document.getElementById("newBookmarkModal").style.display = "block";
-}
-
-function closeNewBookmarkModal() {
-  document.getElementById("newBookmarkModal").style.display = "none";
-}
-
-// Cierra los modales al hacer clic fuera de ellos
-window.onclick = function (event) {
-  const categoryModal = document.getElementById("categoryManagerModal");
-  const bookmarkModal = document.getElementById("newBookmarkModal");
-  if (event.target === categoryModal) {
-    closeCategoryManagerModal();
-  }
-  if (event.target === bookmarkModal) {
-    closeNewBookmarkModal();
-  }
-};
-
-// Evento para el formulario de nueva categoría
-document.getElementById("newCategoryForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
-  const nameInput = document.getElementById("newCategoryName");
-  const colorInput = document.getElementById("newCategoryColor");
-  const name = nameInput.value.trim();
-  const color = colorInput.value;
-
-  if (name === "") {
-    return alert("Por favor, introduce un nombre para la categoría.");
-  }
-
-  if (categories.some((cat) => cat.name.toLowerCase() === name.toLowerCase())) {
-    return alert("La categoría ya existe.");
-  }
-
-  const newCategory = {
-    id: Date.now(),
-    name: name,
-    color: color,
-    bookmarks: [],
-  };
-
-  categories.push(newCategory);
-  await saveCategoriesToGitHub();
-  renderCategories();
-  renderCategoryManagementList();
-
-  nameInput.value = "";
-  colorInput.value = "#3498db";
-});
-
-// Formulario para añadir un nuevo marcador
-document.getElementById("newBookmarkForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
-  if (!selectedCategoryName) return;
-
-  const titleInput = document.getElementById("bookmarkTitle");
-  const urlInput = document.getElementById("bookmarkURL");
-  const iconInput = document.getElementById("bookmarkIcon");
-
-  const title = titleInput.value.trim();
-  const url = urlInput.value.trim();
-  const icon = iconInput.value.trim();
-
-  if (title === "" || url === "") {
-    return alert("Por favor, completa el título y la URL del marcador.");
-  }
-
-  const categoryIndex = categories.findIndex((cat) => cat.name === selectedCategoryName);
-  if (categoryIndex === -1) {
-    return alert("No se encontró la categoría seleccionada.");
-  }
-
-  categories[categoryIndex].bookmarks.push({
-    title: title,
-    url: url,
-    icon: icon,
-  });
-
-  await saveCategoriesToGitHub();
-  renderCategories();
-
-  closeNewBookmarkModal();
-});
-
-// Funciones para editar, eliminar y reordenar categorías
-async function editCategory(index) {
-  const newName = prompt("Editar nombre de la categoría:", categories[index].name);
-  if (newName !== null && newName.trim() !== "") {
-    if (
-      categories.some(
-        (cat, i) => i !== index && cat.name.toLowerCase() === newName.toLowerCase()
-      )
-    ) {
-      return alert("Otra categoría ya tiene ese nombre.");
-    }
-    categories[index].name = newName.trim();
-    await saveCategoriesToGitHub();
-    renderCategories();
-    renderCategoryManagementList();
-  }
-}
-
-async function deleteCategory(index) {
-  if (confirm(`¿Estás seguro de eliminar la categoría "${categories[index].name}"?`)) {
-    categories.splice(index, 1);
-    await saveCategoriesToGitHub();
-    renderCategories();
-    renderCategoryManagementList();
-  }
-}
-
-async function moveCategoryUp(index) {
-  if (index > 0) {
-    [categories[index - 1], categories[index]] = [categories[index], categories[index - 1]];
-    await saveCategoriesToGitHub();
-    renderCategories();
-    renderCategoryManagementList();
-  }
-}
-
-async function moveCategoryDown(index) {
-  if (index < categories.length - 1) {
-    [categories[index + 1], categories[index]] = [categories[index], categories[index + 1]];
-    await saveCategoriesToGitHub();
-    renderCategories();
-    renderCategoryManagementList();
-  }
-}
-
-// Inicializa la aplicación
 async function initialize() {
   await loadCategoriesFromGitHub();
   renderCategories();
