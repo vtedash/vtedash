@@ -1,1219 +1,857 @@
-<html lang="es" data-darkreader-mode="dynamic" data-darkreader-scheme="dark" class=" fdmwfqtejda idc0_350"><head><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container {
-    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
-}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
-  background-color: var(--darkreader-inline-bgcolor) !important;
-}
-[data-darkreader-inline-bgimage] {
-  background-image: var(--darkreader-inline-bgimage) !important;
-}
-[data-darkreader-inline-border] {
-  border-color: var(--darkreader-inline-border) !important;
-}
-[data-darkreader-inline-border-bottom] {
-  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
-}
-[data-darkreader-inline-border-left] {
-  border-left-color: var(--darkreader-inline-border-left) !important;
-}
-[data-darkreader-inline-border-right] {
-  border-right-color: var(--darkreader-inline-border-right) !important;
-}
-[data-darkreader-inline-border-top] {
-  border-top-color: var(--darkreader-inline-border-top) !important;
-}
-[data-darkreader-inline-boxshadow] {
-  box-shadow: var(--darkreader-inline-boxshadow) !important;
-}
-[data-darkreader-inline-color] {
-  color: var(--darkreader-inline-color) !important;
-}
-[data-darkreader-inline-fill] {
-  fill: var(--darkreader-inline-fill) !important;
-}
-[data-darkreader-inline-stroke] {
-  stroke: var(--darkreader-inline-stroke) !important;
-}
-[data-darkreader-inline-outline] {
-  outline-color: var(--darkreader-inline-outline) !important;
-}
-[data-darkreader-inline-stopcolor] {
-  stop-color: var(--darkreader-inline-stopcolor) !important;
-}
-[data-darkreader-inline-bg] {
-  background: var(--darkreader-inline-bg) !important;
-}
-[data-darkreader-inline-border-short] {
-  border: var(--darkreader-inline-border-short) !important;
-}
-[data-darkreader-inline-border-bottom-short] {
-  border-bottom: var(--darkreader-inline-border-bottom-short) !important;
-}
-[data-darkreader-inline-border-left-short] {
-  border-left: var(--darkreader-inline-border-left-short) !important;
-}
-[data-darkreader-inline-border-right-short] {
-  border-right: var(--darkreader-inline-border-right-short) !important;
-}
-[data-darkreader-inline-border-top-short] {
-  border-top: var(--darkreader-inline-border-top-short) !important;
-}
-[data-darkreader-inline-invert] {
-    filter: invert(100%) hue-rotate(180deg);
-}</style><style class="darkreader darkreader--variables" media="screen">:root {
-   --darkreader-neutral-background: var(--darkreader-background-ffffff, #181a1b);
-   --darkreader-neutral-text: var(--darkreader-text-000000, #e8e6e3);
-   --darkreader-selection-background: var(--darkreader-background-0060d4, #004daa);
-   --darkreader-selection-text: var(--darkreader-text-ffffff, #e8e6e3);
-}</style><style class="darkreader darkreader--root-vars" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">@layer {
-html {
-    background-color: var(--darkreader-background-ffffff, #181a1b) !important;
-}
-html {
-    color-scheme: dark !important;
-}
-iframe {
-    color-scheme: dark !important;
-}
-html, body {
-    background-color: var(--darkreader-background-ffffff, #181a1b);
-}
-html, body {
-    border-color: var(--darkreader-border-4c4c4c, #736b5e);
-    color: var(--darkreader-text-000000, #e8e6e3);
-}
-a {
-    color: var(--darkreader-text-0040ff, #3391ff);
-}
-table {
-    border-color: var(--darkreader-border-808080, #545b5e);
-}
-mark {
-    color: var(--darkreader-text-000000, #e8e6e3);
-}
-::placeholder {
-    color: var(--darkreader-text-a9a9a9, #b2aba1);
-}
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-    background-color: var(--darkreader-background-faffbd, #404400) !important;
-    color: var(--darkreader-text-000000, #e8e6e3) !important;
-}
-::selection {
-    background-color: var(--darkreader-background-0060d4, #004daa) !important;
-    color: var(--darkreader-text-ffffff, #e8e6e3) !important;
-}
-::-moz-selection {
-    background-color: var(--darkreader-background-0060d4, #004daa) !important;
-    color: var(--darkreader-text-ffffff, #e8e6e3) !important;
-}
-}</style>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DashBoard de Vte</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #f0f2f5, #e9ecef);
-      color: #2c3e50;
-      padding: 20px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    .container {
-      flex: 1;
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .header h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 36px;
-      color: #34495e;
-      margin-bottom: 20px;
-    }
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    .buttons button {
-      padding: 12px 25px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      border: none;
-      border-radius: 25px;
-      background: linear-gradient(45deg, #6a82fb, #fc5c7d);
-      color: white;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    .buttons button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-    #bookmarksGrid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
-    }
-    .category {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .category:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-    }
-    .category-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px;
-      border-radius: 10px 10px 0 0;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      color: white;
-      background: linear-gradient(45deg, #3498db, #2980b9);
-    }
-    .add-icon {
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .add-icon:hover {
-      transform: scale(1.2);
-    }
-    .bookmark-list {
-      margin-top: 15px;
-    }
-    .bookmark {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: #2c3e50;
-      padding: 10px;
-      border-radius: 8px;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-    .bookmark:hover {
-      background-color: #f5f7fa;
-      transform: translateX(5px);
-    }
-    .bookmark-icon {
-      margin-right: 12px;
-      width: 24px;
-      height: 24px;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 0.4s ease-in-out;
-    }
-    .modal-content {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 550px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      animation: slideIn 0.4s ease-in-out;
-    }
-    .close {
-      float: right;
-      font-size: 28px;
-      cursor: pointer;
-      color: #7f8c8d;
-      transition: color 0.3s;
-    }
-    .close:hover {
-      color: #e74c3c;
-    }
-    h2 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      color: #34495e;
-      margin-bottom: 20px;
-    }
-    form input, form button {
-      display: block;
-      width: 100%;
-      margin: 10px 0;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 16px;
-    }
-    form button {
-      border: none;
-      background: linear-gradient(45deg, #2ecc71, #27ae60);
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    form button:hover {
-      background: linear-gradient(45deg, #27ae60, #219653);
-    }
-    .category-item, .bookmark-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid #ecf0f1;
-    }
-    .category-actions button, .bookmark-actions button {
-      padding: 8px 12px;
-      margin-left: 8px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background-color 0.3s;
-    }
-    .category-actions button:nth-child(1), .bookmark-actions button:nth-child(1) {
-      background: #3498db;
-      color: white;
-    }
-    .category-actions button:nth-child(1):hover, .bookmark-actions button:nth-child(1):hover {
-      background: #2980b9;
-    }
-    .category-actions button:nth-child(2), .bookmark-actions button:nth-child(2) {
-      background: #e74c3c;
-      color: white;
-    }
-    .category-actions button:nth-child(2):hover, .bookmark-actions button:nth-child(2):hover {
-      background: #c0392b;
-    }
-    .category-actions button:nth-child(3), .category-actions button:nth-child(4) {
-      background: #95a5a6;
-      color: white;
-    }
-    .category-actions button:nth-child(3):hover, .category-actions button:nth-child(4):hover {
-      background: #7f8c8d;
-    }
-    .footer {
-      text-align: center;
-      padding: 20px 0;
-      font-size: 14px;
-      color: #7f8c8d;
-      margin-top: 30px;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideIn {
-      from { transform: translateY(-30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @media (max-width: 768px) {
-      #bookmarksGrid {
-        grid-template-columns: 1fr;
-      }
-      .buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      .modal-content {
-        width: 95%;
-        padding: 15px;
-      }
-    }
-  </style><style class="darkreader darkreader--sync" media="screen"></style>
-<meta name="darkreader" content="4d288268b1e146d8b64a64901d06b844"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
-    background-color: var(--darkreader-background-ffd76e, #684b00) !important;
-    border-color: var(--darkreader-background-c59d00, #9e7e00) !important;
-    color: var(--darkreader-text-302505, #d7d4cf) !important;
-}
-#vimvixen-console-frame {
-    color-scheme: light !important;
-}
-::placeholder {
-    opacity: 0.5 !important;
-}
-#edge-translate-panel-body,
-.MuiTypography-body1,
-.nfe-quote-text {
-    color: var(--darkreader-neutral-text) !important;
-}
-gr-main-header {
-    background-color: var(--darkreader-background-add8e6, #1b4958) !important;
-}
-.tou-z65h9k,
-.tou-mignzq,
-.tou-1b6i2ox,
-.tou-lnqlqk {
-    background-color: var(--darkreader-neutral-background) !important;
-}
-.tou-75mvi {
-    background-color: var(--darkreader-background-cfecf5, #0f3a47) !important;
-}
-.tou-ta9e87,
-.tou-1w3fhi0,
-.tou-1b8t2us,
-.tou-py7lfi,
-.tou-1lpmd9d,
-.tou-1frrtv8,
-.tou-17ezmgn {
-    background-color: var(--darkreader-background-f5f5f5, #1e2021) !important;
-}
-.tou-uknfeu {
-    background-color: var(--darkreader-background-faedda, #432c09) !important;
-}
-.tou-6i3zyv {
-    background-color: var(--darkreader-background-85c3d8, #245d70) !important;
-}
-div.mermaid-viewer-control-panel .btn {
-    background-color: var(--darkreader-neutral-background);
-    fill: var(--darkreader-neutral-text);
-}
-svg g rect.er {
-    fill: var(--darkreader-neutral-background) !important;
-}
-svg g rect.er.entityBox {
-    fill: var(--darkreader-neutral-background) !important;
-}
-svg g rect.er.attributeBoxOdd {
-    fill: var(--darkreader-neutral-background) !important;
-}
-svg g rect.er.attributeBoxEven {
-    fill: var(--darkreader-selection-background);
-    fill-opacity: 0.8 !important;
-}
-svg rect.er.relationshipLabelBox {
-    fill: var(--darkreader-neutral-background) !important;
-}
-svg g g.nodes rect,
-svg g g.nodes polygon {
-    fill: var(--darkreader-neutral-background) !important;
-}
-svg g rect.task {
-    fill: var(--darkreader-selection-background) !important;
-}
-svg line.messageLine0,
-svg line.messageLine1 {
-    stroke: var(--darkreader-neutral-text) !important;
-}
-div.mermaid .actor {
-    fill: var(--darkreader-neutral-background) !important;
-}
-mitid-authenticators-code-app > .code-app-container {
-    background-color: white !important;
-    padding-top: 1rem;
-}
-iframe#unpaywall[src$="unpaywall.html"] {
-    color-scheme: light !important;
-}
-select option {
-    background-color: var(--darkreader-neutral-background) !important;
-}
-body#tumblr {
-    --darkreader-bg--secondary-accent: 31, 32, 34 !important;
-    --darkreader-bg--white: 23, 23, 23 !important;
-    --darkreader-text--black: 228, 224, 218 !important;
-}
-:host {
-    --d2l-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
-    --d2l-button-icon-background-color-hover: var(--darkreader-bg--d2l-color-gypsum) !important;
-    --d2l-color-ferrite: var(--darkreader-neutral-text) !important;
-    --d2l-color-sylvite: var(--darkreader-bg--d2l-color-sylvite) !important;
-    --d2l-dropdown-background-color: var(--darkreader-neutral-background) !important;
-    --d2l-dropdown-border-color: var(--darkreader-border--d2l-color-mica) !important;
-    --d2l-input-backgroud-color: var(--darkreader-neutral-background) !important;
-    --d2l-menu-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
-    --d2l-tooltip-background-color: var(--darkreader-neutral-background) !important;
-    --d2l-tooltip-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
-}
-:host([_floating]) .d2l-floating-buttons-container {
-    background-color: var(--darkreader-neutral-background) !important;
-    border-top-color: var(--darkreader-border--d2l-color-mica) !important;
-    opacity: 0.88 !important;
-}
-d2l-card {
-    background: var(--darkreader-neutral-background) !important;
-    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
-}
-d2l-dropdown-content > div,
-d2l-menu-item {
-    background-color: var(--darkreader-neutral-background) !important;
-    border-radius: 10px !important;
-}
-d2l-empty-state-simple {
-    border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
-}
-.d2l-button-filter > ul > li > a.vui-button {
-    border-color: var(--darkreader-border--d2l-color-mica) !important;
-}
-.d2l-label-text:has(.d2l-button-subtle-content):hover,
-.d2l-label-text:has(.d2l-button-subtle-content):focus,
-.d2l-label-text:has(.d2l-button-subtle-content):active {
-    background-color: var(--darkreader-bg--d2l-color-gypsum) !important;
-}
-.d2l-navigation-centerer {
-    color: inherit !important;
-}
-.d2l-tabs-layout {
-    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
-}
-.d2l-input,
-.d2l-calendar-date,
-.d2l-htmleditor-container {
-    background-color: var(--darkreader-neutral-background) !important;
-}
-.d2l-collapsible-panel {
-    border: 1px solid var(--darkreader-border--d2l-color-mica) !important;
-    border-radius: 0.4rem !important;
-}
-.d2l-collapsible-panel-divider {
-    border-bottom: 1px solid var(--darkreader-border--d2l-color-mica) !important;
-}
-.d2l-w2d-flex {
-    border-bottom: 2px solid var(--darkreader-border--d2l-color-mica) !important;
-}
-.d2l-collapsible-panel scrolled,
-.d2l-collapsible-panel-header,
-.d2l-w2d-collection-fixed {
-    background-color: var(--darkreader-neutral-background) !important;
-}
-.d2l-loading-spinner-bg {
-    fill: var(--darkreader-bg--d2l-color-gypsum) !important;
-}
-.d2l-loading-spinner-bg-stroke {
-    stroke: var(--darkreader-border--d2l-color-mica) !important;
-}
-.d2l-loading-spinner-wrapper svg path,
-.d2l-loading-spinner-wrapper svg circle {
-    fill: var(--darkreader-neutral-background) !important;
-}
-embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>DashBoard de Vte</h1>
-      <div class="buttons">
-        <button onclick="openCategoryManagerModal()">Gestionar Categorías</button>
-        <button onclick="openBookmarkManagerModal()">Gestionar Marcadores</button>
-        <button onclick="downloadUpdatedHTML()">Descargar HTML</button>
-      </div>
-    </div>
-    <div id="bookmarksGrid"><div class="category" data-category="Viajes"><div class="category-header" style="background: linear-gradient(45deg, rgb(230, 126, 34), rgb(210, 106, 14)); --darkreader-inline-bgcolor: var(--darkreader-background-00000000, rgba(0, 0, 0, 0)); --darkreader-inline-bgimage: linear-gradient(45deg, var(--darkreader-background-e67e22, #b25e14), var(--darkreader-background-d26a0e, #a8550b));" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">
-          <span>Viajes</span>
-          <div class="add-icon" onclick="openNewBookmarkModal('Viajes')">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="--darkreader-inline-stroke: var(--darkreader-text-ffffff, #e8e6e3);" data-darkreader-inline-stroke="">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-          </div>
-        </div><div class="bookmark-list"><a href="https://booking.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M2 12h20"></path><path d="M6 4v16"></path><path d="M18 4v16"></path><path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path></svg></div>
-            <span class="bookmark-title">Booking.com</span>
-          </a></div></div><div class="category" data-category="Redes Sociales y Comunicación"><div class="category-header" style="background: linear-gradient(45deg, rgb(255, 111, 97), rgb(235, 91, 77)); --darkreader-inline-bgcolor: var(--darkreader-background-00000000, rgba(0, 0, 0, 0)); --darkreader-inline-bgimage: linear-gradient(45deg, var(--darkreader-background-ff6f61, #920d00), var(--darkreader-background-eb5b4d, #991d11));" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">
-          <span>Redes Sociales y Comunicación</span>
-          <div class="add-icon" onclick="openNewBookmarkModal('Redes Sociales y Comunicación')">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="--darkreader-inline-stroke: var(--darkreader-text-ffffff, #e8e6e3);" data-darkreader-inline-stroke="">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-          </div>
-        </div><div class="bookmark-list"><a href="https://youtube.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></div>
-            <span class="bookmark-title">YouTube</span>
-          </a><a href="https://whatsapp.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M12 2a10 10 0 0 0-8.84 14.77L2 22l5.23-1.37A10 10 0 1 0 12 2zm3.84 13.32c-.22.62-.87 1.14-1.53 1.44-.66.3-1.53.35-2.31-.14-.88-.55-1.87-1.43-2.63-2.31-.76-.88-.96-1.92-.76-2.95.18-.9.62-1.73 1.28-2.32.22-.2.44-.3.66-.3.22 0 .44.1.62.3.22.2.44.62.62 1 .18.38.22.82.12 1.24-.1.42-.32.82-.54 1.14-.22.32-.44.64-.32.96.12.32.54 1.14 1.19 1.73.66.58 1.31.96 1.84 1.08.52.12.96-.1 1.28-.32.32-.22.64-.54.86-.86.22-.32.22-.62.18-.86-.04-.24-.22-.48-.44-.62-.22-.14-.44-.3-.66-.48z"></path></svg></div>
-            <span class="bookmark-title">WhatsApp</span>
-          </a><a href="https://twitch.tv" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"></path></svg></div>
-            <span class="bookmark-title">Twitch</span>
-          </a></div></div><div class="category" data-category="IA y Productividad"><div class="category-header" style="background: linear-gradient(45deg, rgb(0, 196, 180), rgb(0, 176, 160)); --darkreader-inline-bgcolor: var(--darkreader-background-00000000, rgba(0, 0, 0, 0)); --darkreader-inline-bgimage: linear-gradient(45deg, var(--darkreader-background-00c4b4, #009d90), var(--darkreader-background-00b0a0, #008d80));" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">
-          <span>IA y Productividad</span>
-          <div class="add-icon" onclick="openNewBookmarkModal('IA y Productividad')">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="--darkreader-inline-stroke: var(--darkreader-text-ffffff, #e8e6e3);" data-darkreader-inline-stroke="">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-          </div>
-        </div><div class="bookmark-list"><a href="https://chat.openai.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M12 2a10 10 0 0 0-3.16 19.49L12 22l3.16-.51A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z"></path></svg></div>
-            <span class="bookmark-title">ChatGPT</span>
-          </a><a href="https://gemini.google.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z"></path></svg></div>
-            <span class="bookmark-title">Gemini</span>
-          </a><a href="https://claude.ai" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z"></path></svg></div>
-            <span class="bookmark-title">Claude</span>
-          </a><a href="https://canva.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M4 4h16v16H4zM6 6h12v12H6z"></path></svg></div>
-            <span class="bookmark-title">Canva</span>
-          </a></div></div><div class="category" data-category="No Mans Sky"><div class="category-header" style="background: linear-gradient(45deg, rgb(123, 31, 162), rgb(103, 11, 142)); --darkreader-inline-bgcolor: var(--darkreader-background-00000000, rgba(0, 0, 0, 0)); --darkreader-inline-bgimage: linear-gradient(45deg, var(--darkreader-background-7b1fa2, #621982), var(--darkreader-background-670b8e, #520972));" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">
-          <span>No Mans Sky</span>
-          <div class="add-icon" onclick="openNewBookmarkModal('No Mans Sky')">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="--darkreader-inline-stroke: var(--darkreader-text-ffffff, #e8e6e3);" data-darkreader-inline-stroke="">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-          </div>
-        </div><div class="bookmark-list"><a href="https://nomansskyrecipes.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z"></path></svg></div>
-            <span class="bookmark-title">NMS Recipes</span>
-          </a><a href="https://cwmonkey.github.io/nms-expeditions" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z"></path></svg></div>
-            <span class="bookmark-title">NMS Expeditions</span>
-          </a></div></div><div class="category" data-category="Google"><div class="category-header" style="background: linear-gradient(45deg, rgb(66, 133, 244), rgb(46, 113, 224)); --darkreader-inline-bgcolor: var(--darkreader-background-00000000, rgba(0, 0, 0, 0)); --darkreader-inline-bgimage: linear-gradient(45deg, var(--darkreader-background-4285f4, #0943a2), var(--darkreader-background-2e71e0, #1950aa));" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">
-          <span>Google</span>
-          <div class="add-icon" onclick="openNewBookmarkModal('Google')">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="--darkreader-inline-stroke: var(--darkreader-text-ffffff, #e8e6e3);" data-darkreader-inline-stroke="">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-          </div>
-        </div><div class="bookmark-list"><a href="https://mail.google.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
-            <span class="bookmark-title">Gmail</span>
-          </a><a href="https://drive.google.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M12 2L2 8l10 6 10-6-10-6zm0 6l-10 6 10 6 10-6-10-6z"></path></svg></div>
-            <span class="bookmark-title">Drive</span>
-          </a><a href="https://keep.google.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M4 4h16v12H4zM4 8h16M4 12h16"></path></svg></div>
-            <span class="bookmark-title">Keep</span>
-          </a><a href="https://docs.google.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
-            <span class="bookmark-title">Docs</span>
-          </a><a href="https://sheets.google.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M8 13h8M8 17h8M8 9h8"></path></svg></div>
-            <span class="bookmark-title">Sheets</span>
-          </a></div></div><div class="category" data-category="Periódicos"><div class="category-header" style="background: linear-gradient(45deg, rgb(244, 180, 0), rgb(224, 160, 0)); --darkreader-inline-bgcolor: var(--darkreader-background-00000000, rgba(0, 0, 0, 0)); --darkreader-inline-bgimage: linear-gradient(45deg, var(--darkreader-background-f4b400, #c39000), var(--darkreader-background-e0a000, #b38000));" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">
-          <span>Periódicos</span>
-          <div class="add-icon" onclick="openNewBookmarkModal('Periódicos')">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="--darkreader-inline-stroke: var(--darkreader-text-ffffff, #e8e6e3);" data-darkreader-inline-stroke="">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-          </div>
-        </div><div class="bookmark-list"><a href="https://elcorreo.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M2 4h20v16H2zM2 8h20M2 12h20M2 16h20"></path></svg></div>
-            <span class="bookmark-title">El Correo Digital</span>
-          </a><a href="https://elpais.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M2 4h20v16H2zM2 8h20M2 12h20M2 16h20"></path></svg></div>
-            <span class="bookmark-title">El País</span>
-          </a></div></div></div>
-  </div>
-  <div class="footer">Creado por ElVarto7 - 2025</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Dashboard Personal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Modal para gestionar categorías -->
-  <div id="categoryManagerModal" class="modal" style="display: none;">
-    <div class="modal-content">
-      <span class="close" onclick="closeCategoryManagerModal()">×</span>
-      <h2>Gestionar Categorías</h2>
-      <form id="newCategoryForm">
-        <input type="text" id="newCategoryName" placeholder="Nombre de la categoría" required="">
-        <input type="color" id="newCategoryColor" value="#3498db">
-        <button type="submit">Añadir Categoría</button>
-      </form>
-      <div id="categoriesList"><div class="category-item">
-          <span>Viajes</span>
-          <div class="category-actions">
-            <button onclick="editCategory(0)">Editar</button>
-            <button onclick="deleteCategory(0)">Eliminar</button>
-            <button onclick="moveCategoryUp(0)">↑</button>
-            <button onclick="moveCategoryDown(0)">↓</button>
-          </div>
-        </div><div class="category-item">
-          <span>Redes Sociales y Comunicación</span>
-          <div class="category-actions">
-            <button onclick="editCategory(1)">Editar</button>
-            <button onclick="deleteCategory(1)">Eliminar</button>
-            <button onclick="moveCategoryUp(1)">↑</button>
-            <button onclick="moveCategoryDown(1)">↓</button>
-          </div>
-        </div><div class="category-item">
-          <span>IA y Productividad</span>
-          <div class="category-actions">
-            <button onclick="editCategory(2)">Editar</button>
-            <button onclick="deleteCategory(2)">Eliminar</button>
-            <button onclick="moveCategoryUp(2)">↑</button>
-            <button onclick="moveCategoryDown(2)">↓</button>
-          </div>
-        </div><div class="category-item">
-          <span>No Mans Sky</span>
-          <div class="category-actions">
-            <button onclick="editCategory(3)">Editar</button>
-            <button onclick="deleteCategory(3)">Eliminar</button>
-            <button onclick="moveCategoryUp(3)">↑</button>
-            <button onclick="moveCategoryDown(3)">↓</button>
-          </div>
-        </div><div class="category-item">
-          <span>Google</span>
-          <div class="category-actions">
-            <button onclick="editCategory(4)">Editar</button>
-            <button onclick="deleteCategory(4)">Eliminar</button>
-            <button onclick="moveCategoryUp(4)">↑</button>
-            <button onclick="moveCategoryDown(4)">↓</button>
-          </div>
-        </div><div class="category-item">
-          <span>Periódicos</span>
-          <div class="category-actions">
-            <button onclick="editCategory(5)">Editar</button>
-            <button onclick="deleteCategory(5)">Eliminar</button>
-            <button onclick="moveCategoryUp(5)">↑</button>
-            <button onclick="moveCategoryDown(5)">↓</button>
-          </div>
-        </div></div>
-    </div>
-  </div>
+    <style>
+        /* Estilos CSS (todo el CSS anterior va aquí) */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-  <!-- Modal para añadir marcador -->
-  <div id="newBookmarkModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeNewBookmarkModal()">×</span>
-      <h2>Añadir Marcador</h2>
-      <form id="newBookmarkForm">
-        <input type="text" id="bookmarkTitle" placeholder="Título" required="">
-        <input type="url" id="bookmarkURL" placeholder="URL" required="">
-        <input type="text" id="bookmarkIcon" placeholder="Icono (SVG o URL)">
-        <button type="submit">Añadir</button>
-      </form>
-    </div>
-  </div>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
 
-  <!-- Modal para gestionar marcadores -->
-  <div id="bookmarkManagerModal" class="modal" style="display: none;">
-    <div class="modal-content">
-      <span class="close" onclick="closeBookmarkManagerModal()">×</span>
-      <h2>Gestionar Marcadores</h2>
-      <h3>Selecciona una categoría:</h3>
-      <div id="bookmarkCategoryList"><div class="category-item">
-          <span onclick="selectCategoryForBookmarks('Viajes')">Viajes</span>
-        </div><div class="category-item">
-          <span onclick="selectCategoryForBookmarks('Redes Sociales y Comunicación')">Redes Sociales y Comunicación</span>
-        </div><div class="category-item">
-          <span onclick="selectCategoryForBookmarks('IA y Productividad')">IA y Productividad</span>
-        </div><div class="category-item">
-          <span onclick="selectCategoryForBookmarks('No Mans Sky')">No Mans Sky</span>
-        </div><div class="category-item">
-          <span onclick="selectCategoryForBookmarks('Google')">Google</span>
-        </div><div class="category-item">
-          <span onclick="selectCategoryForBookmarks('Periódicos')">Periódicos</span>
-        </div></div>
-      <div id="bookmarksList"><div class="bookmark-item">
-            <span>ChatGPT</span>
-            <div class="bookmark-actions">
-              <button onclick="editBookmark('IA y Productividad', 0)">Editar</button>
-              <button onclick="deleteBookmark('IA y Productividad', 0)">Eliminar</button>
-            </div>
-          </div><div class="bookmark-item">
-            <span>Gemini</span>
-            <div class="bookmark-actions">
-              <button onclick="editBookmark('IA y Productividad', 1)">Editar</button>
-              <button onclick="deleteBookmark('IA y Productividad', 1)">Eliminar</button>
-            </div>
-          </div><div class="bookmark-item">
-            <span>Claude</span>
-            <div class="bookmark-actions">
-              <button onclick="editBookmark('IA y Productividad', 2)">Editar</button>
-              <button onclick="deleteBookmark('IA y Productividad', 2)">Eliminar</button>
-            </div>
-          </div><div class="bookmark-item">
-            <span>Canva</span>
-            <div class="bookmark-actions">
-              <button onclick="editBookmark('IA y Productividad', 3)">Editar</button>
-              <button onclick="deleteBookmark('IA y Productividad', 3)">Eliminar</button>
-            </div>
-          </div></div>
-    </div>
-  </div>
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-  <script>
-    let categories = [];
-    let selectedCategoryName = null;
-    let selectedCategoryForBookmarks = null;
+        .header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
 
-    const defaultCategories = [
-   {
-     "id": 1,
-     "name": "PlaceHolder",
-     "color": "#3498db",
-     "bookmarks": [
-       {
-         "title": "Placeholder",
-         "url": "https://mail.google.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
-       }
-     ]
-   },
-   {
-     "id": 2,
-     "name": "Viajes",
-     "color": "#e67e22",
-     "bookmarks": [
-       {
-         "title": "Booking.com",
-         "url": "https://booking.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h20\"></path><path d=\"M6 4v16\"></path><path d=\"M18 4v16\"></path><path d=\"M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z\"></path></svg>"
-       }
-     ]
-   },
-   {
-     "id": 3,
-     "name": "Redes Sociales y Comunicación",
-     "color": "#ff6f61",
-     "bookmarks": [
-       {
-         "title": "YouTube",
-         "url": "https://youtube.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z\"></path><polygon points=\"9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02\"></polygon></svg>"
-       },
-       {
-         "title": "WhatsApp",
-         "url": "https://whatsapp.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 0 0-8.84 14.77L2 22l5.23-1.37A10 10 0 1 0 12 2zm3.84 13.32c-.22.62-.87 1.14-1.53 1.44-.66.3-1.53.35-2.31-.14-.88-.55-1.87-1.43-2.63-2.31-.76-.88-.96-1.92-.76-2.95.18-.9.62-1.73 1.28-2.32.22-.2.44-.3.66-.3.22 0 .44.1.62.3.22.2.44.62.62 1 .18.38.22.82.12 1.24-.1.42-.32.82-.54 1.14-.22.32-.44.64-.32.96.12.32.54 1.14 1.19 1.73.66.58 1.31.96 1.84 1.08.52.12.96-.1 1.28-.32.32-.22.64-.54.86-.86.22-.32.22-.62.18-.86-.04-.24-.22-.48-.44-.62-.22-.14-.44-.3-.66-.48z\"/></svg>"
-       },
-       {
-         "title": "Twitch",
-         "url": "https://twitch.tv",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7\"/></svg>"
-       }
-     ]
-   },
-   {
-     "id": 4,
-     "name": "IA y Productividad",
-     "color": "#00c4b4",
-     "bookmarks": [
-       {
-         "title": "ChatGPT",
-         "url": "https://chat.openai.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 0 0-3.16 19.49L12 22l3.16-.51A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
-       },
-       {
-         "title": "Gemini",
-         "url": "https://gemini.google.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
-       },
-       {
-         "title": "Claude",
-         "url": "https://claude.ai",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
-       },
-       {
-         "title": "Canva",
-         "url": "https://canva.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16v16H4zM6 6h12v12H6z\"/></svg>"
-       }
-     ]
-   },
-   {
-     "id": 5,
-     "name": "No Mans Sky",
-     "color": "#7b1fa2",
-     "bookmarks": [
-       {
-         "title": "NMS Recipes",
-         "url": "https://nomansskyrecipes.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
-       },
-       {
-         "title": "NMS Expeditions",
-         "url": "https://cwmonkey.github.io/nms-expeditions",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
-       }
-     ]
-   },
-   {
-     "id": 6,
-     "name": "Google",
-     "color": "#4285f4",
-     "bookmarks": [
-       {
-         "title": "Gmail",
-         "url": "https://mail.google.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
-       },
-       {
-         "title": "Drive",
-         "url": "https://drive.google.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2L2 8l10 6 10-6-10-6zm0 6l-10 6 10 6 10-6-10-6z\"/></svg>"
-       },
-       {
-         "title": "Keep",
-         "url": "https://keep.google.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16v12H4zM4 8h16M4 12h16\"/></svg>"
-       },
-       {
-         "title": "Docs",
-         "url": "https://docs.google.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/></svg>"
-       },
-       {
-         "title": "Sheets",
-         "url": "https://sheets.google.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><path d=\"M8 13h8M8 17h8M8 9h8\"/></svg>"
-       }
-     ]
-   },
-   {
-     "id": 7,
-     "name": "Periódicos",
-     "color": "#f4b400",
-     "bookmarks": [
-       {
-         "title": "El Correo Digital",
-         "url": "https://elcorreo.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 4h20v16H2zM2 8h20M2 12h20M2 16h20\"/></svg>"
-       },
-       {
-         "title": "El País",
-         "url": "https://elpais.com",
-         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 4h20v16H2zM2 8h20M2 12h20M2 16h20\"/></svg>"
-       }
-     ]
-   }
- ];
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
 
-    function loadCategories() {
-      const storedCategories = localStorage.getItem('categories');
-      if (storedCategories) {
-        categories = JSON.parse(storedCategories);
-      } else {
-        categories = JSON.parse(JSON.stringify(defaultCategories));
-      }
-      syncCategoriesWithDefault();
-      saveCategories();
-    }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
 
-    function syncCategoriesWithDefault() {
-      const defaultMap = new Map(defaultCategories.map(cat => [cat.id, cat]));
-      defaultCategories.forEach(defaultCat => {
-        const existingIndex = categories.findIndex(cat => cat.id === defaultCat.id);
-        if (existingIndex !== -1) {
-          const existingCat = categories[existingIndex];
-          existingCat.name = defaultCat.name;
-          existingCat.color = defaultCat.color;
-          const defaultBookmarksMap = new Map(defaultCat.bookmarks.map(b => [b.url, b]));
-          const updatedBookmarks = [...defaultCat.bookmarks];
-          existingCat.bookmarks.forEach(bookmark => {
-            if (!defaultBookmarksMap.has(bookmark.url)) {
-              updatedBookmarks.push(bookmark);
+        .btn {
+            padding: 12px 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-primary { background-color: #3498db; }
+        .btn-secondary { background-color: #2ecc71; }
+        .btn-download { background-color: #e67e22; }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .bookmarks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .category {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .add-icon {
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .add-icon:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .bookmark-list {
+            padding: 10px;
+        }
+
+        .bookmark {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .bookmark:hover {
+            background-color: #f0f0f0;
+        }
+
+        .bookmark-icon {
+            margin-right: 10px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="url"],
+        .form-group input[type="color"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .btn-add {
+            width: 100%;
+            background-color: #27ae60;
+            margin-top: 10px;
+        }
+
+        .category-item,
+        .bookmark-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .category-actions button,
+        .bookmark-actions button {
+            margin-left: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: white;
+            background-color: #3498db;
+        }
+
+        .category-actions button:nth-child(2),
+        .bookmark-actions button:nth-child(2) {
+            background-color: #e74c3c;
+        }
+
+        .category-actions button:nth-child(3),
+        .category-actions button:nth-child(4) {
+            background-color: #7f8c8d;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .buttons {
+                flex-direction: column;
             }
-          });
-          existingCat.bookmarks = updatedBookmarks;
-        } else {
-          categories.push(JSON.parse(JSON.stringify(defaultCat)));
+            .modal-content {
+                width: 95%;
+            }
+            .bookmarks-grid {
+                grid-template-columns: 1fr;
+            }
         }
-      });
-      categories = categories.filter(cat => defaultMap.has(cat.id));
-    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-tachometer-alt"></i> Mi Dashboard Personal</h1>
+            <p class="subtitle">Organiza tus enlaces favoritos</p>
+        </header>
 
-    function saveCategories() {
-      localStorage.setItem('categories', JSON.stringify(categories));
-    }
+        <div class="buttons">
+            <button class="btn btn-primary" onclick="openCategoryManagerModal()"><i class="fas fa-folder-plus"></i> Gestionar Categorías</button>
+            <button class="btn btn-secondary" onclick="openBookmarkManagerModal()"><i class="fas fa-bookmark"></i> Gestionar Marcadores</button>
+            <button class="btn btn-download" onclick="downloadUpdatedHTML()"><i class="fas fa-download"></i> Descargar HTML</button>
+        </div>
 
-    function renderCategories() {
-      const grid = document.getElementById('bookmarksGrid');
-      if (!grid) return;
-      grid.innerHTML = '';
-      categories.forEach(category => {
-        const categoryDiv = document.createElement('div');
-        categoryDiv.className = 'category';
-        categoryDiv.setAttribute('data-category', category.name);
-        const header = document.createElement('div');
-        header.className = 'category-header';
-        header.style.background = `linear-gradient(45deg, ${category.color}, ${adjustColor(category.color, -20)})`;
-        header.innerHTML = `
-          <span>${category.name}</span>
-          <div class="add-icon" onclick="openNewBookmarkModal('${category.name}')">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-          </div>
-        `;
-        categoryDiv.appendChild(header);
-        const bookmarkList = document.createElement('div');
-        bookmarkList.className = 'bookmark-list';
-        category.bookmarks.forEach(bookmark => {
-          const a = document.createElement('a');
-          a.href = bookmark.url;
-          a.className = 'bookmark';
-          a.target = '_blank';
-          let iconContent = bookmark.icon;
-          const isSVG = iconContent.trim().startsWith('<svg');
-          if (!isSVG && iconContent.trim() !== '') {
-            iconContent = `<img src="${iconContent}" alt="icon" style="width:24px;height:24px;">`;
-          }
-          a.innerHTML = `
-            <div class="bookmark-icon">${iconContent || ''}</div>
-            <span class="bookmark-title">${bookmark.title}</span>
-          `;
-          bookmarkList.appendChild(a);
-        });
-        categoryDiv.appendChild(bookmarkList);
-        grid.appendChild(categoryDiv);
-      });
-    }
+        <main id="bookmarksGrid" class="bookmarks-grid">
+            <!-- Las categorías y marcadores se insertarán aquí -->
+        </main>
+    </div>
 
-    function renderCategoryManagementList() {
-      const list = document.getElementById('categoriesList');
-      if (!list) return;
-      list.innerHTML = '';
-      categories.forEach((category, index) => {
-        const item = document.createElement('div');
-        item.className = 'category-item';
-        item.innerHTML = `
-          <span>${category.name}</span>
-          <div class="category-actions">
-            <button onclick="editCategory(${index})">Editar</button>
-            <button onclick="deleteCategory(${index})">Eliminar</button>
-            <button onclick="moveCategoryUp(${index})">↑</button>
-            <button onclick="moveCategoryDown(${index})">↓</button>
-          </div>
-        `;
-        list.appendChild(item);
-      });
-    }
-
-    function openCategoryManagerModal() {
-      renderCategoryManagementList();
-      document.getElementById('categoryManagerModal').style.display = 'flex';
-    }
-
-    function closeCategoryManagerModal() {
-      document.getElementById('categoryManagerModal').style.display = 'none';
-    }
-
-    function openNewBookmarkModal(categoryName) {
-      selectedCategoryName = categoryName;
-      document.getElementById('newBookmarkForm').reset();
-      document.getElementById('newBookmarkModal').style.display = 'flex';
-    }
-
-    function closeNewBookmarkModal() {
-      document.getElementById('newBookmarkModal').style.display = 'none';
-    }
-
-    function openBookmarkManagerModal() {
-      selectedCategoryForBookmarks = null;
-      renderBookmarkCategoryList();
-      document.getElementById('bookmarksList').innerHTML = '';
-      document.getElementById('bookmarkManagerModal').style.display = 'flex';
-    }
-
-    function closeBookmarkManagerModal() {
-      document.getElementById('bookmarkManagerModal').style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-      const categoryModal = document.getElementById('categoryManagerModal');
-      const bookmarkModal = document.getElementById('newBookmarkModal');
-      const bookmarkManagerModal = document.getElementById('bookmarkManagerModal');
-      if (event.target === categoryModal) closeCategoryManagerModal();
-      if (event.target === bookmarkModal) closeNewBookmarkModal();
-      if (event.target === bookmarkManagerModal) closeBookmarkManagerModal();
-    };
-
-    document.getElementById('newCategoryForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('newCategoryName').value.trim();
-      const color = document.getElementById('newCategoryColor').value;
-      if (name) {
-        const newCategory = {
-          id: Date.now(),
-          name: name,
-          color: color,
-          bookmarks: []
-        };
-        categories.push(newCategory);
-        saveCategories();
-        renderCategories();
-        renderCategoryManagementList();
-        closeCategoryManagerModal();
-      }
-    });
-
-    function editCategory(index) {
-      const categoryToEdit = categories[index];
-      const newName = prompt("Nuevo nombre para la categoría:", categoryToEdit.name);
-      if (newName !== null && newName.trim() !== "") {
-        categoryToEdit.name = newName.trim();
-        const newColor = prompt("Nuevo color (opcional):", categoryToEdit.color);
-        if (newColor !== null) {
-          categoryToEdit.color = newColor;
-        }
-        saveCategories();
-        renderCategories();
-        renderCategoryManagementList();
-      }
-    }
-
-    function deleteCategory(index) {
-      if (confirm("¿Seguro que quieres eliminar esta categoría?")) {
-        categories.splice(index, 1);
-        saveCategories();
-        renderCategories();
-        renderCategoryManagementList();
-      }
-    }
-
-    function moveCategoryUp(index) {
-      if (index > 0) {
-        [categories[index], categories[index - 1]] = [categories[index - 1], categories[index]];
-        saveCategories();
-        renderCategories();
-        renderCategoryManagementList();
-      }
-    }
-
-    function moveCategoryDown(index) {
-      if (index < categories.length - 1) {
-        [categories[index], categories[index + 1]] = [categories[index + 1], categories[index]];
-        saveCategories();
-        renderCategories();
-        renderCategoryManagementList();
-      }
-    }
-
-    document.getElementById('newBookmarkForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const title = document.getElementById('bookmarkTitle').value.trim();
-      const url = document.getElementById('bookmarkURL').value.trim();
-      const icon = document.getElementById('bookmarkIcon').value.trim();
-      if (title && url && selectedCategoryName) {
-        const category = categories.find(cat => cat.name === selectedCategoryName);
-        if (category) {
-          category.bookmarks.push({ title: title, url: url, icon: icon });
-          saveCategories();
-          renderCategories();
-          closeNewBookmarkModal();
-        }
-      }
-    });
-
-    function renderBookmarkCategoryList() {
-      const list = document.getElementById('bookmarkCategoryList');
-      if (!list) return;
-      list.innerHTML = '';
-      categories.forEach(category => {
-        const item = document.createElement('div');
-        item.className = 'category-item';
-        item.innerHTML = `
-          <span onclick="selectCategoryForBookmarks('${category.name}')">${category.name}</span>
-        `;
-        list.appendChild(item);
-      });
-    }
-
-    function selectCategoryForBookmarks(categoryName) {
-      selectedCategoryForBookmarks = categoryName;
-      renderBookmarkManagementList();
-    }
-
-    function renderBookmarkManagementList() {
-      const list = document.getElementById('bookmarksList');
-      if (!list) return;
-      list.innerHTML = '';
-      const category = categories.find(cat => cat.name === selectedCategoryForBookmarks);
-      if (category) {
-        category.bookmarks.forEach((bookmark, index) => {
-          const item = document.createElement('div');
-          item.className = 'bookmark-item';
-          item.innerHTML = `
-            <span>${bookmark.title}</span>
-            <div class="bookmark-actions">
-              <button onclick="editBookmark('${selectedCategoryForBookmarks}', ${index})">Editar</button>
-              <button onclick="deleteBookmark('${selectedCategoryForBookmarks}', ${index})">Eliminar</button>
+    <!-- Modal para gestionar categorías -->
+    <div id="categoryManagerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCategoryManagerModal()">×</span>
+            <h2><i class="fas fa-folder-open"></i> Gestionar Categorías</h2>
+            <form id="newCategoryForm">
+                <div class="form-group">
+                    <label for="newCategoryName">Nombre de la categoría:</label>
+                    <input type="text" id="newCategoryName" placeholder="Ej. Trabajo" required>
+                </div>
+                <div class="form-group">
+                    <label for="newCategoryColor">Color:</label>
+                    <input type="color" id="newCategoryColor" value="#3498db">
+                </div>
+                <button type="submit" class="btn btn-add"><i class="fas fa-plus-circle"></i> Añadir Categoría</button>
+            </form>
+            <div id="categoriesList">
+                <!-- Lista de categorías -->
             </div>
-          `;
-          list.appendChild(item);
+        </div>
+    </div>
+
+    <!-- Modal para añadir marcador -->
+    <div id="newBookmarkModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeNewBookmarkModal()">×</span>
+            <h2><i class="fas fa-plus"></i> Añadir Marcador</h2>
+            <form id="newBookmarkForm">
+                <div class="form-group">
+                    <label for="bookmarkTitle">Título:</label>
+                    <input type="text" id="bookmarkTitle" placeholder="Ej. Google" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookmarkURL">URL:</label>
+                    <input type="url" id="bookmarkURL" placeholder="https://www.google.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookmarkIcon">Icono (URL o SVG):</label>
+                    <input type="text" id="bookmarkIcon" placeholder="URL o código SVG">
+                </div>
+                <button type="submit" class="btn btn-add"><i class="fas fa-bookmark"></i> Añadir Marcador</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para gestionar marcadores -->
+    <div id="bookmarkManagerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookmarkManagerModal()">×</span>
+            <h2><i class="fas fa-bookmark"></i> Gestionar Marcadores</h2>
+            <div class="form-group">
+                <label for="bookmarkCategoryList">Selecciona una categoría:</label>
+                 <select id="bookmarkCategoryList" onchange="selectCategoryForBookmarks(this.value)">
+                    <option value="">-- Seleccione --</option>
+                    <!-- Opciones generadas dinámicamente -->
+                 </select>
+
+            </div>
+
+            <div id="bookmarksList">
+                <!-- Lista de marcadores -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Creado por ElVarto7 - 2025</p>
+    </footer>
+
+    <script>
+        // JavaScript (todo el código JavaScript anterior va aquí)
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCategories();
+            renderCategories();
+            renderBookmarkCategoryList(); // Asegúrate de que esto se llame aquí
         });
-      }
-    }
 
-    function editBookmark(categoryName, index) {
-      const category = categories.find(cat => cat.name === categoryName);
-      if (!category) return;
-      const bookmark = category.bookmarks[index];
-      const newTitle = prompt("Nuevo título:", bookmark.title);
-      if (newTitle !== null && newTitle.trim() !== "") {
-        bookmark.title = newTitle.trim();
-        const newUrl = prompt("Nueva URL:", bookmark.url);
-        if (newUrl !== null && newUrl.trim() !== "") {
-          bookmark.url = newUrl.trim();
+        let categories = [];
+        let selectedCategoryName = null;
+        let selectedCategoryForBookmarks = null;
+
+        const defaultCategories = [
+            {
+                "id": 1,
+                "name": "Trabajo",
+                "color": "#3498db",
+                "bookmarks": [
+                    {
+                        "title": "Gmail Corporativo",
+                        "url": "https://mail.google.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Viajes",
+                "color": "#e67e22",
+                "bookmarks": [
+                    {
+                        "title": "Booking.com",
+                        "url": "https://booking.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h20\"></path><path d=\"M6 4v16\"></path><path d=\"M18 4v16\"></path><path d=\"M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z\"></path></svg>"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Redes Sociales y Comunicación",
+                "color": "#ff6f61",
+                "bookmarks": [
+                    {
+                        "title": "YouTube",
+                        "url": "https://youtube.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z\"></path><polygon points=\"9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02\"></polygon></svg>"
+                    },
+                    {
+                        "title": "WhatsApp",
+                        "url": "https://whatsapp.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 0 0-8.84 14.77L2 22l5.23-1.37A10 10 0 1 0 12 2zm3.84 13.32c-.22.62-.87 1.14-1.53 1.44-.66.3-1.53.35-2.31-.14-.88-.55-1.87-1.43-2.63-2.31-.76-.88-.96-1.92-.76-2.95.18-.9.62-1.73 1.28-2.32.22-.2.44-.3.66-.3.22 0 .44.1.62.3.22.2.44.62.62 1 .18.38.22.82.12 1.24-.1.42-.32.82-.54 1.14-.22.32-.44.64-.32.96.12.32.54 1.14 1.19 1.73.66.58 1.31.96 1.84 1.08.52.12.96-.1 1.28-.32.32-.22.64-.54.86-.86.22-.32.22-.62.18-.86-.04-.24-.22-.48-.44-.62-.22-.14-.44-.3-.66-.48z\"/></svg>"
+                    },
+                    {
+                        "title": "Twitch",
+                        "url": "https://twitch.tv",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7\"/></svg>"
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "name": "IA y Productividad",
+                "color": "#00c4b4",
+                "bookmarks": [
+                    {
+                        "title": "Gmail",
+                        "url": "https://mail.google.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0 1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
+                    },
+                    {
+                        "title": "ChatGPT",
+                        "url": "https://chat.openai.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 0 0-3.16 19.49L12 22l3.16-.51A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
+                    },
+                    {
+                        "title": "Gemini",
+                        "url": "https://gemini.google.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
+                    },
+                    {
+                        "title": "Claude",
+                        "url": "https://claude.ai",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
+                    },
+                    {
+                        "title": "Canva",
+                        "url": "https://canva.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16v16H4zM6 6h12v12H6z\"/></svg>"
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "name": "No Mans Sky",
+                "color": "#7b1fa2",
+                "bookmarks": [
+                    {
+                        "title": "NMS Recipes",
+                        "url": "https://nomansskyrecipes.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
+                    },
+                    {
+                        "title": "NMS Expeditions",
+                        "url": "https://cwmonkey.github.io/nms-expeditions",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "name": "Google",
+                "color": "#4285f4",
+                "bookmarks": [
+                    {
+                        "title": "Gmail",
+                        "url": "https://mail.google.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0 1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
+                    },
+                    {
+                        "title": "Drive",
+                        "url": "https://drive.google.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2L2 8l10 6 10-6-10-6zm0 6l-10 6 10 6 10-6-10-6z\"/></svg>"
+                    },
+                    {
+                        "title": "Keep",
+                        "url": "https://keep.google.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16v12H4zM4 8h16M4 12h16\"/></svg>"
+                    },
+                    {
+                        "title": "Docs",
+                        "url": "https://docs.google.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/></svg>"
+                    },
+                    {
+                        "title": "Sheets",
+                        "url": "https://sheets.google.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><path d=\"M8 13h8M8 17h8M8 9h8\"/></svg>"
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "name": "Periódicos",
+                "color": "#f4b400",
+                "bookmarks": [
+                    {
+                        "title": "El Correo Digital",
+                        "url": "https://elcorreo.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 4h20v16H2zM2 8h20M2 12h20M2 16h20\"/></svg>"
+                    },
+                    {
+                        "title": "El País",
+                        "url": "https://elpais.com",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 4h20v16H2zM2 8h20M2 12h20M2 16h20\"/></svg>"
+                    }
+                ]
+            }
+        ];
+
+        function loadCategories() {
+            const storedCategories = localStorage.getItem('categories');
+            if (storedCategories) {
+                categories = JSON.parse(storedCategories);
+            } else {
+                categories = JSON.parse(JSON.stringify(defaultCategories));
+            }
+            syncCategoriesWithDefault();
+            saveCategories();
         }
-        const newIcon = prompt("Nuevo icono (SVG o URL):", bookmark.icon);
-        if (newIcon !== null) {
-          bookmark.icon = newIcon;
+
+        function syncCategoriesWithDefault() {
+            const defaultMap = new Map(defaultCategories.map(cat => [cat.id, cat]));
+            defaultCategories.forEach(defaultCat => {
+                const existingIndex = categories.findIndex(cat => cat.id === defaultCat.id);
+                if (existingIndex !== -1) {
+                    const existingCat = categories[existingIndex];
+                    existingCat.name = defaultCat.name;
+                    existingCat.color = defaultCat.color;
+                    const defaultBookmarksMap = new Map(defaultCat.bookmarks.map(b => [b.url, b]));
+                    const updatedBookmarks = [...defaultCat.bookmarks];
+                    existingCat.bookmarks.forEach(bookmark => {
+                        if (!defaultBookmarksMap.has(bookmark.url)) {
+                            updatedBookmarks.push(bookmark);
+                        }
+                    });
+                    existingCat.bookmarks = updatedBookmarks;
+                } else {
+                    categories.push(JSON.parse(JSON.stringify(defaultCat)));
+                }
+            });
+            categories = categories.filter(cat => defaultMap.has(cat.id));
         }
-        saveCategories();
-        renderCategories();
-        renderBookmarkManagementList();
-      }
-    }
 
-    function deleteBookmark(categoryName, index) {
-      if (confirm("¿Seguro que quieres eliminar este marcador?")) {
-        const category = categories.find(cat => cat.name === categoryName);
-        if (category) {
-          category.bookmarks.splice(index, 1);
-          saveCategories();
-          renderCategories();
-          renderBookmarkManagementList();
+        function saveCategories() {
+            localStorage.setItem('categories', JSON.stringify(categories));
         }
-      }
-    }
 
-    function downloadUpdatedHTML() {
-      const htmlContent = document.documentElement.outerHTML;
-      const blob = new Blob([htmlContent], { type: 'text/html' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'mi_dashboard_elegante.html';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(a.href);
-    }
+        function renderCategories() {
+            const grid = document.getElementById('bookmarksGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
 
-    function adjustColor(color, amount) {
-      let usePound = false;
-      if (color[0] === "#") {
-        color = color.slice(1);
-        usePound = true;
-      }
-      const num = parseInt(color, 16);
-      let r = (num >> 16) + amount;
-      let g = ((num >> 8) & 0x00FF) + amount;
-      let b = (num & 0x0000FF) + amount;
-      r = Math.max(Math.min(255, r), 0);
-      g = Math.max(Math.min(255, g), 0);
-      b = Math.max(Math.min(255, b), 0);
-      const newColor = (r << 16) | (g << 8) | b;
-      return (usePound ? "#" : "") + newColor.toString(16).padStart(6, '0');
-    }
+            categories.forEach(category => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category';
+                categoryDiv.setAttribute('data-category', category.name);
 
-    loadCategories();
-    renderCategories();
-  </script>
+                const header = document.createElement('div');
+                header.className = 'category-header';
+                header.style.background = `linear-gradient(45deg, ${category.color}, ${adjustColor(category.color, -20)})`;
+                header.innerHTML = `
+                    <span>${category.name}</span>
+                    <div class="add-icon" onclick="openNewBookmarkModal('${category.name}')">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                `;
+                categoryDiv.appendChild(header);
+
+                const bookmarkList = document.createElement('div');
+                bookmarkList.className = 'bookmark-list';
+                category.bookmarks.forEach(bookmark => {
+                    const a = document.createElement('a');
+                    a.href = bookmark.url;
+                    a.className = 'bookmark';
+                    a.target = '_blank';
+                    let iconContent = bookmark.icon;
+                    const isSVG = iconContent.trim().startsWith('<svg');
+                    if (!isSVG && iconContent.trim() !== '') {
+                        iconContent = `<img src="${iconContent}" alt="icon" style="width:24px;height:24px;">`;
+                    }
+                    a.innerHTML = `
+                        <div class="bookmark-icon">${iconContent || ''}</div>
+                        <span class="bookmark-title">${bookmark.title}</span>
+                    `;
+                    bookmarkList.appendChild(a);
+                });
+                categoryDiv.appendChild(bookmarkList);
+                grid.appendChild(categoryDiv);
+            });
+        }
+
+        function renderCategoryManagementList() {
+            const list = document.getElementById('categoriesList');
+            if (!list) return;
+            list.innerHTML = '';
+            categories.forEach((category, index) => {
+                const item = document.createElement('div');
+                item.className = 'category-item';
+                item.innerHTML = `
+                    <span>${category.name}</span>
+                    <div class="category-actions">
+                        <button onclick="editCategory(${index})"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteCategory(${index})"><i class="fas fa-trash-alt"></i></button>
+                        <button onclick="moveCategoryUp(${index})"><i class="fas fa-arrow-up"></i></button>
+                        <button onclick="moveCategoryDown(${index})"><i class="fas fa-arrow-down"></i></button>
+                    </div>
+                                `;
+                list.appendChild(item);
+            });
+        }
+
+        function openCategoryManagerModal() {
+            renderCategoryManagementList();
+            document.getElementById('categoryManagerModal').style.display = 'flex';
+        }
+
+        function closeCategoryManagerModal() {
+            document.getElementById('categoryManagerModal').style.display = 'none';
+        }
+
+        function openNewBookmarkModal(categoryName) {
+            selectedCategoryName = categoryName;
+            document.getElementById('newBookmarkForm').reset();
+            document.getElementById('newBookmarkModal').style.display = 'flex';
+        }
+
+        function closeNewBookmarkModal() {
+            document.getElementById('newBookmarkModal').style.display = 'none';
+        }
+
+        function openBookmarkManagerModal() {
+            selectedCategoryForBookmarks = null;
+            renderBookmarkCategoryList();  // Asegúrate de que esta función se llame
+            document.getElementById('bookmarksList').innerHTML = ''; //Limpia la lista
+            document.getElementById('bookmarkManagerModal').style.display = 'flex';
+        }
+
+        function closeBookmarkManagerModal() {
+            document.getElementById('bookmarkManagerModal').style.display = 'none';
+        }
+          // Controlador de clic para cerrar modales haciendo clic fuera
+        window.onclick = function(event) {
+            const categoryModal = document.getElementById('categoryManagerModal');
+            const bookmarkModal = document.getElementById('newBookmarkModal');
+            const bookmarkManagerModal = document.getElementById('bookmarkManagerModal');
+
+            if (event.target === categoryModal) closeCategoryManagerModal();
+            if (event.target === bookmarkModal) closeNewBookmarkModal();
+            if (event.target === bookmarkManagerModal) closeBookmarkManagerModal();
+        };
 
 
-</body></html>
+        document.getElementById('newCategoryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('newCategoryName').value.trim();
+            const color = document.getElementById('newCategoryColor').value;
+            if (name) {
+                const newCategory = {
+                    id: Date.now(), // ID único para la nueva categoría.
+                    name: name,
+                    color: color,
+                    bookmarks: []
+                };
+                categories.push(newCategory);
+                saveCategories();
+                renderCategories();
+                renderCategoryManagementList();
+                renderBookmarkCategoryList(); // Actualiza la lista en el modal de gestión de marcadores
+                closeCategoryManagerModal();
+            }
+        });
+
+        function editCategory(index) {
+            const categoryToEdit = categories[index];
+            const newName = prompt("Nuevo nombre para la categoría:", categoryToEdit.name);
+            if (newName !== null && newName.trim() !== "") {
+                categoryToEdit.name = newName.trim();
+                const newColor = prompt("Nuevo color (opcional):", categoryToEdit.color);
+                if (newColor !== null) {
+                    categoryToEdit.color = newColor;
+                }
+                saveCategories();
+                renderCategories();
+                renderCategoryManagementList();
+                renderBookmarkCategoryList(); // Actualiza select en gestor de marcadores
+            }
+        }
+
+        function deleteCategory(index) {
+            if (confirm("¿Seguro que quieres eliminar esta categoría?")) {
+                categories.splice(index, 1);
+                saveCategories();
+                renderCategories();
+                renderCategoryManagementList();
+                renderBookmarkCategoryList(); //  Actualiza el selector
+            }
+        }
+
+        function moveCategoryUp(index) {
+            if (index > 0) {
+                [categories[index], categories[index - 1]] = [categories[index - 1], categories[index]];
+                saveCategories();
+                renderCategories();
+                renderCategoryManagementList();
+            }
+        }
+
+        function moveCategoryDown(index) {
+            if (index < categories.length - 1) {
+                [categories[index], categories[index + 1]] = [categories[index + 1], categories[index]];
+                saveCategories();
+                renderCategories();
+                renderCategoryManagementList();
+            }
+        }
+        // Evento Submit para añadir nuevo marcador
+        document.getElementById('newBookmarkForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = document.getElementById('bookmarkTitle').value.trim();
+            const url = document.getElementById('bookmarkURL').value.trim();
+            const icon = document.getElementById('bookmarkIcon').value.trim();
+            if (title && url && selectedCategoryName) {
+                const category = categories.find(cat => cat.name === selectedCategoryName);
+                if (category) {
+                    category.bookmarks.push({ title: title, url: url, icon: icon });
+                    saveCategories();
+                    renderCategories(); // Actualiza la visualización
+                    closeNewBookmarkModal();
+                }
+            }
+        });
+
+        // Renderiza las opciones en el select del modal de gestión de marcadores.
+        function renderBookmarkCategoryList() {
+            const list = document.getElementById('bookmarkCategoryList');
+            if (!list) return;
+
+            list.innerHTML = '<option value="">-- Seleccione --</option>'; // Opción por defecto
+
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.name;
+                option.textContent = category.name;
+                list.appendChild(option);
+            });
+        }
+
+
+        function selectCategoryForBookmarks(categoryName) {
+            selectedCategoryForBookmarks = categoryName;
+            renderBookmarkManagementList(); // Llama a la función para mostrar los marcadores
+        }
+
+        function renderBookmarkManagementList() {
+            const list = document.getElementById('bookmarksList');
+            if (!list || !selectedCategoryForBookmarks) return; // No hace nada si no hay lista o categoría
+            list.innerHTML = ''; // Limpia la lista
+
+            const category = categories.find(cat => cat.name === selectedCategoryForBookmarks);
+            if (category) {
+                category.bookmarks.forEach((bookmark, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'bookmark-item';
+                    item.innerHTML = `
+                        <span>${bookmark.title}</span>
+                        <div class="bookmark-actions">
+                            <button onclick="editBookmark('${selectedCategoryForBookmarks}', ${index})"><i class="fas fa-edit"></i></button>
+                            <button onclick="deleteBookmark('${selectedCategoryForBookmarks}', ${index})"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    `;
+                    list.appendChild(item);
+                });
+            }
+        }
+
+        function editBookmark(categoryName, index) {
+            const category = categories.find(cat => cat.name === categoryName);
+            if (!category) return;
+            const bookmark = category.bookmarks[index];
+
+            const newTitle = prompt("Nuevo título:", bookmark.title);
+            if (newTitle !== null && newTitle.trim() !== "") {
+                bookmark.title = newTitle.trim();
+            }
+
+            const newUrl = prompt("Nueva URL:", bookmark.url);
+            if (newUrl !== null && newUrl.trim() !== "") {
+                bookmark.url = newUrl.trim();
+            }
+
+            const newIcon = prompt("Nuevo icono (SVG o URL):", bookmark.icon);
+            if (newIcon !== null) {
+                bookmark.icon = newIcon;
+            }
+
+            saveCategories();
+            renderCategories();
+            renderBookmarkManagementList(); // Actualiza la lista en el modal
+        }
+
+        function deleteBookmark(categoryName, index) {
+            if (confirm("¿Seguro que quieres eliminar este marcador?")) {
+                const category = categories.find(cat => cat.name === categoryName);
+                if (category) {
+                    category.bookmarks.splice(index, 1);
+                    saveCategories();
+                    renderCategories();
+                    renderBookmarkManagementList(); // Actualiza modal
+                }
+            }
+        }
+
+        function downloadUpdatedHTML() {
+            // Actualiza el contenido del select en el HTML antes de la descarga
+            const selectElement = document.getElementById('bookmarkCategoryList');
+            if(selectElement){ //Verifica si existe
+                let selectOptions = '<option value="">-- Seleccione --</option>';
+                categories.forEach(category => {
+                  selectOptions += `<option value="${category.name}">${category.name}</option>`;
+                });
+                selectElement.innerHTML = selectOptions;
+            }
+
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'mi_dashboard_personal.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(a.href); // Libera recursos
+        }
+
+        function adjustColor(color, amount) {
+            let usePound = false;
+            if (color[0] === "#") {
+                color = color.slice(1);
+                usePound = true;
+            }
+            const num = parseInt(color, 16);
+            let r = (num >> 16) + amount;
+            let g = ((num >> 8) & 0x00FF) + amount;
+            let b = (num & 0x0000FF) + amount;
+            r = Math.max(Math.min(255, r), 0);
+            g = Math.max(Math.min(255, g), 0);
+            b = Math.max(Math.min(255, b), 0);
+            const newColor = (r << 16) | (g << 8) | b;
+            return (usePound ? "#" : "") + newColor.toString(16).padStart(6, '0');
+        }
+
+
+    </script>
+</body>
+</html>
