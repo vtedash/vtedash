@@ -3,59 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Mi Dashboard Elegante</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #f0f2f5;
-      margin: 0;
+      background: linear-gradient(135deg, #f0f2f5, #e9ecef);
+      color: #2c3e50;
       padding: 20px;
-      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      flex: 1;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 36px;
+      color: #34495e;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .buttons button {
+      padding: 12px 25px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(45deg, #6a82fb, #fc5c7d);
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .buttons button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
     #bookmarksGrid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
       margin-top: 20px;
     }
     .category {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      padding: 15px;
-      transition: transform 0.2s;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .category:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
     }
     .category-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px;
-      border-radius: 5px 5px 0 0;
+      padding: 12px;
+      border-radius: 10px 10px 0 0;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
       color: white;
-      font-weight: 500;
+      background: linear-gradient(45deg, #3498db, #2980b9);
+    }
+    .add-icon {
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .add-icon:hover {
+      transform: scale(1.2);
     }
     .bookmark-list {
-      margin-top: 10px;
+      margin-top: 15px;
     }
     .bookmark {
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #333;
-      padding: 8px 0;
-      transition: background-color 0.2s;
+      color: #2c3e50;
+      padding: 10px;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.3s;
     }
     .bookmark:hover {
-      background-color: #f9f9f9;
+      background-color: #f5f7fa;
+      transform: translateX(5px);
     }
     .bookmark-icon {
-      margin-right: 10px;
-      width: 20px;
-      height: 20px;
+      margin-right: 12px;
+      width: 24px;
+      height: 24px;
     }
     .modal {
       display: none;
@@ -64,89 +119,136 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.6);
       justify-content: center;
       align-items: center;
-      animation: fadeIn 0.3s;
+      animation: fadeIn 0.4s ease-in-out;
     }
     .modal-content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
       width: 90%;
-      max-width: 500px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      animation: slideIn 0.3s;
+      max-width: 550px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: slideIn 0.4s ease-in-out;
     }
     .close {
       float: right;
-      font-size: 24px;
+      font-size: 28px;
       cursor: pointer;
-      color: #aaa;
+      color: #7f8c8d;
+      transition: color 0.3s;
     }
     .close:hover {
-      color: #333;
+      color: #e74c3c;
+    }
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #34495e;
+      margin-bottom: 20px;
+    }
+    form input, form button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+    form button {
+      border: none;
+      background: linear-gradient(45deg, #2ecc71, #27ae60);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background: linear-gradient(45deg, #27ae60, #219653);
     }
     .category-item, .bookmark-item {
       display: flex;
       justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #ecf0f1;
     }
-    .bookmark-actions button {
-      margin-left: 5px;
-      padding: 5px 10px;
+    .category-actions button, .bookmark-actions button {
+      padding: 8px 12px;
+      margin-left: 8px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      background-color: #007bff;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+    .category-actions button:nth-child(1), .bookmark-actions button:nth-child(1) {
+      background: #3498db;
       color: white;
     }
-    .add-icon {
-      cursor: pointer;
-      transition: transform 0.2s;
+    .category-actions button:nth-child(1):hover, .bookmark-actions button:nth-child(1):hover {
+      background: #2980b9;
     }
-    .add-icon:hover {
-      transform: scale(1.1);
-    }
-    button {
-      padding: 10px 15px;
-      margin: 5px;
-      border: none;
-      border-radius: 5px;
-      background-color: #28a745;
+    .category-actions button:nth-child(2), .bookmark-actions button:nth-child(2) {
+      background: #e74c3c;
       color: white;
-      cursor: pointer;
-      transition: background-color 0.2s;
     }
-    button:hover {
-      background-color: #218838;
+    .category-actions button:nth-child(2):hover, .bookmark-actions button:nth-child(2):hover {
+      background: #c0392b;
+    }
+    .category-actions button:nth-child(3), .category-actions button:nth-child(4) {
+      background: #95a5a6;
+      color: white;
+    }
+    .category-actions button:nth-child(3):hover, .category-actions button:nth-child(4):hover {
+      background: #7f8c8d;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 14px;
+      color: #7f8c8d;
+      margin-top: 30px;
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
     @keyframes slideIn {
-      from { transform: translateY(-20px); }
-      to { transform: translateY(0); }
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
     @media (max-width: 768px) {
       #bookmarksGrid {
         grid-template-columns: 1fr;
       }
+      .buttons {
+        flex-direction: column;
+        align-items: center;
+      }
       .modal-content {
         width: 95%;
+        padding: 15px;
       }
     }
   </style>
 </head>
 <body>
-  <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-    <button onclick="openCategoryManagerModal()">Gestionar Categorías</button>
-    <button onclick="openBookmarkManagerModal()">Gestionar Marcadores</button>
-    <button onclick="downloadUpdatedHTML()">Descargar HTML Actualizado</button>
+  <div class="container">
+    <div class="header">
+      <h1>Mi Dashboard Elegante</h1>
+      <div class="buttons">
+        <button onclick="openCategoryManagerModal()">Gestionar Categorías</button>
+        <button onclick="openBookmarkManagerModal()">Gestionar Marcadores</button>
+        <button onclick="downloadUpdatedHTML()">Descargar HTML</button>
+      </div>
+    </div>
+    <div id="bookmarksGrid"></div>
   </div>
-  <div id="bookmarksGrid"></div>
+  <div class="footer">Creado por [Tu Nombre] - 2023</div>
 
   <!-- Modal para gestionar categorías -->
   <div id="categoryManagerModal" class="modal">
@@ -155,7 +257,7 @@
       <h2>Gestionar Categorías</h2>
       <form id="newCategoryForm">
         <input type="text" id="newCategoryName" placeholder="Nombre de la categoría" required>
-        <input type="color" id="newCategoryColor" value="#ffffff">
+        <input type="color" id="newCategoryColor" value="#3498db">
         <button type="submit">Añadir Categoría</button>
       </form>
       <div id="categoriesList"></div>
@@ -170,7 +272,7 @@
       <form id="newBookmarkForm">
         <input type="text" id="bookmarkTitle" placeholder="Título" required>
         <input type="url" id="bookmarkURL" placeholder="URL" required>
-        <input type="text" id="bookmarkIcon" placeholder="Icono (SVG o URL de imagen)">
+        <input type="text" id="bookmarkIcon" placeholder="Icono (SVG o URL)">
         <button type="submit">Añadir</button>
       </form>
     </div>
@@ -188,15 +290,10 @@
   </div>
 
   <script>
-    /**************************************
-     * Gestión de Categorías y Marcadores *
-     **************************************/
-
     let categories = [];
     let selectedCategoryName = null;
     let selectedCategoryForBookmarks = null;
 
-    // Categorías por defecto
     const defaultCategories = [
       {
         "id": 1,
@@ -218,347 +315,4 @@
           {
             "title": "Booking.com",
             "url": "https://booking.com",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h20\"></path><path d=\"M6 4v16\"></path><path d=\"M18 4v16\"></path><path d=\"M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z\"></path></svg>"
-          }
-        ]
-      }
-    ];
-
-    // Cargar categorías y sincronizar con las por defecto
-    function loadCategories() {
-      const storedCategories = localStorage.getItem('categories');
-      if (storedCategories) {
-        categories = JSON.parse(storedCategories);
-      } else {
-        categories = JSON.parse(JSON.stringify(defaultCategories));
-      }
-      syncCategoriesWithDefault();
-      saveCategories();
-    }
-
-    // Sincronizar categorías con las por defecto
-    function syncCategoriesWithDefault() {
-      const defaultMap = new Map(defaultCategories.map(cat => [cat.id, cat]));
-      defaultCategories.forEach(defaultCat => {
-        const existingIndex = categories.findIndex(cat => cat.id === defaultCat.id);
-        if (existingIndex !== -1) {
-          const existingCat = categories[existingIndex];
-          existingCat.name = defaultCat.name;
-          existingCat.color = defaultCat.color;
-          const defaultBookmarksMap = new Map(defaultCat.bookmarks.map(b => [b.url, b]));
-          const updatedBookmarks = [...defaultCat.bookmarks];
-          existingCat.bookmarks.forEach(bookmark => {
-            if (!defaultBookmarksMap.has(bookmark.url)) {
-              updatedBookmarks.push(bookmark);
-            }
-          });
-          existingCat.bookmarks = updatedBookmarks;
-        } else {
-          categories.push(JSON.parse(JSON.stringify(defaultCat)));
-        }
-      });
-      categories = categories.filter(cat => defaultMap.has(cat.id));
-    }
-
-    // Guardar categorías en localStorage
-    function saveCategories() {
-      localStorage.setItem('categories', JSON.stringify(categories));
-    }
-
-    // Renderizar las categorías en el grid
-    function renderCategories() {
-      const grid = document.getElementById('bookmarksGrid');
-      if (!grid) return;
-      grid.innerHTML = '';
-      categories.forEach(category => {
-        const categoryDiv = document.createElement('div');
-        categoryDiv.className = 'category';
-        categoryDiv.setAttribute('data-category', category.name);
-        const header = document.createElement('div');
-        header.className = 'category-header';
-        header.style.backgroundColor = category.color;
-        header.innerHTML = `
-          <span>${category.name}</span>
-          <div class="add-icon" onclick="openNewBookmarkModal('${category.name}')">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-          </div>
-        `;
-        categoryDiv.appendChild(header);
-        const bookmarkList = document.createElement('div');
-        bookmarkList.className = 'bookmark-list';
-        category.bookmarks.forEach(bookmark => {
-          const a = document.createElement('a');
-          a.href = bookmark.url;
-          a.className = 'bookmark';
-          a.target = '_blank';
-          let iconContent = bookmark.icon;
-          const isSVG = iconContent.trim().startsWith('<svg');
-          if (!isSVG && iconContent.trim() !== '') {
-            iconContent = `<img src="${iconContent}" alt="icon" style="width:20px;height:20px;">`;
-          }
-          a.innerHTML = `
-            <div class="bookmark-icon">${iconContent || ''}</div>
-            <span class="bookmark-title">${bookmark.title}</span>
-          `;
-          bookmarkList.appendChild(a);
-        });
-        categoryDiv.appendChild(bookmarkList);
-        grid.appendChild(categoryDiv);
-      });
-    }
-
-    // Renderizar lista de categorías en el modal de gestión de categorías
-    function renderCategoryManagementList() {
-      const list = document.getElementById('categoriesList');
-      if (!list) return;
-      list.innerHTML = '';
-      categories.forEach((category, index) => {
-        const item = document.createElement('div');
-        item.className = 'category-item';
-        item.innerHTML = `
-          <span>${category.name}</span>
-          <div class="category-actions">
-            <button onclick="editCategory(${index})">Editar</button>
-            <button onclick="deleteCategory(${index})">Eliminar</button>
-            <button onclick="moveCategoryUp(${index})">↑</button>
-            <button onclick="moveCategoryDown(${index})">↓</button>
-          </div>
-        `;
-        list.appendChild(item);
-      });
-    }
-
-    // Funciones de los modales de categorías
-    function openCategoryManagerModal() {
-      console.log('Abriendo modal de gestión de categorías');
-      renderCategoryManagementList();
-      document.getElementById('categoryManagerModal').style.display = 'flex';
-    }
-
-    function closeCategoryManagerModal() {
-      document.getElementById('categoryManagerModal').style.display = 'none';
-    }
-
-    // Funciones de los modales de añadir marcador
-    function openNewBookmarkModal(categoryName) {
-      console.log('Abriendo modal para añadir marcador en categoría:', categoryName);
-      selectedCategoryName = categoryName;
-      document.getElementById('newBookmarkForm').reset();
-      document.getElementById('newBookmarkModal').style.display = 'flex';
-    }
-
-    function closeNewBookmarkModal() {
-      document.getElementById('newBookmarkModal').style.display = 'none';
-    }
-
-    // Funciones de los modales de gestionar marcadores
-    function openBookmarkManagerModal() {
-      console.log('Abriendo modal de gestión de marcadores');
-      selectedCategoryForBookmarks = null;
-      renderBookmarkCategoryList();
-      document.getElementById('bookmarksList').innerHTML = '';
-      document.getElementById('bookmarkManagerModal').style.display = 'flex';
-    }
-
-    function closeBookmarkManagerModal() {
-      document.getElementById('bookmarkManagerModal').style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-      const categoryModal = document.getElementById('categoryManagerModal');
-      const bookmarkModal = document.getElementById('newBookmarkModal');
-      const bookmarkManagerModal = document.getElementById('bookmarkManagerModal');
-      if (event.target === categoryModal) closeCategoryManagerModal();
-      if (event.target === bookmarkModal) closeNewBookmarkModal();
-      if (event.target === bookmarkManagerModal) closeBookmarkManagerModal();
-    };
-
-    // Añadir nueva categoría
-    document.getElementById('newCategoryForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('newCategoryName').value.trim();
-      const color = document.getElementById('newCategoryColor').value;
-      if (name) {
-        const newCategory = {
-          id: Date.now(),
-          name: name,
-          color: color,
-          bookmarks: []
-        };
-        categories.push(newCategory);
-        saveCategories();
-        renderCategories();
-        renderCategoryManagementList();
-        closeCategoryManagerModal();
-      }
-    });
-
-    // Editar categoría
-    function editCategory(index) {
-      const categoryToEdit = categories[index];
-      const newName = prompt("Nuevo nombre para la categoría:", categoryToEdit.name);
-      if (newName !== null && newName.trim() !== "") {
-        categoryToEdit.name = newName.trim();
-        const newColor = prompt("Nuevo color (opcional):", categoryToEdit.color);
-        if (newColor !== null) {
-          categoryToEdit.color = newColor;
-        }
-        saveCategories();
-        renderCategories();
-        renderCategoryManagementList();
-      }
-    }
-
-    // Eliminar categoría
-    function deleteCategory(index) {
-      if (confirm("¿Seguro que quieres eliminar esta categoría?")) {
-        categories.splice(index, 1);
-        saveCategories();
-        renderCategories();
-        renderCategoryManagementList();
-      }
-    }
-
-    // Mover categoría hacia arriba
-    function moveCategoryUp(index) {
-      if (index > 0) {
-        [categories[index], categories[index - 1]] = [categories[index - 1], categories[index]];
-        saveCategories();
-        renderCategories();
-        renderCategoryManagementList();
-      }
-    }
-
-    // Mover categoría hacia abajo
-    function moveCategoryDown(index) {
-      if (index < categories.length - 1) {
-        [categories[index], categories[index + 1]] = [categories[index + 1], categories[index]];
-        saveCategories();
-        renderCategories();
-        renderCategoryManagementList();
-      }
-    }
-
-    // Añadir nuevo marcador
-    document.getElementById('newBookmarkForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const title = document.getElementById('bookmarkTitle').value.trim();
-      const url = document.getElementById('bookmarkURL').value.trim();
-      const icon = document.getElementById('bookmarkIcon').value.trim();
-      if (title && url && selectedCategoryName) {
-        const category = categories.find(cat => cat.name === selectedCategoryName);
-        if (category) {
-          category.bookmarks.push({ title: title, url: url, icon: icon });
-          saveCategories();
-          renderCategories();
-          closeNewBookmarkModal();
-        }
-      }
-    });
-
-    // Renderizar lista de categorías para gestionar marcadores
-    function renderBookmarkCategoryList() {
-      const list = document.getElementById('bookmarkCategoryList');
-      if (!list) return;
-      list.innerHTML = '';
-      categories.forEach(category => {
-        const item = document.createElement('div');
-        item.className = 'category-item';
-        item.innerHTML = `
-          <span onclick="selectCategoryForBookmarks('${category.name}')">${category.name}</span>
-        `;
-        list.appendChild(item);
-      });
-    }
-
-    // Seleccionar categoría para gestionar marcadores
-    function selectCategoryForBookmarks(categoryName) {
-      selectedCategoryForBookmarks = categoryName;
-      renderBookmarkManagementList();
-    }
-
-    // Renderizar lista de marcadores en el modal
-    function renderBookmarkManagementList() {
-      const list = document.getElementById('bookmarksList');
-      if (!list) return;
-      list.innerHTML = '';
-      const category = categories.find(cat => cat.name === selectedCategoryForBookmarks);
-      if (category) {
-        category.bookmarks.forEach((bookmark, index) => {
-          const item = document.createElement('div');
-          item.className = 'bookmark-item';
-          item.innerHTML = `
-            <span>${bookmark.title}</span>
-            <div class="bookmark-actions">
-              <button onclick="editBookmark('${selectedCategoryForBookmarks}', ${index})">Editar</button>
-              <button onclick="deleteBookmark('${selectedCategoryForBookmarks}', ${index})">Eliminar</button>
-            </div>
-          `;
-          list.appendChild(item);
-        });
-      }
-    }
-
-    // Editar marcador
-    function editBookmark(categoryName, index) {
-      const category = categories.find(cat => cat.name === categoryName);
-      if (!category) return;
-      const bookmark = category.bookmarks[index];
-      const newTitle = prompt("Nuevo título:", bookmark.title);
-      if (newTitle !== null && newTitle.trim() !== "") {
-        bookmark.title = newTitle.trim();
-        const newUrl = prompt("Nueva URL:", bookmark.url);
-        if (newUrl !== null && newUrl.trim() !== "") {
-          bookmark.url = newUrl.trim();
-        }
-        const newIcon = prompt("Nuevo icono (SVG o URL de imagen):", bookmark.icon);
-        if (newIcon !== null) {
-          bookmark.icon = newIcon;
-        }
-        saveCategories();
-        renderCategories();
-        renderBookmarkManagementList();
-      }
-    }
-
-    // Eliminar marcador
-    function deleteBookmark(categoryName, index) {
-      if (confirm("¿Seguro que quieres eliminar este marcador?")) {
-        const category = categories.find(cat => cat.name === categoryName);
-        if (category) {
-          category.bookmarks.splice(index, 1);
-          saveCategories();
-          renderCategories();
-          renderBookmarkManagementList();
-        }
-      }
-    }
-
-    // Descargar el HTML actualizado
-    function downloadUpdatedHTML() {
-      console.log('Iniciando descarga del HTML actualizado');
-      try {
-        const htmlContent = document.documentElement.outerHTML;
-        const blob = new Blob([htmlContent], { type: 'text/html' });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'mi_dashboard_actualizado.html';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(a.href);
-        console.log('Descarga completada');
-      } catch (error) {
-        console.error('Error al descargar el HTML:', error);
-      }
-    }
-
-    // Inicializar
-    loadCategories();
-    renderCategories();
-  </script>
-</body>
-</html>
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke
