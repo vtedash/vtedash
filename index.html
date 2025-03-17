@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* Estilos CSS */
-        body {
+       body {
             font-family: 'Roboto', sans-serif;
             background-color: #f4f4f4;
             color: #333;
@@ -23,11 +22,11 @@
         }
 
         .container {
-            max-width: 95%; /* O un valor fijo más grande si lo prefieres */
+            max-width: 95%;
             margin: 0 auto;
             padding: 20px;
             flex: 1;
-            width: 100%; /* Añadido para asegurar que el contenedor ocupe todo el ancho */
+            width: 100%;
         }
 
         .header {
@@ -82,8 +81,7 @@
 
         .bookmarks-grid {
             display: grid;
-            /* MUY IMPORTANTE:  Aquí está el cambio clave para la responsividad */
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* auto-fill en lugar de auto-fit */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
         }
 
@@ -137,8 +135,6 @@
         .bookmark:hover {
             background-color: #f0f0f0;
         }
-
-        /* Eliminado .bookmark-icon */
 
         .modal {
             display: none;
@@ -246,7 +242,6 @@
             font-size: 0.9rem;
         }
 
-        /* Media Queries - SIMPLIFICADAS */
         @media (max-width: 768px) {
             .buttons {
                 flex-direction: column;
@@ -254,7 +249,6 @@
             .modal-content {
                 width: 95%;
             }
-            /* No necesitas cambiar grid-template-columns aquí, ya es responsivo */
         }
 
 
@@ -262,20 +256,16 @@
             .header h1{
               font-size: 2rem;
             }
-            /* No necesitas cambiar grid-template-columns aquí, ya es responsivo */
 
             .btn {
                 padding: 10px 15px;
                 font-size: 0.9rem;
             }
         }
-
-
     </style>
 </head>
 <body>
-    <!-- Resto de tu HTML (sin cambios significativos, solo el script) -->
-    <div class="container">
+     <div class="container">
         <header class="header">
             <h1><i class="fas fa-tachometer-alt"></i> Mi Dashboard Personal</h1>
             <p class="subtitle">Organiza tus enlaces favoritos</p>
@@ -328,7 +318,6 @@
                     <label for="bookmarkURL">URL:</label>
                     <input type="url" id="bookmarkURL" placeholder="https://www.google.com" required>
                 </div>
-                <!-- Eliminado campo de icono -->
                 <button type="submit" class="btn btn-add"><i class="fas fa-bookmark"></i> Añadir Marcador</button>
             </form>
         </div>
@@ -441,7 +430,7 @@
                     a.href = bookmark.url;
                     a.className = 'bookmark';
                     a.target = '_blank';
-                    a.textContent = bookmark.title; // Solo el título
+                    a.textContent = bookmark.title;
                     bookmarkList.appendChild(a);
                 });
                 categoryDiv.appendChild(bookmarkList);
@@ -569,11 +558,10 @@
             e.preventDefault();
             const title = document.getElementById('bookmarkTitle').value.trim();
             const url = document.getElementById('bookmarkURL').value.trim();
-            // const icon = document.getElementById('bookmarkIcon').value.trim(); // Eliminado
             if (title && url && selectedCategoryName) {
                 const category = categories.find(cat => cat.name === selectedCategoryName);
                 if (category) {
-                    category.bookmarks.push({ title, url }); // Sin icono
+                    category.bookmarks.push({ title, url });
                     saveCategories();
                     renderCategories();
                     closeNewBookmarkModal();
@@ -644,21 +632,75 @@
             renderBookmarkManagementList();
         }
 
-        function downloadUpdatedHTML() {
-            const selectElement = document.getElementById('bookmarkCategoryList');
-            if (selectElement) {
-                selectElement.innerHTML = '<option value="">-- Seleccione --</option>' +
-                    categories.map(category => `<option value="${category.name}">${category.name}</option>`).join('');
-            }
+      function downloadUpdatedHTML() {
+        // 1. Construir el HTML *como cadena* (más fácil de manipular)
+        let htmlString = `<!DOCTYPE html>
+<html lang="es">
+<head>
+${document.head.innerHTML}
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1><i class="fas fa-tachometer-alt"></i> Mi Dashboard Personal</h1>
+        <p class="subtitle">Organiza tus enlaces favoritos</p>
+    </header>
+    <div class="buttons">
+        <button class="btn btn-primary" onclick="openCategoryManagerModal()"><i class="fas fa-folder-plus"></i> Gestionar Categorías</button>
+        <button class="btn btn-secondary" onclick="openBookmarkManagerModal()"><i class="fas fa-bookmark"></i> Gestionar Marcadores</button>
+        <button class="btn btn-download" onclick="downloadUpdatedHTML()"><i class="fas fa-download"></i> Descargar HTML</button>
+    </div>
+    <main id="bookmarksGrid" class="bookmarks-grid">`;
 
-            const htmlContent = document.documentElement.outerHTML;
-            const blob = new Blob([htmlContent], { type: 'text/html' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'mi_dashboard_personal.html';
-            a.click();
-            URL.revokeObjectURL(a.href);
-        }
+        categories.forEach(category => {
+          htmlString += `
+          <div class="category" data-category="${category.name}">
+              <div class="category-header" style="background: linear-gradient(45deg, ${category.color}, ${adjustColor(category.color, -20)}); ">
+                  <span>${category.name}</span>
+                  <div class="add-icon" onclick="openNewBookmarkModal('${category.name}')">
+                      <i class="fas fa-plus"></i>
+                  </div>
+              </div>
+              <div class="bookmark-list">`;
+          category.bookmarks.forEach(bookmark => {
+            htmlString += `<a href="${bookmark.url}" class="bookmark" target="_blank">${bookmark.title}</a>`;
+          });
+          htmlString += `</div>
+          </div>`;
+        });
+
+        htmlString += `</main>
+</div>
+<footer class="footer">
+    <p>Creado por ElVarto7 - 2025</p>
+</footer>
+</body>
+</html>`;
+
+        // 2. Usar DOMParser para convertir la cadena HTML en un documento DOM *seguro*
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlString, 'text/html');
+
+        // 3. Añadir el script *al nuevo documento*
+        const scriptElement = doc.createElement('script');
+        scriptElement.textContent = Array.from(document.scripts).map(script => script.textContent).join('\n');
+        doc.body.appendChild(scriptElement); // Añadir el script al *body* del nuevo documento
+
+
+        // 4. Serializar el documento DOM a una cadena HTML
+        const serializer = new XMLSerializer();
+        const serializedHTML = serializer.serializeToString(doc);
+
+        // 5. Crear el blob y el enlace de descarga
+        const blob = new Blob([serializedHTML], { type: 'text/html' });
+        const a = document.createElement('a'); // Usar document.createElement (documento original)
+        a.href = URL.createObjectURL(blob);
+        a.download = 'mi_dashboard_personal.html';
+        document.body.appendChild(a); // Añadir al DOM *antes* de hacer click
+        a.click();
+        document.body.removeChild(a); // Limpiar
+        URL.revokeObjectURL(a.href);
+    }
 
         function adjustColor(color, amount) {
             let usePound = false;
