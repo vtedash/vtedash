@@ -70,7 +70,6 @@
       box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
     }
     
-    /* Sección de Gestión de Categorías */
     .manage-categories {
       text-align: center;
       margin-bottom: 20px;
@@ -173,7 +172,6 @@
       font-size: 0.9rem;
     }
     
-    /* Estilos del Modal (Gestión de Categorías + Añadir Marcador) */
     .modal {
       display: none;
       position: fixed;
@@ -258,7 +256,6 @@
       margin-top: 20px;
     }
     
-    /* Lista de categorías en el modal de gestión */
     .category-item {
       display: flex;
       justify-content: space-between;
@@ -283,7 +280,6 @@
       background-color: #2980b9;
     }
     
-    /* Responsive */
     @media (max-width: 768px) {
       .bookmarks-grid {
         grid-template-columns: 1fr;
@@ -299,7 +295,6 @@
       }
     }
     
-    /* Dark mode support */
     @media (prefers-color-scheme: dark) {
       body {
         background-color: #1a1a2e;
@@ -345,22 +340,18 @@
       <input type="text" id="search" placeholder="Buscar marcadores...">
     </div>
     
-    <!-- Botones de gestión -->
     <div class="manage-categories">
       <button class="manage-categories-btn" onclick="openCategoryManagerModal()">Gestionar Categorías</button>
       <button class="manage-categories-btn" onclick="downloadUpdatedHTML()">Descargar HTML Actualizado</button>
     </div>
     
-    <!-- El grid se rellenará dinámicamente -->
     <div class="bookmarks-grid" id="bookmarksGrid"></div>
   </div>
   
-  <!-- Modal de Gestión de Categorías -->
   <div id="categoryManagerModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeCategoryManagerModal()">×</span>
       <h2>Gestión de Categorías</h2>
-      <!-- Lista de categorías -->
       <div id="categoriesList"></div>
       <h3>Añadir Nueva Categoría</h3>
       <form id="newCategoryForm">
@@ -377,7 +368,6 @@
     </div>
   </div>
   
-  <!-- Modal para Añadir Marcador -->
   <div id="newBookmarkModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeNewBookmarkModal()">×</span>
@@ -394,11 +384,6 @@
         <div class="form-group">
           <label for="bookmarkIcon">Icono (opcional):</label>
           <input type="text" id="bookmarkIcon" placeholder="SVG o URL de imagen">
-          <small style="display:block; margin-top:4px; color:gray;">
-            Ejemplo SVG: 
-            <code><svg ... ></svg></code><br>
-            o URL: <code>https://ejemplo.com/miicono.png</code>
-          </small>
         </div>
         <button type="submit" class="btn btn-primary">Añadir Marcador</button>
       </form>
@@ -414,12 +399,10 @@
      * Gestión de Categorías y Marcadores *
      **************************************/
     
-    // Array global de categorías
     let categories = [];
-    // Variable para saber en qué categoría estamos añadiendo un marcador
     let selectedCategoryName = null;
     
-    // Categorías por defecto con los nuevos marcadores
+    // Categorías por defecto (actualízalas según tus necesidades)
     const defaultCategories = [
       {
         id: 1,
@@ -429,7 +412,7 @@
           { 
             title: "Gmail Corporativo", 
             url: "https://mail.google.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
           }
         ]
       },
@@ -441,169 +424,65 @@
           { 
             title: "Booking.com", 
             url: "https://booking.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"></path><path d="M6 4v16"></path><path d="M18 4v16"></path><path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path></svg>`
-          }
-        ]
-      },
-      {
-        id: 3,
-        name: "Finanzas",
-        color: "#27ae60",
-        bookmarks: [
-          { 
-            title: "Banco Santander", 
-            url: "https://www.bancosantander.es", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>`
-          }
-        ]
-      },
-      {
-        id: 4,
-        name: "Noticias",
-        color: "#8e44ad",
-        bookmarks: [
-          { 
-            title: "El País", 
-            url: "https://elpais.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Z"></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path d="M10 6h8v4h-8V6Z"></path></svg>`
-          },
-          { 
-            title: "El Correo Digital", 
-            url: "https://www.elcorreo.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Z"></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path d="M10 6h8v4h-8V6Z"></path></svg>`
-          }
-        ]
-      },
-      {
-        id: 5,
-        name: "Social y Comunicación",
-        color: "#2ecc71",
-        bookmarks: [
-          { 
-            title: "WhatsApp", 
-            url: "https://web.whatsapp.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"></path><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1zm0 5a.5.5 0 0 0 1 0v-1a.5.5 0 0 0-1 0v1zm3-5a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1zm0 5a.5.5 0 0 0 1 0v-1a.5.5 0 0 0-1 0v1z"></path></svg>`
-          }
-        ]
-      },
-      {
-        id: 6,
-        name: "Entretenimiento",
-        color: "#e74c3c",
-        bookmarks: [
-          { 
-            title: "YouTube", 
-            url: "https://www.youtube.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>`
-          },
-          { 
-            title: "Twitch", 
-            url: "https://www.twitch.tv", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"></path></svg>`
-          }
-        ]
-      },
-      {
-        id: 7,
-        name: "IA y Tecnología",
-        color: "#9b59b6",
-        bookmarks: [
-          { 
-            title: "ChatGPT", 
-            url: "https://chat.openai.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10c0 5.52 4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm-1 16h-2v-2h2v2zm2-2h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2z"></path></svg>`
-          },
-          { 
-            title: "Gemini", 
-            url: "https://gemini.google.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10c0 5.52 4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm-1 16h-2v-2h2v2zm2-2h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2z"></path></svg>`
-          },
-          { 
-            title: "Claude", 
-            url: "https://www.anthropic.com/claude", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10c0 5.52 4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm-1 16h-2v-2h2v2zm2-2h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2z"></path></svg>`
-          }
-        ]
-      },
-      {
-        id: 8,
-        name: "Diseño",
-        color: "#f1c40f",
-        bookmarks: [
-          { 
-            title: "Canva", 
-            url: "https://www.canva.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10c0 5.52 4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>`
-          }
-        ]
-      },
-      {
-        id: 9,
-        name: "Google",
-        color: "#4285f4",
-        bookmarks: [
-          { 
-            title: "Gmail", 
-            url: "https://mail.google.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`
-          },
-          { 
-            title: "Google Drive", 
-            url: "https://drive.google.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 8l10 6 10-6-10-6zM2 16l10 6 10-6"></path></svg>`
-          },
-          { 
-            title: "Google Keep", 
-            url: "https://keep.google.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="M12 12v6"></path><circle cx="12" cy="8" r="2"></circle></svg>`
-          },
-          { 
-            title: "Google Docs", 
-            url: "https://docs.google.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>`
-          },
-          { 
-            title: "Google Sheets", 
-            url: "https://sheets.google.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M10 9h4v4h-4z"></path><path d="M10 13h4"></path></svg>`
-          }
-        ]
-      },
-      {
-        id: 10,
-        name: "No Man's Sky",
-        color: "#d35400",
-        bookmarks: [
-          { 
-            title: "No Man's Sky Recipes", 
-            url: "https://nomansskyrecipes.com", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10c0 5.52 4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 14v-4m0-4h.01"></path></svg>`
-          },
-          { 
-            title: "NMS Expeditions", 
-            url: "https://cwmonkey.github.io/nms-expeditions/", 
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 0-10 10c0 5.52 4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 14v-4m0-4h.01"></path></svg>`
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20"></path><path d="M6 4v16"></path><path d="M18 4v16"></path><path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path></svg>`
           }
         ]
       }
+      // Agrega más categorías según necesites
     ];
     
-    // Funciones para persistencia con localStorage
+    // Cargar categorías y sincronizar con las por defecto
     function loadCategories() {
-      const stored = localStorage.getItem('categories');
-      if (stored) {
-        categories = JSON.parse(stored);
+      const storedCategories = localStorage.getItem('categories');
+      if (storedCategories) {
+        categories = JSON.parse(storedCategories);
       } else {
-        categories = defaultCategories;
-        saveCategories();
+        categories = JSON.parse(JSON.stringify(defaultCategories));
       }
+      syncCategoriesWithDefault();
+      saveCategories();
     }
     
+    // Sincronizar categorías con las por defecto
+    function syncCategoriesWithDefault() {
+      const defaultMap = new Map(defaultCategories.map(cat => [cat.id, cat]));
+      
+      // Actualizar o añadir categorías desde defaultCategories
+      defaultCategories.forEach(defaultCat => {
+        const existingIndex = categories.findIndex(cat => cat.id === defaultCat.id);
+        if (existingIndex !== -1) {
+          // Actualizar categoría existente
+          const existingCat = categories[existingIndex];
+          existingCat.name = defaultCat.name;
+          existingCat.color = defaultCat.color;
+          
+          // Combinar marcadores: preservar los adicionales del usuario
+          const defaultBookmarksMap = new Map(defaultCat.bookmarks.map(b => [b.url, b]));
+          const updatedBookmarks = [...defaultCat.bookmarks];
+          
+          existingCat.bookmarks.forEach(bookmark => {
+            if (!defaultBookmarksMap.has(bookmark.url)) {
+              updatedBookmarks.push(bookmark);
+            }
+          });
+          
+          existingCat.bookmarks = updatedBookmarks;
+        } else {
+          // Añadir nueva categoría si no existe
+          categories.push(JSON.parse(JSON.stringify(defaultCat)));
+        }
+      });
+      
+      // Eliminar categorías que no están en defaultCategories
+      categories = categories.filter(cat => defaultMap.has(cat.id));
+    }
+    
+    // Guardar categorías en localStorage
     function saveCategories() {
       localStorage.setItem('categories', JSON.stringify(categories));
     }
     
-    // Renderiza el grid del dashboard con las categorías y sus marcadores
+    // Renderizar las categorías en el grid
     function renderCategories() {
       const grid = document.getElementById('bookmarksGrid');
       grid.innerHTML = '';
@@ -621,7 +500,7 @@
           <svg class="add-icon" onclick="openNewBookmarkModal('${category.name}')" 
                xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
                viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               stroke-width="2">
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <line x1="5" y1="12" x2="19" y2="12"></line>
           </svg>
@@ -656,7 +535,7 @@
       });
     }
     
-    // Renderiza la lista de categorías en el modal de gestión
+    // Renderizar lista de categorías en el modal
     function renderCategoryManagementList() {
       const list = document.getElementById('categoriesList');
       list.innerHTML = '';
@@ -677,7 +556,7 @@
       });
     }
     
-    // Modal controls para Categorías
+    // Funciones de los modales
     function openCategoryManagerModal() {
       renderCategoryManagementList();
       document.getElementById('categoryManagerModal').style.display = 'block';
@@ -687,7 +566,6 @@
       document.getElementById('categoryManagerModal').style.display = 'none';
     }
     
-    // Modal controls para Marcadores
     function openNewBookmarkModal(categoryName) {
       selectedCategoryName = categoryName;
       document.getElementById('newBookmarkForm').reset();
@@ -698,90 +576,53 @@
       document.getElementById('newBookmarkModal').style.display = 'none';
     }
     
-    // Cierra los modales al hacer clic fuera de ellos
     window.onclick = function(event) {
       const categoryModal = document.getElementById('categoryManagerModal');
       const bookmarkModal = document.getElementById('newBookmarkModal');
-      if (event.target === categoryModal) {
-        closeCategoryManagerModal();
-      }
-      if (event.target === bookmarkModal) {
-        closeNewBookmarkModal();
-      }
+      if (event.target === categoryModal) closeCategoryManagerModal();
+      if (event.target === bookmarkModal) closeNewBookmarkModal();
     }
     
-    // Evento para el formulario de nueva categoría
+    // Añadir nueva categoría
     document.getElementById('newCategoryForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const nameInput = document.getElementById('newCategoryName');
-      const colorInput = document.getElementById('newCategoryColor');
-      const name = nameInput.value.trim();
-      const color = colorInput.value;
+      const name = document.getElementById('newCategoryName').value.trim();
+      const color = document.getElementById('newCategoryColor').value;
       
-      if (name === "") {
-        return alert("Por favor, introduce un nombre para la categoría.");
+      if (name === "" || categories.some(cat => cat.name.toLowerCase() === name.toLowerCase())) {
+        return alert("Nombre inválido o categoría ya existente.");
       }
       
-      if (categories.some(cat => cat.name.toLowerCase() === name.toLowerCase())) {
-        return alert("La categoría ya existe.");
-      }
-      
-      const newCategory = {
-        id: Date.now(),
-        name: name,
-        color: color,
-        bookmarks: []
-      };
-      
+      const newCategory = { id: Date.now(), name, color, bookmarks: [] };
       categories.push(newCategory);
       saveCategories();
       renderCategories();
       renderCategoryManagementList();
-      
-      nameInput.value = "";
-      colorInput.value = "#3498db";
+      document.getElementById('newCategoryForm').reset();
     });
     
-    // Formulario para añadir un nuevo marcador
+    // Añadir nuevo marcador
     document.getElementById('newBookmarkForm').addEventListener('submit', function(e) {
       e.preventDefault();
       if (!selectedCategoryName) return;
       
-      const titleInput = document.getElementById('bookmarkTitle');
-      const urlInput = document.getElementById('bookmarkURL');
-      const iconInput = document.getElementById('bookmarkIcon');
+      const title = document.getElementById('bookmarkTitle').value.trim();
+      const url = document.getElementById('bookmarkURL').value.trim();
+      const icon = document.getElementById('bookmarkIcon').value.trim();
       
-      const title = titleInput.value.trim();
-      const url = urlInput.value.trim();
-      const icon = iconInput.value.trim();
-      
-      if (title === "" || url === "") {
-        return alert("Por favor, completa el título y la URL del marcador.");
-      }
+      if (title === "" || url === "") return alert("Completa título y URL.");
       
       const categoryIndex = categories.findIndex(cat => cat.name === selectedCategoryName);
-      if (categoryIndex === -1) {
-        return alert("No se encontró la categoría seleccionada.");
-      }
-      
-      categories[categoryIndex].bookmarks.push({
-        title: title,
-        url: url,
-        icon: icon
-      });
-      
+      categories[categoryIndex].bookmarks.push({ title, url, icon });
       saveCategories();
       renderCategories();
       closeNewBookmarkModal();
     });
     
-    // Funciones para editar, eliminar y reordenar categorías
+    // Editar, eliminar y reordenar categorías
     function editCategory(index) {
-      const newName = prompt("Editar nombre de la categoría:", categories[index].name);
-      if (newName !== null && newName.trim() !== "") {
-        if (categories.some((cat, i) => i !== index && cat.name.toLowerCase() === newName.toLowerCase())) {
-          return alert("Otra categoría ya tiene ese nombre.");
-        }
+      const newName = prompt("Editar nombre:", categories[index].name);
+      if (newName && newName.trim() !== "" && !categories.some((cat, i) => i !== index && cat.name.toLowerCase() === newName.toLowerCase())) {
         categories[index].name = newName.trim();
         saveCategories();
         renderCategories();
@@ -790,7 +631,7 @@
     }
     
     function deleteCategory(index) {
-      if (confirm(`¿Estás seguro de eliminar la categoría "${categories[index].name}"?`)) {
+      if (confirm(`¿Eliminar "${categories[index].name}"?`)) {
         categories.splice(index, 1);
         saveCategories();
         renderCategories();
@@ -816,7 +657,7 @@
       }
     }
     
-    // Función para buscar marcadores
+    // Buscador
     document.getElementById('search').addEventListener('input', function(e) {
       const searchTerm = e.target.value.toLowerCase();
       const categoriesElements = document.querySelectorAll('.category');
@@ -829,31 +670,23 @@
         
         bookmarks.forEach(bookmark => {
           const title = bookmark.querySelector('.bookmark-title').textContent.toLowerCase();
-          if (title.includes(searchTerm)) {
-            bookmark.style.display = 'flex';
-            bookmarkMatches = true;
-          } else {
-            bookmark.style.display = 'none';
-          }
+          bookmark.style.display = title.includes(searchTerm) ? 'flex' : 'none';
+          if (title.includes(searchTerm)) bookmarkMatches = true;
         });
         
         categoryElement.style.display = (categoryMatches || bookmarkMatches) ? 'block' : 'none';
       });
     });
-
-    // Función para descargar el HTML actualizado
+    
+    // Descargar HTML actualizado
     function downloadUpdatedHTML() {
-      // Obtiene el HTML actual del documento
       let htmlContent = document.documentElement.outerHTML;
-      
-      // Reemplaza el array de categorías en el script con el contenido actual de localStorage
       const updatedCategories = JSON.stringify(categories, null, 2);
       const scriptStart = htmlContent.indexOf('const defaultCategories = [');
       const scriptEnd = htmlContent.indexOf('];', scriptStart) + 1;
       const newScriptPart = `const defaultCategories = ${updatedCategories}`;
       htmlContent = htmlContent.substring(0, scriptStart) + newScriptPart + htmlContent.substring(scriptEnd);
-
-      // Crea un blob con el contenido HTML
+      
       const blob = new Blob([htmlContent], { type: 'text/html' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -865,7 +698,7 @@
       URL.revokeObjectURL(url);
     }
     
-    // Inicializa la aplicación
+    // Inicializar
     loadCategories();
     renderCategories();
   </script>
