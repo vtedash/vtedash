@@ -315,4 +315,334 @@
           {
             "title": "Booking.com",
             "url": "https://booking.com",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h20\"></path><path d=\"M6 4v16\"></path><path d=\"M18 4v16\"></path><path d=\"M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z\"></path></svg>"
+          }
+        ]
+      }
+    ];
+
+    function loadCategories() {
+      const storedCategories = localStorage.getItem('categories');
+      if (storedCategories) {
+        categories = JSON.parse(storedCategories);
+      } else {
+        categories = JSON.parse(JSON.stringify(defaultCategories));
+      }
+      syncCategoriesWithDefault();
+      saveCategories();
+    }
+
+    function syncCategoriesWithDefault() {
+      const defaultMap = new Map(defaultCategories.map(cat => [cat.id, cat]));
+      defaultCategories.forEach(defaultCat => {
+        const existingIndex = categories.findIndex(cat => cat.id === defaultCat.id);
+        if (existingIndex !== -1) {
+          const existingCat = categories[existingIndex];
+          existingCat.name = defaultCat.name;
+          existingCat.color = defaultCat.color;
+          const defaultBookmarksMap = new Map(defaultCat.bookmarks.map(b => [b.url, b]));
+          const updatedBookmarks = [...defaultCat.bookmarks];
+          existingCat.bookmarks.forEach(bookmark => {
+            if (!defaultBookmarksMap.has(bookmark.url)) {
+              updatedBookmarks.push(bookmark);
+            }
+          });
+          existingCat.bookmarks = updatedBookmarks;
+        } else {
+          categories.push(JSON.parse(JSON.stringify(defaultCat)));
+        }
+      });
+      categories = categories.filter(cat => defaultMap.has(cat.id));
+    }
+
+    function saveCategories() {
+      localStorage.setItem('categories', JSON.stringify(categories));
+    }
+
+    function renderCategories() {
+      const grid = document.getElementById('bookmarksGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      categories.forEach(category => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'category';
+        categoryDiv.setAttribute('data-category', category.name);
+        const header = document.createElement('div');
+        header.className = 'category-header';
+        header.style.background = `linear-gradient(45deg, ${category.color}, ${adjustColor(category.color, -20)})`;
+        header.innerHTML = `
+          <span>${category.name}</span>
+          <div class="add-icon" onclick="openNewBookmarkModal('${category.name}')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </div>
+        `;
+        categoryDiv.appendChild(header);
+        const bookmarkList = document.createElement('div');
+        bookmarkList.className = 'bookmark-list';
+        category.bookmarks.forEach(bookmark => {
+          const a = document.createElement('a');
+          a.href = bookmark.url;
+          a.className = 'bookmark';
+          a.target = '_blank';
+          let iconContent = bookmark.icon;
+          const isSVG = iconContent.trim().startsWith('<svg');
+          if (!isSVG && iconContent.trim() !== '') {
+            iconContent = `<img src="${iconContent}" alt="icon" style="width:24px;height:24px;">`;
+          }
+          a.innerHTML = `
+            <div class="bookmark-icon">${iconContent || ''}</div>
+            <span class="bookmark-title">${bookmark.title}</span>
+          `;
+          bookmarkList.appendChild(a);
+        });
+        categoryDiv.appendChild(bookmarkList);
+        grid.appendChild(categoryDiv);
+      });
+    }
+
+    function renderCategoryManagementList() {
+      const list = document.getElementById('categoriesList');
+      if (!list) return;
+      list.innerHTML = '';
+      categories.forEach((category, index) => {
+        const item = document.createElement('div');
+        item.className = 'category-item';
+        item.innerHTML = `
+          <span>${category.name}</span>
+          <div class="category-actions">
+            <button onclick="editCategory(${index})">Editar</button>
+            <button onclick="deleteCategory(${index})">Eliminar</button>
+            <button onclick="moveCategoryUp(${index})">↑</button>
+            <button onclick="moveCategoryDown(${index})">↓</button>
+          </div>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function openCategoryManagerModal() {
+      renderCategoryManagementList();
+      document.getElementById('categoryManagerModal').style.display = 'flex';
+    }
+
+    function closeCategoryManagerModal() {
+      document.getElementById('categoryManagerModal').style.display = 'none';
+    }
+
+    function openNewBookmarkModal(categoryName) {
+      selectedCategoryName = categoryName;
+      document.getElementById('newBookmarkForm').reset();
+      document.getElementById('newBookmarkModal').style.display = 'flex';
+    }
+
+    function closeNewBookmarkModal() {
+      document.getElementById('newBookmarkModal').style.display = 'none';
+    }
+
+    function openBookmarkManagerModal() {
+      selectedCategoryForBookmarks = null;
+      renderBookmarkCategoryList();
+      document.getElementById('bookmarksList').innerHTML = '';
+      document.getElementById('bookmarkManagerModal').style.display = 'flex';
+    }
+
+    function closeBookmarkManagerModal() {
+      document.getElementById('bookmarkManagerModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const categoryModal = document.getElementById('categoryManagerModal');
+      const bookmarkModal = document.getElementById('newBookmarkModal');
+      const bookmarkManagerModal = document.getElementById('bookmarkManagerModal');
+      if (event.target === categoryModal) closeCategoryManagerModal();
+      if (event.target === bookmarkModal) closeNewBookmarkModal();
+      if (event.target === bookmarkManagerModal) closeBookmarkManagerModal();
+    };
+
+    document.getElementById('newCategoryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('newCategoryName').value.trim();
+      const color = document.getElementById('newCategoryColor').value;
+      if (name) {
+        const newCategory = {
+          id: Date.now(),
+          name: name,
+          color: color,
+          bookmarks: []
+        };
+        categories.push(newCategory);
+        saveCategories();
+        renderCategories();
+        renderCategoryManagementList();
+        closeCategoryManagerModal();
+      }
+    });
+
+    function editCategory(index) {
+      const categoryToEdit = categories[index];
+      const newName = prompt("Nuevo nombre para la categoría:", categoryToEdit.name);
+      if (newName !== null && newName.trim() !== "") {
+        categoryToEdit.name = newName.trim();
+        const newColor = prompt("Nuevo color (opcional):", categoryToEdit.color);
+        if (newColor !== null) {
+          categoryToEdit.color = newColor;
+        }
+        saveCategories();
+        renderCategories();
+        renderCategoryManagementList();
+      }
+    }
+
+    function deleteCategory(index) {
+      if (confirm("¿Seguro que quieres eliminar esta categoría?")) {
+        categories.splice(index, 1);
+        saveCategories();
+        renderCategories();
+        renderCategoryManagementList();
+      }
+    }
+
+    function moveCategoryUp(index) {
+      if (index > 0) {
+        [categories[index], categories[index - 1]] = [categories[index - 1], categories[index]];
+        saveCategories();
+        renderCategories();
+        renderCategoryManagementList();
+      }
+    }
+
+    function moveCategoryDown(index) {
+      if (index < categories.length - 1) {
+        [categories[index], categories[index + 1]] = [categories[index + 1], categories[index]];
+        saveCategories();
+        renderCategories();
+        renderCategoryManagementList();
+      }
+    }
+
+    document.getElementById('newBookmarkForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('bookmarkTitle').value.trim();
+      const url = document.getElementById('bookmarkURL').value.trim();
+      const icon = document.getElementById('bookmarkIcon').value.trim();
+      if (title && url && selectedCategoryName) {
+        const category = categories.find(cat => cat.name === selectedCategoryName);
+        if (category) {
+          category.bookmarks.push({ title: title, url: url, icon: icon });
+          saveCategories();
+          renderCategories();
+          closeNewBookmarkModal();
+        }
+      }
+    });
+
+    function renderBookmarkCategoryList() {
+      const list = document.getElementById('bookmarkCategoryList');
+      if (!list) return;
+      list.innerHTML = '';
+      categories.forEach(category => {
+        const item = document.createElement('div');
+        item.className = 'category-item';
+        item.innerHTML = `
+          <span onclick="selectCategoryForBookmarks('${category.name}')">${category.name}</span>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function selectCategoryForBookmarks(categoryName) {
+      selectedCategoryForBookmarks = categoryName;
+      renderBookmarkManagementList();
+    }
+
+    function renderBookmarkManagementList() {
+      const list = document.getElementById('bookmarksList');
+      if (!list) return;
+      list.innerHTML = '';
+      const category = categories.find(cat => cat.name === selectedCategoryForBookmarks);
+      if (category) {
+        category.bookmarks.forEach((bookmark, index) => {
+          const item = document.createElement('div');
+          item.className = 'bookmark-item';
+          item.innerHTML = `
+            <span>${bookmark.title}</span>
+            <div class="bookmark-actions">
+              <button onclick="editBookmark('${selectedCategoryForBookmarks}', ${index})">Editar</button>
+              <button onclick="deleteBookmark('${selectedCategoryForBookmarks}', ${index})">Eliminar</button>
+            </div>
+          `;
+          list.appendChild(item);
+        });
+      }
+    }
+
+    function editBookmark(categoryName, index) {
+      const category = categories.find(cat => cat.name === categoryName);
+      if (!category) return;
+      const bookmark = category.bookmarks[index];
+      const newTitle = prompt("Nuevo título:", bookmark.title);
+      if (newTitle !== null && newTitle.trim() !== "") {
+        bookmark.title = newTitle.trim();
+        const newUrl = prompt("Nueva URL:", bookmark.url);
+        if (newUrl !== null && newUrl.trim() !== "") {
+          bookmark.url = newUrl.trim();
+        }
+        const newIcon = prompt("Nuevo icono (SVG o URL):", bookmark.icon);
+        if (newIcon !== null) {
+          bookmark.icon = newIcon;
+        }
+        saveCategories();
+        renderCategories();
+        renderBookmarkManagementList();
+      }
+    }
+
+    function deleteBookmark(categoryName, index) {
+      if (confirm("¿Seguro que quieres eliminar este marcador?")) {
+        const category = categories.find(cat => cat.name === categoryName);
+        if (category) {
+          category.bookmarks.splice(index, 1);
+          saveCategories();
+          renderCategories();
+          renderBookmarkManagementList();
+        }
+      }
+    }
+
+    function downloadUpdatedHTML() {
+      const htmlContent = document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'mi_dashboard_elegante.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+    }
+
+    function adjustColor(color, amount) {
+      let usePound = false;
+      if (color[0] === "#") {
+        color = color.slice(1);
+        usePound = true;
+      }
+      const num = parseInt(color, 16);
+      let r = (num >> 16) + amount;
+      let g = ((num >> 8) & 0x00FF) + amount;
+      let b = (num & 0x0000FF) + amount;
+      r = Math.max(Math.min(255, r), 0);
+      g = Math.max(Math.min(255, g), 0);
+      b = Math.max(Math.min(255, b), 0);
+      const newColor = (r << 16) | (g << 8) | b;
+      return (usePound ? "#" : "") + newColor.toString(16).padStart(6, '0');
+    }
+
+    loadCategories();
+    renderCategories();
+  </script>
+</body>
+</html>
