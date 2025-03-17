@@ -1,11 +1,18 @@
+/**************************************
+ * Gestión de Categorías y Marcadores *
+ **************************************/
+
+// Array global de categorías
 let categories = [];
 let selectedCategoryName = null;
 
-const GITHUB_TOKEN = "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"; // Mejor pedirlo por prompt o usar backend
-const REPO_OWNER = "vtedash ";
-const REPO_NAME = "vtedash ";
-const FILE_PATH = "data.json";
+// Variables para GitHub (reemplaza con tus datos)
+const GITHUB_TOKEN = "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"; // Reemplaza con tu token de acceso personal
+const REPO_OWNER = "vtedash"; // Reemplaza con tu usuario de GitHub
+const REPO_NAME = "vtedash"; // Reemplaza con el nombre de tu repositorio
+const FILE_PATH = "data.json"; // Ruta del archivo en el repositorio
 
+// Cargar categorías desde GitHub
 async function loadCategoriesFromGitHub() {
   try {
     const response = await fetch(
@@ -19,7 +26,7 @@ async function loadCategoriesFromGitHub() {
     );
     if (!response.ok) throw new Error("Error al cargar los datos desde GitHub");
     const fileData = await response.json();
-    const content = atob(fileData.content);
+    const content = atob(fileData.content); // Decodificar base64
     categories = JSON.parse(content);
   } catch (error) {
     console.error("Error al cargar categorías:", error);
@@ -36,6 +43,7 @@ async function loadCategoriesFromGitHub() {
   }
 }
 
+// Guardar categorías en GitHub
 async function saveCategoriesToGitHub() {
   try {
     const fileResponse = await fetch(
@@ -51,8 +59,9 @@ async function saveCategoriesToGitHub() {
     const fileData = await fileResponse.json();
     const sha = fileData.sha;
 
-    const content = btoa(JSON.stringify(categories, null, 2));
+    const content = btoa(JSON.stringify(categories, null, 2)); // Codificar en base64
     const commitMessage = "Actualizar data.json con nuevas categorías/marcadores";
+
     const updateResponse = await fetch(
       `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`,
       {
@@ -71,10 +80,11 @@ async function saveCategoriesToGitHub() {
     if (!updateResponse.ok) throw new Error("Error al guardar los datos en GitHub");
   } catch (error) {
     console.error("Error al guardar categorías:", error);
-    alert("No se pudo guardar los cambios en GitHub.");
+    alert("No se pudo guardar los cambios en GitHub. Revisa la consola.");
   }
 }
 
+// Renderizar categorías en el dashboard
 function renderCategories() {
   const grid = document.getElementById("bookmarksGrid");
   grid.innerHTML = "";
@@ -86,7 +96,7 @@ function renderCategories() {
     const header = document.createElement("div");
     header.className = "category-header";
     header.style.backgroundColor = category.color;
-    header.innerHTML = `${category.name}`;
+    header.innerHTML = `${category.name} <button onclick="openNewBookmarkModal('${category.name}')">+</button>`;
     categoryDiv.appendChild(header);
 
     const bookmarkList = document.createElement("div");
@@ -96,15 +106,136 @@ function renderCategories() {
       a.href = bookmark.url;
       a.className = "bookmark";
       a.target = "_blank";
-      let iconContent = bookmark.icon || '<span class="default-icon">🔗</span>';
-      a.innerHTML = `${iconContent}${bookmark.title}`;
+      a.innerHTML = `${bookmark.icon || "🔗"} ${bookmark.title}`;
       bookmarkList.appendChild(a);
     });
+
     categoryDiv.appendChild(bookmarkList);
     grid.appendChild(categoryDiv);
   });
 }
 
+// Renderizar lista de categorías en el modal de gestión
+function renderCategoryManagementList() {
+  const list = document.getElementById("categoriesList");
+  list.innerHTML = "";
+  categories.forEach((category, index) => {
+    const item = document.createElement("div");
+    item.className = "category-item";
+    item.innerHTML = `
+      ${category.name}
+      <div class="category-actions">
+        <button onclick="editCategory(${index})">Editar</button>
+        <button onclick="deleteCategory(${index})">Eliminar</button>
+        <button onclick="moveCategoryUp(${index})">↑</button>
+        <button onclick="moveCategoryDown(${index})">↓</button>
+      </div>
+    `;
+    list.appendChild(item);
+  });
+}
+
+// Abrir y cerrar modales
+function openCategoryManagerModal() {
+  renderCategoryManagementList();
+  document.getElementById("categoryManagerModal").style.display = "block";
+}
+
+function closeCategoryManagerModal() {
+  document.getElementById("categoryManagerModal").style.display = "none";
+}
+
+function openNewBookmarkModal(categoryName) {
+  selectedCategoryName = categoryName;
+  document.getElementById("newBookmarkForm").reset();
+  document.getElementById("newBookmarkModal").style.display = "block";
+}
+
+function closeNewBookmarkModal() {
+  document.getElementById("newBookmarkModal").style.display = "none";
+}
+
+window.onclick = function (event) {
+  const categoryModal = document.getElementById("categoryManagerModal");
+  const bookmarkModal = document.getElementById("newBookmarkModal");
+  if (event.target === categoryModal) closeCategoryManagerModal();
+  if (event.target === bookmarkModal) closeNewBookmarkModal();
+};
+
+// Añadir nueva categoría
+document.getElementById("newCategoryForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name = document.getElementById("newCategoryName").value.trim();
+  const color = document.getElementById("newCategoryColor").value;
+  if (!name) return alert("Introduce un nombre para la categoría.");
+  if (categories.some((cat) => cat.name.toLowerCase() === name.toLowerCase()))
+    return alert("La categoría ya existe.");
+
+  categories.push({ id: Date.now(), name, color, bookmarks: [] });
+  await saveCategoriesToGitHub();
+  renderCategories();
+  renderCategoryManagementList();
+  e.target.reset();
+});
+
+// Añadir nuevo marcador
+document.getElementById("newBookmarkForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (!selectedCategoryName) return;
+  const title = document.getElementById("bookmarkTitle").value.trim();
+  const url = document.getElementById("bookmarkURL").value.trim();
+  const icon = document.getElementById("bookmarkIcon").value.trim();
+  if (!title || !url) return alert("Completa el título y la URL.");
+
+  const categoryIndex = categories.findIndex((cat) => cat.name === selectedCategoryName);
+  if (categoryIndex === -1) return alert("Categoría no encontrada.");
+  categories[categoryIndex].bookmarks.push({ title, url, icon });
+  await saveCategoriesToGitHub();
+  renderCategories();
+  closeNewBookmarkModal();
+});
+
+// Funciones de edición y reordenamiento
+async function editCategory(index) {
+  const newName = prompt("Editar nombre:", categories[index].name);
+  if (newName && newName.trim()) {
+    if (categories.some((cat, i) => i !== index && cat.name.toLowerCase() === newName.toLowerCase()))
+      return alert("Otra categoría ya tiene ese nombre.");
+    categories[index].name = newName.trim();
+    await saveCategoriesToGitHub();
+    renderCategories();
+    renderCategoryManagementList();
+  }
+}
+
+async function deleteCategory(index) {
+  if (confirm(`¿Eliminar "${categories[index].name}"?`)) {
+    categories.splice(index, 1);
+    await saveCategoriesToGitHub();
+    renderCategories();
+    renderCategoryManagementList();
+  }
+}
+
+async function moveCategoryUp(index) {
+  if (index > 0) {
+    [categories[index - 1], categories[index]] = [categories[index], categories[index - 1]];
+    await saveCategoriesToGitHub();
+    renderCategories();
+    renderCategoryManagementList();
+  }
+}
+
+async function moveCategoryDown(index) {
+  if (index < categories.length - 1) {
+    [categories[index + 1], categories[index]] = [categories[index], categories[index + 1]];
+    await saveCategoriesToGitHub();
+    renderCategories();
+    renderCategoryManagementList();
+  }
+}
+
+// Inicializar el dashboard
 async function initialize() {
   await loadCategoriesFromGitHub();
   renderCategories();
