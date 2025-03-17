@@ -1,790 +1,229 @@
-<html lang="es" data-darkreader-scheme="dark" class=" zjhlccey idc0_350 mjvxrhkc" data-darkreader-mode="dynamic"><head><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container {
-    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
-}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
-  background-color: var(--darkreader-inline-bgcolor) !important;
-}
-[data-darkreader-inline-bgimage] {
-  background-image: var(--darkreader-inline-bgimage) !important;
-}
-[data-darkreader-inline-border] {
-  border-color: var(--darkreader-inline-border) !important;
-}
-[data-darkreader-inline-border-bottom] {
-  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
-}
-[data-darkreader-inline-border-left] {
-  border-left-color: var(--darkreader-inline-border-left) !important;
-}
-[data-darkreader-inline-border-right] {
-  border-right-color: var(--darkreader-inline-border-right) !important;
-}
-[data-darkreader-inline-border-top] {
-  border-top-color: var(--darkreader-inline-border-top) !important;
-}
-[data-darkreader-inline-boxshadow] {
-  box-shadow: var(--darkreader-inline-boxshadow) !important;
-}
-[data-darkreader-inline-color] {
-  color: var(--darkreader-inline-color) !important;
-}
-[data-darkreader-inline-fill] {
-  fill: var(--darkreader-inline-fill) !important;
-}
-[data-darkreader-inline-stroke] {
-  stroke: var(--darkreader-inline-stroke) !important;
-}
-[data-darkreader-inline-outline] {
-  outline-color: var(--darkreader-inline-outline) !important;
-}
-[data-darkreader-inline-stopcolor] {
-  stop-color: var(--darkreader-inline-stopcolor) !important;
-}
-[data-darkreader-inline-bg] {
-  background: var(--darkreader-inline-bg) !important;
-}
-[data-darkreader-inline-border-short] {
-  border: var(--darkreader-inline-border-short) !important;
-}
-[data-darkreader-inline-border-bottom-short] {
-  border-bottom: var(--darkreader-inline-border-bottom-short) !important;
-}
-[data-darkreader-inline-border-left-short] {
-  border-left: var(--darkreader-inline-border-left-short) !important;
-}
-[data-darkreader-inline-border-right-short] {
-  border-right: var(--darkreader-inline-border-right-short) !important;
-}
-[data-darkreader-inline-border-top-short] {
-  border-top: var(--darkreader-inline-border-top-short) !important;
-}
-[data-darkreader-inline-invert] {
-    filter: invert(100%) hue-rotate(180deg);
-}</style><style class="darkreader darkreader--variables" media="screen">:root {
-   --darkreader-neutral-background: var(--darkreader-background-ffffff, #181a1b);
-   --darkreader-neutral-text: var(--darkreader-text-000000, #e8e6e3);
-   --darkreader-selection-background: var(--darkreader-background-0060d4, #004daa);
-   --darkreader-selection-text: var(--darkreader-text-ffffff, #e8e6e3);
-}</style><style class="darkreader darkreader--root-vars" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">@layer {
-html {
-    background-color: var(--darkreader-background-ffffff, #181a1b) !important;
-}
-html {
-    color-scheme: dark !important;
-}
-iframe {
-    color-scheme: dark !important;
-}
-html, body {
-    background-color: var(--darkreader-background-ffffff, #181a1b);
-}
-html, body {
-    border-color: var(--darkreader-border-4c4c4c, #736b5e);
-    color: var(--darkreader-text-000000, #e8e6e3);
-}
-a {
-    color: var(--darkreader-text-0040ff, #3391ff);
-}
-table {
-    border-color: var(--darkreader-border-808080, #545b5e);
-}
-mark {
-    color: var(--darkreader-text-000000, #e8e6e3);
-}
-::placeholder {
-    color: var(--darkreader-text-a9a9a9, #b2aba1);
-}
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-    background-color: var(--darkreader-background-faffbd, #404400) !important;
-    color: var(--darkreader-text-000000, #e8e6e3) !important;
-}
-::selection {
-    background-color: var(--darkreader-background-0060d4, #004daa) !important;
-    color: var(--darkreader-text-ffffff, #e8e6e3) !important;
-}
-::-moz-selection {
-    background-color: var(--darkreader-background-0060d4, #004daa) !important;
-    color: var(--darkreader-text-ffffff, #e8e6e3) !important;
-}
-}</style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Dashboard de Marcadores</title>
+  <title>Mi Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #2c3e50;
-      --secondary-color: #3498db;
-      --accent-color: #e74c3c;
-      --light-color: #ecf0f1;
-      --dark-color: #2c3e50;
-      --hover-color: #1abc9c;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
     body {
-      background-color: #f5f7fa;
-      color: var(--dark-color);
-      line-height: 1.6;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
       padding: 20px;
+      color: #333;
     }
-    
-    header {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 20px 0;
-      margin-bottom: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .header-content {
-      padding: 0 20px;
-    }
-    
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    
-    .search-container {
-      margin: 20px 0;
-    }
-    
-    #search {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid var(--light-color);
-      border-radius: 30px;
-      font-size: 1rem;
-      outline: none;
-      transition: all 0.3s;
-    }
-    
-    #search:focus {
-      border-color: var(--secondary-color);
-      box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    }
-    
-    .manage-categories {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    
-    .manage-categories-btn {
-      padding: 12px 24px;
-      background-color: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 500;
-      transition: background-color 0.3s;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin: 0 10px;
-    }
-    
-    .manage-categories-btn:hover {
-      background-color: #1e2b38;
-    }
-    
-    .bookmarks-grid {
+    #bookmarksGrid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
-      margin-bottom: 30px;
+      margin-top: 20px;
     }
-    
     .category {
       background-color: white;
       border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 15px;
+      transition: transform 0.2s;
     }
-    
     .category:hover {
       transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
-    
     .category-header {
-      color: white;
-      padding: 15px;
-      font-size: 1.2rem;
-      font-weight: 600;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+      color: white;
+      font-weight: 500;
     }
-    
     .bookmark-list {
-      padding: 15px;
+      margin-top: 10px;
     }
-    
     .bookmark {
       display: flex;
       align-items: center;
-      padding: 10px;
-      border-bottom: 1px solid #eee;
       text-decoration: none;
-      color: var(--dark-color);
+      color: #333;
+      padding: 8px 0;
       transition: background-color 0.2s;
     }
-    
-    .bookmark:last-child {
-      border-bottom: none;
-    }
-    
     .bookmark:hover {
-      background-color: #f8f9fa;
-      color: var(--hover-color);
+      background-color: #f9f9f9;
     }
-    
     .bookmark-icon {
       margin-right: 10px;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 20px;
+      height: 20px;
     }
-    
-    .bookmark-icon svg {
-      width: 16px;
-      height: 16px;
-    }
-    
-    .bookmark-title {
-      font-weight: 500;
-    }
-    
-    footer {
-      text-align: center;
-      margin-top: 20px;
-      padding: 20px;
-      color: #7f8c8d;
-      font-size: 0.9rem;
-    }
-    
     .modal {
       display: none;
       position: fixed;
-      z-index: 1000;
-      left: 0;
       top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s;
     }
-    
     .modal-content {
       background-color: white;
-      margin: 10% auto;
       padding: 20px;
-      width: 80%;
-      max-width: 500px;
       border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: slideIn 0.3s;
     }
-    
     .close {
-      color: #aaa;
       float: right;
-      font-size: 28px;
-      font-weight: bold;
+      font-size: 24px;
       cursor: pointer;
+      color: #aaa;
     }
-    
     .close:hover {
-      color: black;
+      color: #333;
     }
-    
-    .modal h2, .modal h3 {
-      margin-bottom: 20px;
-    }
-    
-    .form-group {
-      margin-bottom: 15px;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 500;
-    }
-    
-    .form-group input, .form-group select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-    
-    .btn {
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s;
-    }
-    
-    .btn-primary {
-      background-color: var(--secondary-color);
-      color: white;
-    }
-    
-    .btn-primary:hover {
-      background-color: #2980b9;
-    }
-    
-    .btn-danger {
-      background-color: var(--accent-color);
-      color: white;
-    }
-    
-    .action-buttons {
+    .category-item, .bookmark-item {
       display: flex;
       justify-content: space-between;
-      margin-top: 20px;
-    }
-    
-    .category-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       padding: 10px 0;
       border-bottom: 1px solid #eee;
     }
-    
-    .category-actions button {
+    .bookmark-actions button {
       margin-left: 5px;
       padding: 5px 10px;
       border: none;
-      background-color: var(--secondary-color);
-      color: white;
-      border-radius: 4px;
+      border-radius: 5px;
       cursor: pointer;
-      font-size: 0.8rem;
-      transition: background-color 0.3s;
+      background-color: #007bff;
+      color: white;
     }
-    
-    .category-actions button:hover {
-      background-color: #2980b9;
+    .add-icon {
+      cursor: pointer;
+      transition: transform 0.2s;
     }
-    
+    .add-icon:hover {
+      transform: scale(1.1);
+    }
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-20px); }
+      to { transform: translateY(0); }
+    }
     @media (max-width: 768px) {
-      .bookmarks-grid {
+      #bookmarksGrid {
         grid-template-columns: 1fr;
       }
-      
-      h1 {
-        font-size: 1.5rem;
-      }
-      
       .modal-content {
-        width: 90%;
-        margin: 30% auto;
+        width: 95%;
       }
     }
-    
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #1a1a2e;
-        color: #e1e1e1;
-      }
-      
-      .category {
-        background-color: #16213e;
-      }
-      
-      .bookmark {
-        border-bottom: 1px solid #2a2a3a;
-        color: #e1e1e1;
-      }
-      
-      .bookmark:hover {
-        background-color: #222736;
-      }
-      
-      #search, .form-group input, .form-group select, .modal-content {
-        background-color: #16213e;
-        color: #e1e1e1;
-        border-color: #2a2a3a;
-      }
-      
-      .manage-categories-btn,
-      .btn-primary, .category-actions button {
-        background-color: #3498db;
-      }
-    }
-  </style><style class="darkreader darkreader--sync" media="screen"></style>
-<meta name="darkreader" content="15cca1c101f04439b7b64ad657ad4baf"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
-    background-color: var(--darkreader-background-ffd76e, #684b00) !important;
-    border-color: var(--darkreader-background-c59d00, #9e7e00) !important;
-    color: var(--darkreader-text-302505, #d7d4cf) !important;
-}
-#vimvixen-console-frame {
-    color-scheme: light !important;
-}
-::placeholder {
-    opacity: 0.5 !important;
-}
-#edge-translate-panel-body,
-.MuiTypography-body1,
-.nfe-quote-text {
-    color: var(--darkreader-neutral-text) !important;
-}
-gr-main-header {
-    background-color: var(--darkreader-background-add8e6, #1b4958) !important;
-}
-.tou-z65h9k,
-.tou-mignzq,
-.tou-1b6i2ox,
-.tou-lnqlqk {
-    background-color: var(--darkreader-neutral-background) !important;
-}
-.tou-75mvi {
-    background-color: var(--darkreader-background-cfecf5, #0f3a47) !important;
-}
-.tou-ta9e87,
-.tou-1w3fhi0,
-.tou-1b8t2us,
-.tou-py7lfi,
-.tou-1lpmd9d,
-.tou-1frrtv8,
-.tou-17ezmgn {
-    background-color: var(--darkreader-background-f5f5f5, #1e2021) !important;
-}
-.tou-uknfeu {
-    background-color: var(--darkreader-background-faedda, #432c09) !important;
-}
-.tou-6i3zyv {
-    background-color: var(--darkreader-background-85c3d8, #245d70) !important;
-}
-div.mermaid-viewer-control-panel .btn {
-    background-color: var(--darkreader-neutral-background);
-    fill: var(--darkreader-neutral-text);
-}
-svg g rect.er {
-    fill: var(--darkreader-neutral-background) !important;
-}
-svg g rect.er.entityBox {
-    fill: var(--darkreader-neutral-background) !important;
-}
-svg g rect.er.attributeBoxOdd {
-    fill: var(--darkreader-neutral-background) !important;
-}
-svg g rect.er.attributeBoxEven {
-    fill: var(--darkreader-selection-background);
-    fill-opacity: 0.8 !important;
-}
-svg rect.er.relationshipLabelBox {
-    fill: var(--darkreader-neutral-background) !important;
-}
-svg g g.nodes rect,
-svg g g.nodes polygon {
-    fill: var(--darkreader-neutral-background) !important;
-}
-svg g rect.task {
-    fill: var(--darkreader-selection-background) !important;
-}
-svg line.messageLine0,
-svg line.messageLine1 {
-    stroke: var(--darkreader-neutral-text) !important;
-}
-div.mermaid .actor {
-    fill: var(--darkreader-neutral-background) !important;
-}
-mitid-authenticators-code-app > .code-app-container {
-    background-color: white !important;
-    padding-top: 1rem;
-}
-iframe#unpaywall[src$="unpaywall.html"] {
-    color-scheme: light !important;
-}
-select option {
-    background-color: var(--darkreader-neutral-background) !important;
-}
-body#tumblr {
-    --darkreader-bg--secondary-accent: 31, 32, 34 !important;
-    --darkreader-bg--white: 23, 23, 23 !important;
-    --darkreader-text--black: 228, 224, 218 !important;
-}
-:host {
-    --d2l-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
-    --d2l-button-icon-background-color-hover: var(--darkreader-bg--d2l-color-gypsum) !important;
-    --d2l-color-ferrite: var(--darkreader-neutral-text) !important;
-    --d2l-color-sylvite: var(--darkreader-bg--d2l-color-sylvite) !important;
-    --d2l-dropdown-background-color: var(--darkreader-neutral-background) !important;
-    --d2l-dropdown-border-color: var(--darkreader-border--d2l-color-mica) !important;
-    --d2l-input-backgroud-color: var(--darkreader-neutral-background) !important;
-    --d2l-menu-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
-    --d2l-tooltip-background-color: var(--darkreader-neutral-background) !important;
-    --d2l-tooltip-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
-}
-:host([_floating]) .d2l-floating-buttons-container {
-    background-color: var(--darkreader-neutral-background) !important;
-    border-top-color: var(--darkreader-border--d2l-color-mica) !important;
-    opacity: 0.88 !important;
-}
-d2l-card {
-    background: var(--darkreader-neutral-background) !important;
-    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
-}
-d2l-dropdown-content > div,
-d2l-menu-item {
-    background-color: var(--darkreader-neutral-background) !important;
-    border-radius: 10px !important;
-}
-d2l-empty-state-simple {
-    border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
-}
-.d2l-button-filter > ul > li > a.vui-button {
-    border-color: var(--darkreader-border--d2l-color-mica) !important;
-}
-.d2l-label-text:has(.d2l-button-subtle-content):hover,
-.d2l-label-text:has(.d2l-button-subtle-content):focus,
-.d2l-label-text:has(.d2l-button-subtle-content):active {
-    background-color: var(--darkreader-bg--d2l-color-gypsum) !important;
-}
-.d2l-navigation-centerer {
-    color: inherit !important;
-}
-.d2l-tabs-layout {
-    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
-}
-.d2l-input,
-.d2l-calendar-date,
-.d2l-htmleditor-container {
-    background-color: var(--darkreader-neutral-background) !important;
-}
-.d2l-collapsible-panel {
-    border: 1px solid var(--darkreader-border--d2l-color-mica) !important;
-    border-radius: 0.4rem !important;
-}
-.d2l-collapsible-panel-divider {
-    border-bottom: 1px solid var(--darkreader-border--d2l-color-mica) !important;
-}
-.d2l-w2d-flex {
-    border-bottom: 2px solid var(--darkreader-border--d2l-color-mica) !important;
-}
-.d2l-collapsible-panel scrolled,
-.d2l-collapsible-panel-header,
-.d2l-w2d-collection-fixed {
-    background-color: var(--darkreader-neutral-background) !important;
-}
-.d2l-loading-spinner-bg {
-    fill: var(--darkreader-bg--d2l-color-gypsum) !important;
-}
-.d2l-loading-spinner-bg-stroke {
-    stroke: var(--darkreader-border--d2l-color-mica) !important;
-}
-.d2l-loading-spinner-wrapper svg path,
-.d2l-loading-spinner-wrapper svg circle {
-    fill: var(--darkreader-neutral-background) !important;
-}
-embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></head>
+  </style>
+</head>
 <body>
-  <header>
-    <div class="header-content">
-      <h1>Mi Dashboard de Marcadores</h1>
-      <p>Acceso rápido a todos tus sitios favoritos</p>
-    </div>
-  </header>
-  
-  <div class="container">
-    <div class="search-container">
-      <input type="text" id="search" placeholder="Buscar marcadores...">
-    </div>
-    
-    <div class="manage-categories">
-      <button class="manage-categories-btn" onclick="openCategoryManagerModal()">Gestionar Categorías</button>
-      <button class="manage-categories-btn" onclick="downloadUpdatedHTML()">Descargar HTML Actualizado</button>
-    </div>
-    
-    <div class="bookmarks-grid" id="bookmarksGrid"><div class="category" data-category="Trabajo"><div class="category-header" style="background-color: rgb(52, 152, 219); --darkreader-inline-bgcolor: var(--darkreader-background-3498db, #1d6fa5);" data-darkreader-inline-bgcolor="">
-          <span>Trabajo</span>
-          <svg class="add-icon" onclick="openNewBookmarkModal('Trabajo')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-          </svg>
-        </div><div class="bookmark-list"><a href="https://mail.google.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
-            <span class="bookmark-title">Gmail Corporativo</span>
-          </a></div></div><div class="category" data-category="Viajes"><div class="category-header" style="background-color: rgb(230, 126, 34); --darkreader-inline-bgcolor: var(--darkreader-background-e67e22, #b25e14);" data-darkreader-inline-bgcolor="">
-          <span>Viajes</span>
-          <svg class="add-icon" onclick="openNewBookmarkModal('Viajes')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-          </svg>
-        </div><div class="bookmark-list"><a href="https://booking.com" class="bookmark" target="_blank">
-            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M2 12h20"></path><path d="M6 4v16"></path><path d="M18 4v16"></path><path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path></svg></div>
-            <span class="bookmark-title">Booking.com</span>
-          </a></div></div><div class="category" data-category="TEST777"><div class="category-header" style="background-color: rgb(0, 255, 0); --darkreader-inline-bgcolor: var(--darkreader-background-00ff00, #33cc00);" data-darkreader-inline-bgcolor="">
-          <span>TEST777</span>
-          <svg class="add-icon" onclick="openNewBookmarkModal('TEST777')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-          </svg>
-        </div><div class="bookmark-list"></div></div><div class="category" data-category="GitHub"><div class="category-header" style="background-color: rgb(128, 0, 255); --darkreader-inline-bgcolor: var(--darkreader-background-8000ff, #6600cc);" data-darkreader-inline-bgcolor="">
-          <span>GitHub</span>
-          <svg class="add-icon" onclick="openNewBookmarkModal('GitHub')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-          </svg>
-        </div><div class="bookmark-list"><a href="https://github.com/vtedash/vtedash/blob/main/index.html" class="bookmark" target="_blank">
-            <div class="bookmark-icon"></div>
-            <span class="bookmark-title">DashBoard Code</span>
-          </a></div></div></div>
+  <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+    <button onclick="openCategoryManagerModal()">Gestionar Categorías</button>
+    <button onclick="openBookmarkManagerModal()">Gestionar Marcadores</button>
+    <button onclick="downloadUpdatedHTML()">Descargar HTML Actualizado</button>
   </div>
-  
-  <div id="categoryManagerModal" class="modal" style="display: none;">
+  <div id="bookmarksGrid"></div>
+
+  <!-- Modal para gestionar categorías -->
+  <div id="categoryManagerModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeCategoryManagerModal()">×</span>
-      <h2>Gestión de Categorías</h2>
-      <div id="categoriesList"><div class="category-item">
-          <span>Trabajo</span>
-          <div class="category-actions">
-            <button onclick="editCategory(0)">Editar</button>
-            <button onclick="deleteCategory(0)">Eliminar</button>
-            <button onclick="moveCategoryUp(0)">↑</button>
-            <button onclick="moveCategoryDown(0)">↓</button>
-          </div>
-        </div><div class="category-item">
-          <span>Viajes</span>
-          <div class="category-actions">
-            <button onclick="editCategory(1)">Editar</button>
-            <button onclick="deleteCategory(1)">Eliminar</button>
-            <button onclick="moveCategoryUp(1)">↑</button>
-            <button onclick="moveCategoryDown(1)">↓</button>
-          </div>
-        </div><div class="category-item">
-          <span>TEST777</span>
-          <div class="category-actions">
-            <button onclick="editCategory(2)">Editar</button>
-            <button onclick="deleteCategory(2)">Eliminar</button>
-            <button onclick="moveCategoryUp(2)">↑</button>
-            <button onclick="moveCategoryDown(2)">↓</button>
-          </div>
-        </div><div class="category-item">
-          <span>GitHub</span>
-          <div class="category-actions">
-            <button onclick="editCategory(3)">Editar</button>
-            <button onclick="deleteCategory(3)">Eliminar</button>
-            <button onclick="moveCategoryUp(3)">↑</button>
-            <button onclick="moveCategoryDown(3)">↓</button>
-          </div>
-        </div></div>
-      <h3>Añadir Nueva Categoría</h3>
+      <h2>Gestionar Categorías</h2>
       <form id="newCategoryForm">
-        <div class="form-group">
-          <label for="newCategoryName">Nombre de la Categoría:</label>
-          <input type="text" id="newCategoryName" placeholder="Ej. Proyectos" required="">
-        </div>
-        <div class="form-group">
-          <label for="newCategoryColor">Color (opcional):</label>
-          <input type="color" id="newCategoryColor" value="#3498db">
-        </div>
-        <button type="submit" class="btn btn-primary">Añadir Categoría</button>
+        <input type="text" id="newCategoryName" placeholder="Nombre de la categoría" required>
+        <input type="color" id="newCategoryColor" value="#ffffff">
+        <button type="submit">Añadir Categoría</button>
       </form>
+      <div id="categoriesList"></div>
     </div>
   </div>
-  
-  <div id="newBookmarkModal" class="modal" style="display: none;">
+
+  <!-- Modal para añadir marcador -->
+  <div id="newBookmarkModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeNewBookmarkModal()">×</span>
       <h2>Añadir Marcador</h2>
       <form id="newBookmarkForm">
-        <div class="form-group">
-          <label for="bookmarkTitle">Título del Marcador:</label>
-          <input type="text" id="bookmarkTitle" placeholder="Ej. Mi página favorita" required="">
-        </div>
-        <div class="form-group">
-          <label for="bookmarkURL">URL del Marcador:</label>
-          <input type="url" id="bookmarkURL" placeholder="https://example.com" required="">
-        </div>
-        <div class="form-group">
-          <label for="bookmarkIcon">Icono (opcional):</label>
-          <input type="text" id="bookmarkIcon" placeholder="SVG o URL de imagen">
-        </div>
-        <button type="submit" class="btn btn-primary">Añadir Marcador</button>
+        <input type="text" id="bookmarkTitle" placeholder="Título" required>
+        <input type="url" id="bookmarkURL" placeholder="URL" required>
+        <input type="text" id="bookmarkIcon" placeholder="Icono (SVG o URL de imagen)">
+        <button type="submit">Añadir</button>
       </form>
     </div>
   </div>
-  
-  <footer>
-    <p>© 2025 Mi Dashboard de Marcadores</p>
-  </footer>
-  
+
+  <!-- Modal para gestionar marcadores -->
+  <div id="bookmarkManagerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeBookmarkManagerModal()">×</span>
+      <h2>Gestionar Marcadores</h2>
+      <h3>Selecciona una categoría:</h3>
+      <div id="bookmarkCategoryList"></div>
+      <div id="bookmarksList"></div>
+    </div>
+  </div>
+
   <script>
     /**************************************
      * Gestión de Categorías y Marcadores *
      **************************************/
-    
+
     let categories = [];
     let selectedCategoryName = null;
-    
-    // Categorías por defecto (actualízalas según tus necesidades)
+    let selectedCategoryForBookmarks = null;
+
+    // Categorías por defecto
     const defaultCategories = [
-  {
-    "id": 1,
-    "name": "Trabajo",
-    "color": "#3498db",
-    "bookmarks": [
       {
-        "title": "Gmail Corporativo",
-        "url": "https://mail.google.com",
-        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "name": "Viajes",
-    "color": "#e67e22",
-    "bookmarks": [
+        "id": 1,
+        "name": "Trabajo",
+        "color": "#3498db",
+        "bookmarks": [
+          {
+            "title": "Gmail Corporativo",
+            "url": "https://mail.google.com",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
+          }
+        ]
+      },
       {
-        "title": "Booking.com",
-        "url": "https://booking.com",
-        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h20\"></path><path d=\"M6 4v16\"></path><path d=\"M18 4v16\"></path><path d=\"M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z\"></path></svg>"
+        "id": 2,
+        "name": "Viajes",
+        "color": "#e67e22",
+        "bookmarks": [
+          {
+            "title": "Booking.com",
+            "url": "https://booking.com",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h20\"></path><path d=\"M6 4v16\"></path><path d=\"M18 4v16\"></path><path d=\"M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z\"></path></svg>"
+          }
+        ]
       }
-    ]
-  },
-  {
-    "id": 1742228719522,
-    "name": "TEST777",
-    "color": "#00ff00",
-    "bookmarks": []
-  },
-  {
-    "id": 1742230856985,
-    "name": "GitHub",
-    "color": "#8000ff",
-    "bookmarks": [
-      {
-        "title": "DashBoard Code",
-        "url": "https://github.com/vtedash/vtedash/blob/main/index.html",
-        "icon": ""
-      }
-    ]
-  }
-];
-    
+    ];
+
     // Cargar categorías y sincronizar con las por defecto
     function loadCategories() {
       const storedCategories = localStorage.getItem('categories');
@@ -796,104 +235,86 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
       syncCategoriesWithDefault();
       saveCategories();
     }
-    
+
     // Sincronizar categorías con las por defecto
     function syncCategoriesWithDefault() {
       const defaultMap = new Map(defaultCategories.map(cat => [cat.id, cat]));
-      
-      // Actualizar o añadir categorías desde defaultCategories
       defaultCategories.forEach(defaultCat => {
         const existingIndex = categories.findIndex(cat => cat.id === defaultCat.id);
         if (existingIndex !== -1) {
-          // Actualizar categoría existente
           const existingCat = categories[existingIndex];
           existingCat.name = defaultCat.name;
           existingCat.color = defaultCat.color;
-          
-          // Combinar marcadores: preservar los adicionales del usuario
           const defaultBookmarksMap = new Map(defaultCat.bookmarks.map(b => [b.url, b]));
           const updatedBookmarks = [...defaultCat.bookmarks];
-          
           existingCat.bookmarks.forEach(bookmark => {
             if (!defaultBookmarksMap.has(bookmark.url)) {
               updatedBookmarks.push(bookmark);
             }
           });
-          
           existingCat.bookmarks = updatedBookmarks;
         } else {
-          // Añadir nueva categoría si no existe
           categories.push(JSON.parse(JSON.stringify(defaultCat)));
         }
       });
-      
-      // Eliminar categorías que no están en defaultCategories
       categories = categories.filter(cat => defaultMap.has(cat.id));
     }
-    
+
     // Guardar categorías en localStorage
     function saveCategories() {
       localStorage.setItem('categories', JSON.stringify(categories));
     }
-    
+
     // Renderizar las categorías en el grid
     function renderCategories() {
       const grid = document.getElementById('bookmarksGrid');
+      if (!grid) return;
       grid.innerHTML = '';
-      
       categories.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.className = 'category';
         categoryDiv.setAttribute('data-category', category.name);
-        
         const header = document.createElement('div');
         header.className = 'category-header';
         header.style.backgroundColor = category.color;
         header.innerHTML = `
           <span>${category.name}</span>
-          <svg class="add-icon" onclick="openNewBookmarkModal('${category.name}')" 
-               xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
-               viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-               stroke-width="2">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-          </svg>
+          <div class="add-icon" onclick="openNewBookmarkModal('${category.name}')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </div>
         `;
-        
         categoryDiv.appendChild(header);
-        
         const bookmarkList = document.createElement('div');
         bookmarkList.className = 'bookmark-list';
-        
         category.bookmarks.forEach(bookmark => {
           const a = document.createElement('a');
           a.href = bookmark.url;
           a.className = 'bookmark';
           a.target = '_blank';
-          
           let iconContent = bookmark.icon;
           const isSVG = iconContent.trim().startsWith('<svg');
           if (!isSVG && iconContent.trim() !== '') {
-            iconContent = `<img src="${iconContent}" alt="icon" style="width:16px;height:16px;">`;
+            iconContent = `<img src="${iconContent}" alt="icon" style="width:20px;height:20px;">`;
           }
-          
           a.innerHTML = `
             <div class="bookmark-icon">${iconContent || ''}</div>
             <span class="bookmark-title">${bookmark.title}</span>
           `;
           bookmarkList.appendChild(a);
         });
-        
         categoryDiv.appendChild(bookmarkList);
         grid.appendChild(categoryDiv);
       });
     }
-    
-    // Renderizar lista de categorías en el modal
+
+    // Renderizar lista de categorías en el modal de gestión de categorías
     function renderCategoryManagementList() {
       const list = document.getElementById('categoriesList');
+      if (!list) return;
       list.innerHTML = '';
-      
       categories.forEach((category, index) => {
         const item = document.createElement('div');
         item.className = 'category-item';
@@ -909,154 +330,235 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
         list.appendChild(item);
       });
     }
-    
-    // Funciones de los modales
+
+    // Funciones de los modales de categorías
     function openCategoryManagerModal() {
+      console.log('Abriendo modal de gestión de categorías');
       renderCategoryManagementList();
-      document.getElementById('categoryManagerModal').style.display = 'block';
+      document.getElementById('categoryManagerModal').style.display = 'flex';
     }
-    
+
     function closeCategoryManagerModal() {
       document.getElementById('categoryManagerModal').style.display = 'none';
     }
-    
+
+    // Funciones de los modales de añadir marcador
     function openNewBookmarkModal(categoryName) {
+      console.log('Abriendo modal para añadir marcador en categoría:', categoryName);
       selectedCategoryName = categoryName;
       document.getElementById('newBookmarkForm').reset();
-      document.getElementById('newBookmarkModal').style.display = 'block';
+      document.getElementById('newBookmarkModal').style.display = 'flex';
     }
-    
+
     function closeNewBookmarkModal() {
       document.getElementById('newBookmarkModal').style.display = 'none';
     }
-    
+
+    // Funciones de los modales de gestionar marcadores
+    function openBookmarkManagerModal() {
+      console.log('Abriendo modal de gestión de marcadores');
+      selectedCategoryForBookmarks = null;
+      renderBookmarkCategoryList();
+      document.getElementById('bookmarksList').innerHTML = '';
+      document.getElementById('bookmarkManagerModal').style.display = 'flex';
+    }
+
+    function closeBookmarkManagerModal() {
+      document.getElementById('bookmarkManagerModal').style.display = 'none';
+    }
+
     window.onclick = function(event) {
       const categoryModal = document.getElementById('categoryManagerModal');
       const bookmarkModal = document.getElementById('newBookmarkModal');
+      const bookmarkManagerModal = document.getElementById('bookmarkManagerModal');
       if (event.target === categoryModal) closeCategoryManagerModal();
       if (event.target === bookmarkModal) closeNewBookmarkModal();
-    }
-    
+      if (event.target === bookmarkManagerModal) closeBookmarkManagerModal();
+    };
+
     // Añadir nueva categoría
     document.getElementById('newCategoryForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('newCategoryName').value.trim();
       const color = document.getElementById('newCategoryColor').value;
-      
-      if (name === "" || categories.some(cat => cat.name.toLowerCase() === name.toLowerCase())) {
-        return alert("Nombre inválido o categoría ya existente.");
+      if (name) {
+        const newCategory = {
+          id: Date.now(),
+          name: name,
+          color: color,
+          bookmarks: []
+        };
+        categories.push(newCategory);
+        saveCategories();
+        renderCategories();
+        renderCategoryManagementList();
+        closeCategoryManagerModal();
       }
-      
-      const newCategory = { id: Date.now(), name, color, bookmarks: [] };
-      categories.push(newCategory);
-      saveCategories();
-      renderCategories();
-      renderCategoryManagementList();
-      document.getElementById('newCategoryForm').reset();
     });
-    
-    // Añadir nuevo marcador
-    document.getElementById('newBookmarkForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (!selectedCategoryName) return;
-      
-      const title = document.getElementById('bookmarkTitle').value.trim();
-      const url = document.getElementById('bookmarkURL').value.trim();
-      const icon = document.getElementById('bookmarkIcon').value.trim();
-      
-      if (title === "" || url === "") return alert("Completa título y URL.");
-      
-      const categoryIndex = categories.findIndex(cat => cat.name === selectedCategoryName);
-      categories[categoryIndex].bookmarks.push({ title, url, icon });
-      saveCategories();
-      renderCategories();
-      closeNewBookmarkModal();
-    });
-    
-    // Editar, eliminar y reordenar categorías
+
+    // Editar categoría
     function editCategory(index) {
-      const newName = prompt("Editar nombre:", categories[index].name);
-      if (newName && newName.trim() !== "" && !categories.some((cat, i) => i !== index && cat.name.toLowerCase() === newName.toLowerCase())) {
-        categories[index].name = newName.trim();
+      const categoryToEdit = categories[index];
+      const newName = prompt("Nuevo nombre para la categoría:", categoryToEdit.name);
+      if (newName !== null && newName.trim() !== "") {
+        categoryToEdit.name = newName.trim();
+        const newColor = prompt("Nuevo color (opcional):", categoryToEdit.color);
+        if (newColor !== null) {
+          categoryToEdit.color = newColor;
+        }
         saveCategories();
         renderCategories();
         renderCategoryManagementList();
       }
     }
-    
+
+    // Eliminar categoría
     function deleteCategory(index) {
-      if (confirm(`¿Eliminar "${categories[index].name}"?`)) {
+      if (confirm("¿Seguro que quieres eliminar esta categoría?")) {
         categories.splice(index, 1);
         saveCategories();
         renderCategories();
         renderCategoryManagementList();
       }
     }
-    
+
+    // Mover categoría hacia arriba
     function moveCategoryUp(index) {
       if (index > 0) {
-        [categories[index - 1], categories[index]] = [categories[index], categories[index - 1]];
+        [categories[index], categories[index - 1]] = [categories[index - 1], categories[index]];
         saveCategories();
         renderCategories();
         renderCategoryManagementList();
       }
     }
-    
+
+    // Mover categoría hacia abajo
     function moveCategoryDown(index) {
       if (index < categories.length - 1) {
-        [categories[index + 1], categories[index]] = [categories[index], categories[index + 1]];
+        [categories[index], categories[index + 1]] = [categories[index + 1], categories[index]];
         saveCategories();
         renderCategories();
         renderCategoryManagementList();
       }
     }
-    
-    // Buscador
-    document.getElementById('search').addEventListener('input', function(e) {
-      const searchTerm = e.target.value.toLowerCase();
-      const categoriesElements = document.querySelectorAll('.category');
-      
-      categoriesElements.forEach(categoryElement => {
-        const categoryName = categoryElement.getAttribute('data-category').toLowerCase();
-        const bookmarks = categoryElement.querySelectorAll('.bookmark');
-        let categoryMatches = categoryName.includes(searchTerm);
-        let bookmarkMatches = false;
-        
-        bookmarks.forEach(bookmark => {
-          const title = bookmark.querySelector('.bookmark-title').textContent.toLowerCase();
-          bookmark.style.display = title.includes(searchTerm) ? 'flex' : 'none';
-          if (title.includes(searchTerm)) bookmarkMatches = true;
-        });
-        
-        categoryElement.style.display = (categoryMatches || bookmarkMatches) ? 'block' : 'none';
-      });
+
+    // Añadir nuevo marcador
+    document.getElementById('newBookmarkForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('bookmarkTitle').value.trim();
+      const url = document.getElementById('bookmarkURL').value.trim();
+      const icon = document.getElementById('bookmarkIcon').value.trim();
+      if (title && url && selectedCategoryName) {
+        const category = categories.find(cat => cat.name === selectedCategoryName);
+        if (category) {
+          category.bookmarks.push({ title: title, url: url, icon: icon });
+          saveCategories();
+          renderCategories();
+          closeNewBookmarkModal();
+        }
+      }
     });
-    
-    // Descargar HTML actualizado
-    function downloadUpdatedHTML() {
-      let htmlContent = document.documentElement.outerHTML;
-      const updatedCategories = JSON.stringify(categories, null, 2);
-      const scriptStart = htmlContent.indexOf('const defaultCategories = [');
-      const scriptEnd = htmlContent.indexOf('];', scriptStart) + 1;
-      const newScriptPart = `const defaultCategories = ${updatedCategories}`;
-      htmlContent = htmlContent.substring(0, scriptStart) + newScriptPart + htmlContent.substring(scriptEnd);
-      
-      const blob = new Blob([htmlContent], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'index.html';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+
+    // Renderizar lista de categorías para gestionar marcadores
+    function renderBookmarkCategoryList() {
+      const list = document.getElementById('bookmarkCategoryList');
+      if (!list) return;
+      list.innerHTML = '';
+      categories.forEach(category => {
+        const item = document.createElement('div');
+        item.className = 'category-item';
+        item.innerHTML = `
+          <span onclick="selectCategoryForBookmarks('${category.name}')">${category.name}</span>
+        `;
+        list.appendChild(item);
+      });
     }
-    
+
+    // Seleccionar categoría para gestionar marcadores
+    function selectCategoryForBookmarks(categoryName) {
+      selectedCategoryForBookmarks = categoryName;
+      renderBookmarkManagementList();
+    }
+
+    // Renderizar lista de marcadores en el modal
+    function renderBookmarkManagementList() {
+      const list = document.getElementById('bookmarksList');
+      if (!list) return;
+      list.innerHTML = '';
+      const category = categories.find(cat => cat.name === selectedCategoryForBookmarks);
+      if (category) {
+        category.bookmarks.forEach((bookmark, index) => {
+          const item = document.createElement('div');
+          item.className = 'bookmark-item';
+          item.innerHTML = `
+            <span>${bookmark.title}</span>
+            <div class="bookmark-actions">
+              <button onclick="editBookmark('${selectedCategoryForBookmarks}', ${index})">Editar</button>
+              <button onclick="deleteBookmark('${selectedCategoryForBookmarks}', ${index})">Eliminar</button>
+            </div>
+          `;
+          list.appendChild(item);
+        });
+      }
+    }
+
+    // Editar marcador
+    function editBookmark(categoryName, index) {
+      const category = categories.find(cat => cat.name === categoryName);
+      if (!category) return;
+      const bookmark = category.bookmarks[index];
+      const newTitle = prompt("Nuevo título:", bookmark.title);
+      if (newTitle !== null && newTitle.trim() !== "") {
+        bookmark.title = newTitle.trim();
+        const newUrl = prompt("Nueva URL:", bookmark.url);
+        if (newUrl !== null && newUrl.trim() !== "") {
+          bookmark.url = newUrl.trim();
+        }
+        const newIcon = prompt("Nuevo icono (SVG o URL de imagen):", bookmark.icon);
+        if (newIcon !== null) {
+          bookmark.icon = newIcon;
+        }
+        saveCategories();
+        renderCategories();
+        renderBookmarkManagementList();
+      }
+    }
+
+    // Eliminar marcador
+    function deleteBookmark(categoryName, index) {
+      if (confirm("¿Seguro que quieres eliminar este marcador?")) {
+        const category = categories.find(cat => cat.name === categoryName);
+        if (category) {
+          category.bookmarks.splice(index, 1);
+          saveCategories();
+          renderCategories();
+          renderBookmarkManagementList();
+        }
+      }
+    }
+
+    // Descargar el HTML actualizado
+    function downloadUpdatedHTML() {
+      console.log('Iniciando descarga del HTML actualizado');
+      try {
+        const htmlContent = document.documentElement.outerHTML;
+        const blob = new Blob([htmlContent], { type: 'text/html' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'mi_dashboard_actualizado.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+        console.log('Descarga completada');
+      } catch (error) {
+        console.error('Error al descargar el HTML:', error);
+      }
+    }
+
     // Inicializar
     loadCategories();
     renderCategories();
   </script>
-
-
-
-</body></html>
+</body>
+</html>
