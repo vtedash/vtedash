@@ -295,31 +295,151 @@
     let selectedCategoryForBookmarks = null;
 
     const defaultCategories = [
-      {
-        "id": 1,
-        "name": "Trabajo",
-        "color": "#3498db",
-        "bookmarks": [
-          {
-            "title": "Gmail Corporativo",
-            "url": "https://mail.google.com",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "name": "Viajes",
-        "color": "#e67e22",
-        "bookmarks": [
-          {
-            "title": "Booking.com",
-            "url": "https://booking.com",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h20\"></path><path d=\"M6 4v16\"></path><path d=\"M18 4v16\"></path><path d=\"M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z\"></path></svg>"
-          }
-        ]
-      }
-    ];
+   {
+     "id": 1,
+     "name": "Trabajo",
+     "color": "#3498db",
+     "bookmarks": [
+       {
+         "title": "Gmail Corporativo",
+         "url": "https://mail.google.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
+       }
+     ]
+   },
+   {
+     "id": 2,
+     "name": "Viajes",
+     "color": "#e67e22",
+     "bookmarks": [
+       {
+         "title": "Booking.com",
+         "url": "https://booking.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 12h20\"></path><path d=\"M6 4v16\"></path><path d=\"M18 4v16\"></path><path d=\"M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z\"></path></svg>"
+       }
+     ]
+   },
+   {
+     "id": 3,
+     "name": "Redes Sociales y Comunicación",
+     "color": "#ff6f61",
+     "bookmarks": [
+       {
+         "title": "YouTube",
+         "url": "https://youtube.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z\"></path><polygon points=\"9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02\"></polygon></svg>"
+       },
+       {
+         "title": "WhatsApp",
+         "url": "https://whatsapp.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 0 0-8.84 14.77L2 22l5.23-1.37A10 10 0 1 0 12 2zm3.84 13.32c-.22.62-.87 1.14-1.53 1.44-.66.3-1.53.35-2.31-.14-.88-.55-1.87-1.43-2.63-2.31-.76-.88-.96-1.92-.76-2.95.18-.9.62-1.73 1.28-2.32.22-.2.44-.3.66-.3.22 0 .44.1.62.3.22.2.44.62.62 1 .18.38.22.82.12 1.24-.1.42-.32.82-.54 1.14-.22.32-.44.64-.32.96.12.32.54 1.14 1.19 1.73.66.58 1.31.96 1.84 1.08.52.12.96-.1 1.28-.32.32-.22.64-.54.86-.86.22-.32.22-.62.18-.86-.04-.24-.22-.48-.44-.62-.22-.14-.44-.3-.66-.48z\"/></svg>"
+       },
+       {
+         "title": "Twitch",
+         "url": "https://twitch.tv",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7\"/></svg>"
+       }
+     ]
+   },
+   {
+     "id": 4,
+     "name": "IA y Productividad",
+     "color": "#00c4b4",
+     "bookmarks": [
+       {
+         "title": "Gmail",
+         "url": "https://mail.google.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
+       },
+       {
+         "title": "ChatGPT",
+         "url": "https://chat.openai.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 0 0-3.16 19.49L12 22l3.16-.51A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
+       },
+       {
+         "title": "Gemini",
+         "url": "https://gemini.google.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
+       },
+       {
+         "title": "Claude",
+         "url": "https://claude.ai",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
+       },
+       {
+         "title": "Canva",
+         "url": "https://canva.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16v16H4zM6 6h12v12H6z\"/></svg>"
+       }
+     ]
+   },
+   {
+     "id": 5,
+     "name": "No Man's Sky",
+     "color": "#7b1fa2",
+     "bookmarks": [
+       {
+         "title": "NMS Recipes",
+         "url": "https://nomansskyrecipes.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
+       },
+       {
+         "title": "NMS Expeditions",
+         "url": "https://cwmonkey.github.io/nms-expeditions",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-12h2v6h-2z\"/></svg>"
+       }
+     ]
+   },
+   {
+     "id": 6,
+     "name": "Google",
+     "color": "#4285f4",
+     "bookmarks": [
+       {
+         "title": "Gmail",
+         "url": "https://mail.google.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
+       },
+       {
+         "title": "Drive",
+         "url": "https://drive.google.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2L2 8l10 6 10-6-10-6zm0 6l-10 6 10 6 10-6-10-6z\"/></svg>"
+       },
+       {
+         "title": "Keep",
+         "url": "https://keep.google.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16v12H4zM4 8h16M4 12h16\"/></svg>"
+       },
+       {
+         "title": "Docs",
+         "url": "https://docs.google.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/></svg>"
+       },
+       {
+         "title": "Sheets",
+         "url": "https://sheets.google.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><path d=\"M8 13h8M8 17h8M8 9h8\"/></svg>"
+       }
+     ]
+   },
+   {
+     "id": 7,
+     "name": "Periódicos",
+     "color": "#f4b400",
+     "bookmarks": [
+       {
+         "title": "El Correo Digital",
+         "url": "https://elcorreo.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 4h20v16H2zM2 8h20M2 12h20M2 16h20\"/></svg>"
+       },
+       {
+         "title": "El País",
+         "url": "https://elpais.com",
+         "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 4h20v16H2zM2 8h20M2 12h20M2 16h20\"/></svg>"
+       }
+     ]
+   }
+ ];
 
     function loadCategories() {
       const storedCategories = localStorage.getItem('categories');
