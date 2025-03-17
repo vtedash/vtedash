@@ -120,26 +120,26 @@ select:-webkit-autofill {
       --dark-color: #2c3e50;
       --hover-color: #1abc9c;
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    
+
     body {
       background-color: #f5f7fa;
       color: var(--dark-color);
       line-height: 1.6;
     }
-    
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
     }
-    
+
     header {
       background-color: var(--primary-color);
       color: white;
@@ -148,20 +148,20 @@ select:-webkit-autofill {
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    
+
     .header-content {
       padding: 0 20px;
     }
-    
+
     h1 {
       font-size: 2rem;
       margin-bottom: 10px;
     }
-    
+
     .search-container {
       margin: 20px 0;
     }
-    
+
     #search {
       width: 100%;
       padding: 12px;
@@ -171,17 +171,17 @@ select:-webkit-autofill {
       outline: none;
       transition: all 0.3s;
     }
-    
+
     #search:focus {
       border-color: var(--secondary-color);
       box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
     }
-    
+
     .manage-categories {
       text-align: center;
       margin-bottom: 20px;
     }
-    
+
     .manage-categories-btn {
       padding: 12px 24px;
       background-color: var(--primary-color);
@@ -195,18 +195,18 @@ select:-webkit-autofill {
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       margin: 0 10px;
     }
-    
+
     .manage-categories-btn:hover {
       background-color: #1e2b38;
     }
-    
+
     .bookmarks-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
       margin-bottom: 30px;
     }
-    
+
     .category {
       background-color: white;
       border-radius: 8px;
@@ -214,12 +214,12 @@ select:-webkit-autofill {
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    
+
     .category:hover {
       transform: translateY(-5px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
-    
+
     .category-header {
       color: white;
       padding: 15px;
@@ -229,11 +229,11 @@ select:-webkit-autofill {
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .bookmark-list {
       padding: 15px;
     }
-    
+
     .bookmark {
       display: flex;
       align-items: center;
@@ -243,16 +243,16 @@ select:-webkit-autofill {
       color: var(--dark-color);
       transition: background-color 0.2s;
     }
-    
+
     .bookmark:last-child {
       border-bottom: none;
     }
-    
+
     .bookmark:hover {
       background-color: #f8f9fa;
       color: var(--hover-color);
     }
-    
+
     .bookmark-icon {
       margin-right: 10px;
       width: 24px;
@@ -261,16 +261,16 @@ select:-webkit-autofill {
       align-items: center;
       justify-content: center;
     }
-    
+
     .bookmark-icon svg {
       width: 16px;
       height: 16px;
     }
-    
+
     .bookmark-title {
       font-weight: 500;
     }
-    
+
     footer {
       text-align: center;
       margin-top: 20px;
@@ -278,7 +278,7 @@ select:-webkit-autofill {
       color: #7f8c8d;
       font-size: 0.9rem;
     }
-    
+
     .modal {
       display: none;
       position: fixed;
@@ -289,7 +289,7 @@ select:-webkit-autofill {
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
     }
-    
+
     .modal-content {
       background-color: white;
       margin: 10% auto;
@@ -299,7 +299,7 @@ select:-webkit-autofill {
       border-radius: 8px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
-    
+
     .close {
       color: #aaa;
       float: right;
@@ -307,25 +307,25 @@ select:-webkit-autofill {
       font-weight: bold;
       cursor: pointer;
     }
-    
+
     .close:hover {
       color: black;
     }
-    
+
     .modal h2, .modal h3 {
       margin-bottom: 20px;
     }
-    
+
     .form-group {
       margin-bottom: 15px;
     }
-    
+
     .form-group label {
       display: block;
       margin-bottom: 5px;
       font-weight: 500;
     }
-    
+
     .form-group input, .form-group select {
       width: 100%;
       padding: 10px;
@@ -333,7 +333,7 @@ select:-webkit-autofill {
       border-radius: 4px;
       font-size: 1rem;
     }
-    
+
     .btn {
       padding: 10px 15px;
       border: none;
@@ -342,27 +342,27 @@ select:-webkit-autofill {
       font-size: 1rem;
       transition: background-color 0.3s;
     }
-    
+
     .btn-primary {
       background-color: var(--secondary-color);
       color: white;
     }
-    
+
     .btn-primary:hover {
       background-color: #2980b9;
     }
-    
+
     .btn-danger {
       background-color: var(--accent-color);
       color: white;
     }
-    
+
     .action-buttons {
       display: flex;
       justify-content: space-between;
       margin-top: 20px;
     }
-    
+
     .category-item {
       display: flex;
       justify-content: space-between;
@@ -370,7 +370,7 @@ select:-webkit-autofill {
       padding: 10px 0;
       border-bottom: 1px solid #eee;
     }
-    
+
     .category-actions button {
       margin-left: 5px;
       padding: 5px 10px;
@@ -382,51 +382,51 @@ select:-webkit-autofill {
       font-size: 0.8rem;
       transition: background-color 0.3s;
     }
-    
+
     .category-actions button:hover {
       background-color: #2980b9;
     }
-    
+
     @media (max-width: 768px) {
       .bookmarks-grid {
         grid-template-columns: 1fr;
       }
-      
+
       h1 {
         font-size: 1.5rem;
       }
-      
+
       .modal-content {
         width: 90%;
         margin: 30% auto;
       }
     }
-    
+
     @media (prefers-color-scheme: dark) {
       body {
         background-color: #1a1a2e;
         color: #e1e1e1;
       }
-      
+
       .category {
         background-color: #16213e;
       }
-      
+
       .bookmark {
         border-bottom: 1px solid #2a2a3a;
         color: #e1e1e1;
       }
-      
+
       .bookmark:hover {
         background-color: #222736;
       }
-      
+
       #search, .form-group input, .form-group select, .modal-content {
         background-color: #16213e;
         color: #e1e1e1;
         border-color: #2a2a3a;
       }
-      
+
       .manage-categories-btn,
       .btn-primary, .category-actions button {
         background-color: #3498db;
@@ -606,17 +606,17 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
       <p>Acceso rápido a todos tus sitios favoritos</p>
     </div>
   </header>
-  
+
   <div class="container">
     <div class="search-container">
       <input type="text" id="search" placeholder="Buscar marcadores...">
     </div>
-    
+
     <div class="manage-categories">
       <button class="manage-categories-btn" onclick="openCategoryManagerModal()">Gestionar Categorías</button>
       <button class="manage-categories-btn" onclick="downloadUpdatedHTML()">Descargar HTML Actualizado</button>
     </div>
-    
+
     <div class="bookmarks-grid" id="bookmarksGrid"><div class="category" data-category="Trabajo"><div class="category-header" style="background-color: rgb(52, 152, 219); --darkreader-inline-bgcolor: var(--darkreader-background-3498db, #1d6fa5);" data-darkreader-inline-bgcolor="">
           <span>Trabajo</span>
           <svg class="add-icon" onclick="openNewBookmarkModal('Trabajo')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
@@ -641,9 +641,93 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <line x1="5" y1="12" x2="19" y2="12"></line>
           </svg>
-        </div><div class="bookmark-list"></div></div></div>
+        </div><div class="bookmark-list"></div></div><div class="category" data-category="Redes Sociales"><div class="category-header" style="background-color: rgb(155, 89, 182); --darkreader-inline-bgcolor: var(--darkreader-background-9b59b6, #7e468f);" data-darkreader-inline-bgcolor="">
+          <span>Redes Sociales</span>
+          <svg class="add-icon" onclick="openNewBookmarkModal('Redes Sociales')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div><div class="bookmark-list"><a href="https://www.youtube.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2A29 29 0 0 0 12 2a29 29 0 0 0-8.6 2A2.78 2.78 0 0 0 1.46 6.42C1.08 8.17 1 12 1 12s0-3.83.06-5.58a2.78 2.78 0 0 0 1.94-2m19.08 11.16c.38-1.75.4-5.58.4-5.58s0 3.83-.06 5.58a2.78 2.78 0 0 0-1.94 2c-.38 1.75-.4 5.58-.4 5.58s0-3.83.06-5.58a2.78 2.78 0 0 0 1.94-2m-10.6-7.14v14m8-7-8 4 8 4"></path></svg></div>
+            <span class="bookmark-title">Youtube</span>
+          </a><a href="https://web.whatsapp.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M20 11.5A8.5 8.5 0 0 0 4 11.5m16 0a8.5 8.5 0 0 0-8.5 8.5m8.5-8.5v-2a8.5 8.5 0 0 0-8.5-8.5m8.5 10.5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1Z"></path><path d="M16 5a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path><path d="M12 5a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path><path d="M8 5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path><path d="M16 9a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path><path d="M12 9a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path><path d="M8 9a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path><path d="M16 13a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path><path d="M12 13a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path><path d="M8 13a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path><path d="M16 17a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path><path d="M12 17a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path><path d="M8 17a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z"></path></svg></div>
+            <span class="bookmark-title">Whatsapp</span>
+          </a><a href="https://www.twitch.tv/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M2 2v16h6v4l4-4h6V2H2z"></path><path d="M16 6l-3 5h3l-3 5"></path></svg></div>
+            <span class="bookmark-title">Twitch</span>
+          </a></div></div><div class="category" data-category="IA Tools"><div class="category-header" style="background-color: rgb(46, 204, 113); --darkreader-inline-bgcolor: var(--darkreader-background-2ecc71, #1b824b);" data-darkreader-inline-bgcolor="">
+          <span>IA Tools</span>
+          <svg class="add-icon" onclick="openNewBookmarkModal('IA Tools')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div><div class="bookmark-list"><a href="https://chat.openai.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M7 10v4h3v-4H7zm7 0v4h3v-4h-3zM5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path></svg></div>
+            <span class="bookmark-title">ChatGPT</span>
+          </a><a href="https://gemini.google.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M16 17v-3h-4v3H8v-7h8v7h-4zm-4 2a2 2 0 1 1 2-2 2 2 0 0 1-2 2z"></path><path d="M8 10V3l-4 4 4 3zm8 0V3l4 4-4 3z"></path></svg></div>
+            <span class="bookmark-title">Gemini</span>
+          </a><a href="https://claude.ai/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z"></path><path d="M12 17a5 5 0 0 0 5-5 5 5 0 0 0-5-5 5 5 0 0 0-5 5 5 5 0 0 0 5 5z"></path></svg></div>
+            <span class="bookmark-title">Claude</span>
+          </a></div></div><div class="category" data-category="Diseño"><div class="category-header" style="background-color: rgb(26, 188, 156); --darkreader-inline-bgcolor: var(--darkreader-background-1abc9c, #147e66);" data-darkreader-inline-bgcolor="">
+          <span>Diseño</span>
+          <svg class="add-icon" onclick="openNewBookmarkModal('Diseño')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div><div class="bookmark-list"><a href="https://www.canva.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z"></path><path d="M12 17a5 5 0 0 0 5-5 5 5 0 0 0-5-5 5 5 0 0 0-5 5 5 5 0 0 0 5 5z"></path></svg></div>
+            <span class="bookmark-title">Canva</span>
+          </a></div></div><div class="category" data-category="No Mans Sky"><div class="category-header" style="background-color: rgb(142, 68, 173); --darkreader-inline-bgcolor: var(--darkreader-background-8e44ad, #6e3580);" data-darkreader-inline-bgcolor="">
+          <span>No Mans Sky</span>
+          <svg class="add-icon" onclick="openNewBookmarkModal('No Mans Sky')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div><div class="bookmark-list"><a href="https://nomansskyrecipes.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></div>
+            <span class="bookmark-title">No Mans Sky Recipes</span>
+          </a><a href="https://cwmonkey.github.io/nms-expeditions/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z"></path><path d="M12 17a5 5 0 0 0 5-5 5 5 0 0 0-5-5 5 5 0 0 0-5 5 5 5 0 0 0 5 5z"></path></svg></div>
+            <span class="bookmark-title">NMS Expeditions</span>
+          </a></div></div><div class="category" data-category="Google"><div class="category-header" style="background-color: rgb(241, 196, 15); --darkreader-inline-bgcolor: var(--darkreader-background-f1c40f, #b8930b);" data-darkreader-inline-bgcolor="">
+          <span>Google</span>
+          <svg class="add-icon" onclick="openNewBookmarkModal('Google')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div><div class="bookmark-list"><a href="https://mail.google.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+            <span class="bookmark-title">Gmail</span>
+          </a><a href="https://drive.google.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M21 16V4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4l-4-4z"></path></svg></div>
+            <span class="bookmark-title">Drive</span>
+          </a><a href="https://keep.google.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><path d="M12 11h4v4h-4zM8 11h3v4H8z"></path></svg></div>
+            <span class="bookmark-title">Keep</span>
+          </a><a href="https://docs.google.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path><path d="M14 2v6h6"></path><path d="M16 13h-4v-2h4v2zm0 4h-4v-2h4v2zM10 13H8v-2h2v2zm0 4H8v-2h2v2z"></path></svg></div>
+            <span class="bookmark-title">Google Docs</span>
+          </a><a href="https://sheets.google.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path><path d="M14 2v6h6"></path><path d="M17 14h-6v-2h6v2zm0 4h-6v-2h6v2zM11 14H9v-2h2v2zm0 4H9v-2h2v2z"></path></svg></div>
+            <span class="bookmark-title">Google Sheets</span>
+          </a></div></div><div class="category" data-category="Periódicos"><div class="category-header" style="background-color: rgb(52, 73, 94); --darkreader-inline-bgcolor: var(--darkreader-background-34495e, #1d2d3a);" data-darkreader-inline-bgcolor="">
+          <span>Periódicos</span>
+          <svg class="add-icon" onclick="openNewBookmarkModal('Periódicos')" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div><div class="bookmark-list"><a href="https://www.elcorreo.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z"></path><path d="M12 17a5 5 0 0 0 5-5 5 5 0 0 0-5-5 5 5 0 0 0-5 5 5 5 0 0 0 5 5z"></path></svg></div>
+            <span class="bookmark-title">El Correo Digital</span>
+          </a><a href="https://elpais.com/" class="bookmark" target="_blank">
+            <div class="bookmark-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke=""><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z"></path><path d="M12 17a5 5 0 0 0 5-5 5 5 0 0 0-5-5 5 5 0 0 0-5 5 5 5 0 0 0 5 5z"></path></svg></div>
+            <span class="bookmark-title">El País</span>
+          </a></div></div></div>
   </div>
-  
+
   <div id="categoryManagerModal" class="modal" style="display: none;">
     <div class="modal-content">
       <span class="close" onclick="closeCategoryManagerModal()">×</span>
@@ -672,6 +756,54 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
             <button onclick="moveCategoryUp(2)">↑</button>
             <button onclick="moveCategoryDown(2)">↓</button>
           </div>
+        </div><div class="category-item">
+          <span>Redes Sociales</span>
+          <div class="category-actions">
+            <button onclick="editCategory(3)">Editar</button>
+            <button onclick="deleteCategory(3)">Eliminar</button>
+            <button onclick="moveCategoryUp(3)">↑</button>
+            <button onclick="moveCategoryDown(3)">↓</button>
+          </div>
+        </div><div class="category-item">
+          <span>IA Tools</span>
+          <div class="category-actions">
+            <button onclick="editCategory(4)">Editar</button>
+            <button onclick="deleteCategory(4)">Eliminar</button>
+            <button onclick="moveCategoryUp(4)">↑</button>
+            <button onclick="moveCategoryDown(4)">↓</button>
+          </div>
+        </div><div class="category-item">
+          <span>Diseño</span>
+          <div class="category-actions">
+            <button onclick="editCategory(5)">Editar</button>
+            <button onclick="deleteCategory(5)">Eliminar</button>
+            <button onclick="moveCategoryUp(5)">↑</button>
+            <button onclick="moveCategoryDown(5)">↓</button>
+          </div>
+        </div><div class="category-item">
+          <span>No Mans Sky</span>
+          <div class="category-actions">
+            <button onclick="editCategory(6)">Editar</button>
+            <button onclick="deleteCategory(6)">Eliminar</button>
+            <button onclick="moveCategoryUp(6)">↑</button>
+            <button onclick="moveCategoryDown(6)">↓</button>
+          </div>
+        </div><div class="category-item">
+          <span>Google</span>
+          <div class="category-actions">
+            <button onclick="editCategory(7)">Editar</button>
+            <button onclick="deleteCategory(7)">Eliminar</button>
+            <button onclick="moveCategoryUp(7)">↑</button>
+            <button onclick="moveCategoryDown(7)">↓</button>
+          </div>
+        </div><div class="category-item">
+          <span>Periódicos</span>
+          <div class="category-actions">
+            <button onclick="editCategory(8)">Editar</button>
+            <button onclick="deleteCategory(8)">Eliminar</button>
+            <button onclick="moveCategoryUp(8)">↑</button>
+            <button onclick="moveCategoryDown(8)">↓</button>
+          </div>
         </div></div>
       <h3>Añadir Nueva Categoría</h3>
       <form id="newCategoryForm">
@@ -687,7 +819,7 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
       </form>
     </div>
   </div>
-  
+
   <div id="newBookmarkModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeNewBookmarkModal()">×</span>
@@ -709,19 +841,19 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
       </form>
     </div>
   </div>
-  
+
   <footer>
     <p>© 2025 Mi Dashboard de Marcadores</p>
   </footer>
-  
+
   <script>
     /**************************************
      * Gestión de Categorías y Marcadores *
      **************************************/
-    
-    let categories = [];
+
+    let categories =;
     let selectedCategoryName = null;
-    
+
     // Categorías por defecto (actualízalas según tus necesidades)
     const defaultCategories = [
   {
@@ -752,10 +884,132 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
     "id": 1742228719522,
     "name": "TEST777",
     "color": "#00ff00",
-    "bookmarks": []
+    "bookmarks":
+  },
+  {
+    "id": 1709999999001,
+    "name": "Redes Sociales",
+    "color": "#9b59b6",
+    "bookmarks": [
+      {
+        "title": "Youtube",
+        "url": "https://www.youtube.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2A29 29 0 0 0 12 2a29 29 0 0 0-8.6 2A2.78 2.78 0 0 0 1.46 6.42C1.08 8.17 1 12 1 12s0-3.83.06-5.58a2.78 2.78 0 0 0 1.94-2m19.08 11.16c.38-1.75.4-5.58.4-5.58s0 3.83-.06 5.58a2.78 2.78 0 0 0-1.94 2c-.38 1.75-.4 5.58-.4 5.58s0-3.83.06-5.58a2.78 2.78 0 0 0 1.94-2m-10.6-7.14v14m8-7-8 4 8 4\"></path></svg>"
+      },
+      {
+        "title": "Whatsapp",
+        "url": "https://web.whatsapp.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M20 11.5A8.5 8.5 0 0 0 4 11.5m16 0a8.5 8.5 0 0 0-8.5 8.5m8.5-8.5v-2a8.5 8.5 0 0 0-8.5-8.5m8.5 10.5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1Z\"></path><path d=\"M16 5a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path><path d=\"M12 5a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path><path d=\"M8 5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path><path d=\"M16 9a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path><path d=\"M12 9a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path><path d=\"M8 9a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path><path d=\"M16 13a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path><path d=\"M12 13a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path><path d=\"M8 13a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path><path d=\"M16 17a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path><path d=\"M12 17a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path><path d=\"M8 17a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Z\"></path></svg>"
+      },
+      {
+        "title": "Twitch",
+        "url": "https://www.twitch.tv/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M2 2v16h6v4l4-4h6V2H2z\"></path><path d=\"M16 6l-3 5h3l-3 5\"></path></svg>"
+      }
+    ]
+  },
+  {
+    "id": 1709999999002,
+    "name": "IA Tools",
+    "color": "#2ecc71",
+    "bookmarks": [
+      {
+        "title": "ChatGPT",
+        "url": "https://chat.openai.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M7 10v4h3v-4H7zm7 0v4h3v-4h-3zM5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z\"></path></svg>"
+      },
+      {
+        "title": "Gemini",
+        "url": "https://gemini.google.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M16 17v-3h-4v3H8v-7h8v7h-4zm-4 2a2 2 0 1 1 2-2 2 2 0 0 1-2 2z\"></path><path d=\"M8 10V3l-4 4 4 3zm8 0V3l4 4-4 3z\"></path></svg>"
+      },
+      {
+        "title": "Claude",
+        "url": "https://claude.ai/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z\"></path><path d=\"M12 17a5 5 0 0 0 5-5 5 5 0 0 0-5-5 5 5 0 0 0-5 5 5 5 0 0 0 5 5z\"></path></svg>"
+      }
+    ]
+  },
+  {
+    "id": 1709999999003,
+    "name": "Diseño",
+    "color": "#1abc9c",
+    "bookmarks": [
+      {
+        "title": "Canva",
+        "url": "https://www.canva.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z\"></path><path d=\"M12 17a5 5 0 0 0 5-5 5 5 0 0 0-5-5 5 5 0 0 0-5 5 5 5 0 0 0 5 5z\"></path></svg>"
+      }
+    ]
+  },
+  {
+    "id": 1709999999004,
+    "name": "No Mans Sky",
+    "color": "#8e44ad",
+    "bookmarks": [
+      {
+        "title": "No Mans Sky Recipes",
+        "url": "https://nomansskyrecipes.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"16\"></line><line x1=\"8\" y1=\"12\" x2=\"16\" y2=\"12\"></line></svg>"
+      },
+      {
+        "title": "NMS Expeditions",
+        "url": "https://cwmonkey.github.io/nms-expeditions/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z\"></path><path d=\"M12 17a5 5 0 0 0 5-5 5 5 0 0 0-5-5 5 5 0 0 0-5 5 5 5 0 0 0 5 5z\"></path></svg>"
+      }
+    ]
+  },
+  {
+    "id": 1709999999005,
+    "name": "Google",
+    "color": "#f1c40f",
+    "bookmarks": [
+      {
+        "title": "Gmail",
+        "url": "https://mail.google.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>"
+      },
+      {
+        "title": "Drive",
+        "url": "https://drive.google.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M21 16V4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4l-4-4z\"></path></svg>"
+      },
+      {
+        "title": "Keep",
+        "url": "https://keep.google.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z\"></path><path d=\"M12 11h4v4h-4zM8 11h3v4H8z\"></path></svg>"
+      },
+      {
+        "title": "Google Docs",
+        "url": "https://docs.google.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z\"></path><path d=\"M14 2v6h6\"></path><path d=\"M16 13h-4v-2h4v2zm0 4h-4v-2h4v2zM10 13H8v-2h2v2zm0 4H8v-2h2v2z\"></path></svg>"
+      },
+      {
+        "title": "Google Sheets",
+        "url": "https://sheets.google.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z\"></path><path d=\"M14 2v6h6\"></path><path d=\"M17 14h-6v-2h6v2zm0 4h-6v-2h6v2zM11 14H9v-2h2v2zm0 4H9v-2h2v2z\"></path></svg>"
+      }
+    ]
+  },
+  {
+    "id": 1709999999006,
+    "name": "Periódicos",
+    "color": "#34495e",
+    "bookmarks": [
+      {
+        "title": "El Correo Digital",
+        "url": "https://www.elcorreo.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z\"></path><path d=\"M12 17a5 5 0 0 0 5-5 5 5 0 0 0-5-5 5 5 0 0 0-5 5 5 5 0 0 0 5 5z\"></path></svg>"
+      },
+      {
+        "title": "El País",
+        "url": "https://elpais.com/",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z\"></path><path d=\"M12 17a5 5 0 0 0 5-5 5 5 0 0 0-5-5 5 5 0 0 0-5 5 5 5 0 0 0 5 5z\"></path></svg>"
+      }
+    ]
   }
 ];
-    
+
     // Cargar categorías y sincronizar con las por defecto
     function loadCategories() {
       const storedCategories = localStorage.getItem('categories');
@@ -767,11 +1021,11 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
       syncCategoriesWithDefault();
       saveCategories();
     }
-    
+
     // Sincronizar categorías con las por defecto
     function syncCategoriesWithDefault() {
       const defaultMap = new Map(defaultCategories.map(cat => [cat.id, cat]));
-      
+
       // Actualizar o añadir categorías desde defaultCategories
       defaultCategories.forEach(defaultCat => {
         const existingIndex = categories.findIndex(cat => cat.id === defaultCat.id);
@@ -780,91 +1034,91 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
           const existingCat = categories[existingIndex];
           existingCat.name = defaultCat.name;
           existingCat.color = defaultCat.color;
-          
+
           // Combinar marcadores: preservar los adicionales del usuario
           const defaultBookmarksMap = new Map(defaultCat.bookmarks.map(b => [b.url, b]));
           const updatedBookmarks = [...defaultCat.bookmarks];
-          
+
           existingCat.bookmarks.forEach(bookmark => {
             if (!defaultBookmarksMap.has(bookmark.url)) {
               updatedBookmarks.push(bookmark);
             }
           });
-          
+
           existingCat.bookmarks = updatedBookmarks;
         } else {
           // Añadir nueva categoría si no existe
           categories.push(JSON.parse(JSON.stringify(defaultCat)));
         }
       });
-      
+
       // Eliminar categorías que no están en defaultCategories
       categories = categories.filter(cat => defaultMap.has(cat.id));
     }
-    
+
     // Guardar categorías en localStorage
     function saveCategories() {
       localStorage.setItem('categories', JSON.stringify(categories));
     }
-    
+
     // Renderizar las categorías en el grid
     function renderCategories() {
       const grid = document.getElementById('bookmarksGrid');
       grid.innerHTML = '';
-      
+
       categories.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.className = 'category';
         categoryDiv.setAttribute('data-category', category.name);
-        
+
         const header = document.createElement('div');
         header.className = 'category-header';
         header.style.backgroundColor = category.color;
         header.innerHTML = `
           <span>${category.name}</span>
-          <svg class="add-icon" onclick="openNewBookmarkModal('${category.name}')" 
-               xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
-               viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+          <svg class="add-icon" onclick="openNewBookmarkModal('${category.name}')"
+               xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor"
                stroke-width="2">
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <line x1="5" y1="12" x2="19" y2="12"></line>
           </svg>
         `;
-        
+
         categoryDiv.appendChild(header);
-        
+
         const bookmarkList = document.createElement('div');
         bookmarkList.className = 'bookmark-list';
-        
+
         category.bookmarks.forEach(bookmark => {
           const a = document.createElement('a');
           a.href = bookmark.url;
           a.className = 'bookmark';
           a.target = '_blank';
-          
+
           let iconContent = bookmark.icon;
           const isSVG = iconContent.trim().startsWith('<svg');
           if (!isSVG && iconContent.trim() !== '') {
             iconContent = `<img src="${iconContent}" alt="icon" style="width:16px;height:16px;">`;
           }
-          
+
           a.innerHTML = `
             <div class="bookmark-icon">${iconContent || ''}</div>
             <span class="bookmark-title">${bookmark.title}</span>
           `;
           bookmarkList.appendChild(a);
         });
-        
+
         categoryDiv.appendChild(bookmarkList);
         grid.appendChild(categoryDiv);
       });
     }
-    
+
     // Renderizar lista de categorías en el modal
     function renderCategoryManagementList() {
       const list = document.getElementById('categoriesList');
       list.innerHTML = '';
-      
+
       categories.forEach((category, index) => {
         const item = document.createElement('div');
         item.className = 'category-item';
@@ -880,153 +1134,155 @@ embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></h
         list.appendChild(item);
       });
     }
-    
+
     // Funciones de los modales
     function openCategoryManagerModal() {
       renderCategoryManagementList();
       document.getElementById('categoryManagerModal').style.display = 'block';
     }
-    
+
     function closeCategoryManagerModal() {
       document.getElementById('categoryManagerModal').style.display = 'none';
     }
-    
+
     function openNewBookmarkModal(categoryName) {
       selectedCategoryName = categoryName;
       document.getElementById('newBookmarkForm').reset();
       document.getElementById('newBookmarkModal').style.display = 'block';
     }
-    
+
     function closeNewBookmarkModal() {
       document.getElementById('newBookmarkModal').style.display = 'none';
     }
-    
+
     window.onclick = function(event) {
       const categoryModal = document.getElementById('categoryManagerModal');
       const bookmarkModal = document.getElementById('newBookmarkModal');
       if (event.target === categoryModal) closeCategoryManagerModal();
       if (event.target === bookmarkModal) closeNewBookmarkModal();
     }
-    
+
     // Añadir nueva categoría
     document.getElementById('newCategoryForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('newCategoryName').value.trim();
       const color = document.getElementById('newCategoryColor').value;
-      
-      if (name === "" || categories.some(cat => cat.name.toLowerCase() === name.toLowerCase())) {
-        return alert("Nombre inválido o categoría ya existente.");
+      if (name) {
+        const newCategory = {
+          id: Date.now(),
+          name: name,
+          color: color,
+          bookmarks:
+        };
+        categories.push(newCategory);
+        saveCategories();
+        renderCategories();
+        renderCategoryManagementList();
+        closeCategoryManagerModal();
       }
-      
-      const newCategory = { id: Date.now(), name, color, bookmarks: [] };
-      categories.push(newCategory);
-      saveCategories();
-      renderCategories();
-      renderCategoryManagementList();
-      document.getElementById('newCategoryForm').reset();
     });
-    
-    // Añadir nuevo marcador
-    document.getElementById('newBookmarkForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (!selectedCategoryName) return;
-      
-      const title = document.getElementById('bookmarkTitle').value.trim();
-      const url = document.getElementById('bookmarkURL').value.trim();
-      const icon = document.getElementById('bookmarkIcon').value.trim();
-      
-      if (title === "" || url === "") return alert("Completa título y URL.");
-      
-      const categoryIndex = categories.findIndex(cat => cat.name === selectedCategoryName);
-      categories[categoryIndex].bookmarks.push({ title, url, icon });
-      saveCategories();
-      renderCategories();
-      closeNewBookmarkModal();
-    });
-    
-    // Editar, eliminar y reordenar categorías
+
+    // Editar categoría
     function editCategory(index) {
-      const newName = prompt("Editar nombre:", categories[index].name);
-      if (newName && newName.trim() !== "" && !categories.some((cat, i) => i !== index && cat.name.toLowerCase() === newName.toLowerCase())) {
-        categories[index].name = newName.trim();
+      const categoryToEdit = categories[index];
+      const newName = prompt("Nuevo nombre para la categoría:", categoryToEdit.name);
+      if (newName !== null && newName.trim() !== "") {
+        categoryToEdit.name = newName.trim();
+        const newColor = prompt("Nuevo color (opcional):", categoryToEdit.color);
+        if (newColor !== null) {
+          categoryToEdit.color = newColor;
+        }
         saveCategories();
         renderCategories();
         renderCategoryManagementList();
       }
     }
-    
+
+    // Eliminar categoría
     function deleteCategory(index) {
-      if (confirm(`¿Eliminar "${categories[index].name}"?`)) {
+      if (confirm("¿Seguro que quieres eliminar esta categoría?")) {
         categories.splice(index, 1);
         saveCategories();
         renderCategories();
         renderCategoryManagementList();
       }
     }
-    
+
+    // Mover categoría hacia arriba
     function moveCategoryUp(index) {
       if (index > 0) {
-        [categories[index - 1], categories[index]] = [categories[index], categories[index - 1]];
+        [categories[index], categories[index - 1]] = [categories[index - 1], categories[index]];
         saveCategories();
         renderCategories();
         renderCategoryManagementList();
       }
     }
-    
+
+    // Mover categoría hacia abajo
     function moveCategoryDown(index) {
       if (index < categories.length - 1) {
-        [categories[index + 1], categories[index]] = [categories[index], categories[index + 1]];
+        [categories[index], categories[index + 1]] = [categories[index + 1], categories[index]];
         saveCategories();
         renderCategories();
         renderCategoryManagementList();
       }
     }
-    
-    // Buscador
-    document.getElementById('search').addEventListener('input', function(e) {
-      const searchTerm = e.target.value.toLowerCase();
-      const categoriesElements = document.querySelectorAll('.category');
-      
-      categoriesElements.forEach(categoryElement => {
-        const categoryName = categoryElement.getAttribute('data-category').toLowerCase();
-        const bookmarks = categoryElement.querySelectorAll('.bookmark');
-        let categoryMatches = categoryName.includes(searchTerm);
-        let bookmarkMatches = false;
-        
-        bookmarks.forEach(bookmark => {
-          const title = bookmark.querySelector('.bookmark-title').textContent.toLowerCase();
-          bookmark.style.display = title.includes(searchTerm) ? 'flex' : 'none';
-          if (title.includes(searchTerm)) bookmarkMatches = true;
+
+    // Añadir nuevo marcador
+    document.getElementById('newBookmarkForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('bookmarkTitle').value.trim();
+      const url = document.getElementById('bookmarkURL').value.trim();
+      const icon = document.getElementById('bookmarkIcon').value.trim();
+
+      if (title && url && selectedCategoryName) {
+        const category = categories.find(cat => cat.name === selectedCategoryName);
+        if (category) {
+          category.bookmarks.push({ title: title, url: url, icon: icon });
+          saveCategories();
+          renderCategories();
+          closeNewBookmarkModal();
+        }
+      }
+    });
+
+    // Filtrar marcadores por búsqueda
+    document.getElementById('search').addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      const categoryDivs = document.querySelectorAll('.category');
+
+      categoryDivs.forEach(div => {
+        const categoryName = div.dataset.category.toLowerCase();
+        const bookmarkTitles = div.querySelectorAll('.bookmark-title');
+        let categoryVisible = categoryName.includes(searchTerm);
+
+        bookmarkTitles.forEach(title => {
+          if (title.textContent.toLowerCase().includes(searchTerm)) {
+            categoryVisible = true;
+          }
         });
-        
-        categoryElement.style.display = (categoryMatches || bookmarkMatches) ? 'block' : 'none';
+
+        div.style.display = categoryVisible ? 'block' : 'none';
       });
     });
-    
-    // Descargar HTML actualizado
+
+    // Función para descargar el HTML actualizado
     function downloadUpdatedHTML() {
-      let htmlContent = document.documentElement.outerHTML;
-      const updatedCategories = JSON.stringify(categories, null, 2);
-      const scriptStart = htmlContent.indexOf('const defaultCategories = [');
-      const scriptEnd = htmlContent.indexOf('];', scriptStart) + 1;
-      const newScriptPart = `const defaultCategories = ${updatedCategories}`;
-      htmlContent = htmlContent.substring(0, scriptStart) + newScriptPart + htmlContent.substring(scriptEnd);
-      
+      const htmlContent = document.documentElement.outerHTML;
       const blob = new Blob([htmlContent], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = url;
-      a.download = 'index.html';
+      a.href = URL.createObjectURL(blob);
+      a.download = 'mi_dashboard_actualizado.html';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      URL.revokeObjectURL(a.href);
     }
-    
-    // Inicializar
+
+    // Inicializar la carga de categorías y renderizado
     loadCategories();
     renderCategories();
   </script>
 
-
 </body></html>
+```
