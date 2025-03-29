@@ -123,18 +123,7 @@ const dashboardData = {
                 }
             ]
         }
-        {
- *     id: "mi-categoria",
- *     name: "Mi Categoría",
- *     icon: "fas fa-icon-name",
- *     bookmarks: [
- *         {
- *             name: "Mi Marcador",
- *             url: "https://ejemplo.com",
- *             icon: "fas fa-icon-name"
- *         }
- *     ]
- * }
+        
     ]
 };
 
