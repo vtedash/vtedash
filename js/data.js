@@ -122,9 +122,8 @@ const dashboardData = {
                     icon: "fab fa-twitch"
                 }
             ]
-        }
-
-         {
+        },
+        {
             id: "placeholder",
             name: "PLACEHOLDER",
             icon: "fas fa-film",
