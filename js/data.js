@@ -76,11 +76,11 @@ const dashboardData = {
             ]
         },
         {
-            id: "placeholder-2",
+            id: "iconosdashboard",
             nombre: "Placeholder 2",
             icono: "fas fa-folder",
             marcadores: [
-                { nombre: "Placeholder", url: "#", icono: "fas fa-bookmark" }
+                { nombre: "Iconos Dashboard", url: "https://fontawesome.com/icons", icono: "fas fa-bookmark" }
             ]
         }
     ]
