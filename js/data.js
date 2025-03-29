@@ -123,6 +123,20 @@ const dashboardData = {
                 }
             ]
         }
+
+         {
+            id: "placeholder",
+            name: "PLACEHOLDER",
+            icon: "fas fa-film",
+            bookmarks: [
+                {
+                    name: "placeholder",
+                    url: "https://youtube.com",
+                    icon: "fab fa-youtube"
+                },
+                
+            ]
+        }
         
     ]
 };
