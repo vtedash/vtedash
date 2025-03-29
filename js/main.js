@@ -47,14 +47,14 @@ function generateCategoryHTML(category) {
 }
 
 // Función para renderizar todo el dashboard
-function renderDashboard(categoriesData = dashboardData.categories) {
-    if (categoriesData.length === 0) {
+function renderDashboard(categoriasData = dashboardData.categorias) {
+    if (categoriasData.length === 0) {
         dashboardContainer.innerHTML = '<div class="no-results">No se encontraron resultados para tu búsqueda.</div>';
         return;
     }
     
-    const categoriesHTML = categoriesData.map(generateCategoryHTML).join('');
-    dashboardContainer.innerHTML = `<div class="categories">${categoriesHTML}</div>`;
+    const categoriasHTML = categoriasData.map(generateCategoryHTML).join('');
+    dashboardContainer.innerHTML = `<div class="categorias">${categoriasHTML}</div>`;
 }
 
 // Función para filtrar marcadores según el término de búsqueda
@@ -67,7 +67,7 @@ function filterBookmarks(searchTerm) {
     const normalizedSearchTerm = searchTerm.toLowerCase().trim();
     
     // Filtrar categorías y marcadores que coincidan con la búsqueda
-    const filteredCategories = dashboardData.categories.map(category => {
+    const filteredcategorias = dashboardData.categorias.map(category => {
         // Filtrar marcadores dentro de la categoría
         const filteredBookmarks = category.bookmarks.filter(bookmark => 
             bookmark.name.toLowerCase().includes(normalizedSearchTerm) ||
@@ -84,7 +84,7 @@ function filterBookmarks(searchTerm) {
         return null;
     }).filter(Boolean); // Eliminar categorías que no tienen coincidencias (null)
     
-    renderDashboard(filteredCategories);
+    renderDashboard(filteredcategorias);
 }
 
 // Event Listeners
@@ -104,7 +104,7 @@ searchInput.addEventListener('keyup', (e) => {
 // Añadir manejo de errores para la carga de datos
 function initializeDashboard() {
     try {
-        if (!dashboardData || !dashboardData.categories) {
+        if (!dashboardData || !dashboardData.categorias) {
             throw new Error('Datos del dashboard no encontrados o con formato incorrecto');
         }
         renderDashboard();
