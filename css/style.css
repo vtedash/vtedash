@@ -1,11 +1,11 @@
 /* Variables CSS para facilitar cambios de tema */
 :root {
-    --primary-color: #3498db;
+    --primary-color: #2980b9;
     --secondary-color: #2c3e50;
-    --background-color: #f8f9fa;
-    --card-background: #ffffff;
-    --text-color: #333333;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --background-color: #1a1a1a;
+    --card-background: #252525;
+    --text-color: #e0e0e0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --border-radius: 8px;
     --transition: all 0.3s ease;
 }
@@ -87,7 +87,7 @@ main {
 .categories {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
     margin-bottom: 2rem;
 }
 
@@ -100,38 +100,38 @@ main {
 }
 
 .category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .category-header {
     background-color: var(--secondary-color);
     color: white;
-    padding: 1rem;
+    padding: 0.8rem 1rem;
     display: flex;
     align-items: center;
     gap: 0.8rem;
 }
 
 .category-icon {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .category-name {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
 }
 
 .bookmarks {
     padding: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     gap: 1rem;
 }
 
 .bookmark {
     text-align: center;
-    padding: 1rem 0.5rem;
+    padding: 0.7rem 0.3rem;
     border-radius: var(--border-radius);
     transition: var(--transition);
     text-decoration: none;
@@ -139,28 +139,34 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.5rem;
     height: 100px;
 }
 
 .bookmark:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.05);
     transform: scale(1.05);
 }
 
 .bookmark-icon {
     font-size: 1.8rem;
     color: var(--primary-color);
+    margin-bottom: 0.3rem;
 }
 
 .bookmark-name {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
+    line-height: 1.2;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     max-width: 100%;
+    height: 2.4em;
+    word-break: break-word;
 }
 
 /* Pie de página */
