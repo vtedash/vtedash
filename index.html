@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
+
+    <script>
+  // Añade este script en el head de tu HTML
+  window.addEventListener('load', function() {
+    // Forzar recarga desde servidor ignorando caché
+    if (!sessionStorage.getItem('pageLoaded')) {
+      sessionStorage.setItem('pageLoaded', 'true');
+      window.location.reload(true);
+    }
+  });
+</script>
+
+
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Dashboard de Marcadores</title>
