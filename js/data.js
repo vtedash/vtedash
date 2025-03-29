@@ -124,18 +124,17 @@ const dashboardData = {
             ]
         },
         {
-            id: "placeholder",
-            name: "PLACEHOLDER",
-            icon: "fas fa-film",
-            bookmarks: [
-                {
-                    name: "placeholder",
-                    url: "https://youtube.com",
-                    icon: "fab fa-youtube"
-                },
-                
-            ]
-        },
+    id: "otros-recursos",           // ID más descriptivo
+    name: "Otros Recursos",         // Nombre más significativo
+    icon: "fas fa-folder",          // Icono más acorde a una categoría genérica
+    bookmarks: [
+        {
+            name: "YouTube",        // Nombre real del marcador
+            url: "https://youtube.com",
+            icon: "fab fa-youtube"
+        }
+    ]                           // Sin coma extra al final
+}
         
     ]
 };
