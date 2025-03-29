@@ -14,12 +14,15 @@ currentYear.textContent = new Date().getFullYear();
 
 // Función para generar el HTML de los marcadores
 function generateBookmarkHTML(bookmark) {
+    // Límite de caracteres para evitar que nombres muy largos causen problemas visuales
+    const bookmarkName = bookmark.name;
+    
     return `
-        <a href="${bookmark.url}" class="bookmark" target="_blank" rel="noopener noreferrer">
+        <a href="${bookmark.url}" class="bookmark" target="_blank" rel="noopener noreferrer" title="${bookmark.name}">
             <div class="bookmark-icon">
                 <i class="${bookmark.icon}"></i>
             </div>
-            <div class="bookmark-name">${bookmark.name}</div>
+            <div class="bookmark-name">${bookmarkName}</div>
         </a>
     `;
 }
@@ -105,6 +108,17 @@ function initializeDashboard() {
             throw new Error('Datos del dashboard no encontrados o con formato incorrecto');
         }
         renderDashboard();
+        
+        // Añadir atributo title a todos los marcadores para mostrar tooltip al pasar el ratón
+        setTimeout(() => {
+            const allBookmarks = document.querySelectorAll('.bookmark');
+            allBookmarks.forEach(bookmark => {
+                const nameElement = bookmark.querySelector('.bookmark-name');
+                if (nameElement) {
+                    bookmark.setAttribute('title', nameElement.textContent);
+                }
+            });
+        }, 100);
     } catch (error) {
         console.error('Error al inicializar el dashboard:', error);
         dashboardContainer.innerHTML = `
