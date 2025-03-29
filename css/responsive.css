@@ -20,7 +20,7 @@
         padding: 0.8rem;
     }
     
-    .categorias {
+    .categories {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
@@ -64,7 +64,7 @@
         padding: 1rem;
     }
     
-    .categorias {
+    .categories {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
@@ -88,7 +88,7 @@
 
 /* Dispositivos medianos (tablets, 768px y menos) */
 @media (max-width: 768px) {
-    .categorias {
+    .categories {
         gap: 1.5rem;
     }
     
@@ -110,7 +110,7 @@
 
 /* Dispositivos muy grandes (desktops grandes, 1200px y menos) */
 @media (max-width: 1200px) {
-    .categorias {
+    .categories {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }
