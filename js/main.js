@@ -1,8 +1,3 @@
-/**
- * Script principal del Dashboard
- * Maneja la lógica de presentación y búsqueda de marcadores
- */
-
 // Elementos del DOM
 const dashboardContainer = document.getElementById('dashboard-container');
 const searchInput = document.getElementById('search-input');
@@ -15,12 +10,12 @@ currentYear.textContent = new Date().getFullYear();
 // Función para generar el HTML de los marcadores
 function generateBookmarkHTML(bookmark) {
     // Límite de caracteres para evitar que nombres muy largos causen problemas visuales
-    const bookmarkName = bookmark.name;
+    const bookmarkName = bookmark.nombre;  // Cambiado 'name' por 'nombre'
     
     return `
-        <a href="${bookmark.url}" class="bookmark" target="_blank" rel="noopener noreferrer" title="${bookmark.name}">
+        <a href="${bookmark.url}" class="bookmark" target="_blank" rel="noopener noreferrer" title="${bookmark.nombre}">  <!-- Cambiar 'name' por 'nombre' -->
             <div class="bookmark-icon">
-                <i class="${bookmark.icon}"></i>
+                <i class="${bookmark.icono}"></i>  <!-- Cambiar 'icon' por 'icono' -->
             </div>
             <div class="bookmark-name">${bookmarkName}</div>
         </a>
@@ -29,15 +24,15 @@ function generateBookmarkHTML(bookmark) {
 
 // Función para generar el HTML de las categorías
 function generateCategoryHTML(category) {
-    const bookmarksHTML = category.bookmarks.map(generateBookmarkHTML).join('');
+    const bookmarksHTML = category.marcadores.map(generateBookmarkHTML).join('');  // Cambiar 'bookmarks' por 'marcadores'
     
     return `
         <div class="category" data-category-id="${category.id}">
             <div class="category-header">
                 <div class="category-icon">
-                    <i class="${category.icon}"></i>
+                    <i class="${category.icono}"></i>  <!-- Cambiar 'icon' por 'icono' -->
                 </div>
-                <div class="category-name">${category.name}</div>
+                <div class="category-name">${category.nombre}</div>  <!-- Cambiar 'name' por 'nombre' -->
             </div>
             <div class="bookmarks">
                 ${bookmarksHTML}
@@ -67,10 +62,10 @@ function filterBookmarks(searchTerm) {
     const normalizedSearchTerm = searchTerm.toLowerCase().trim();
     
     // Filtrar categorías y marcadores que coincidan con la búsqueda
-    const filteredcategories = dashboardData.categories.map(category => {
+    const filteredCategories = dashboardData.categories.map(category => {
         // Filtrar marcadores dentro de la categoría
-        const filteredBookmarks = category.bookmarks.filter(bookmark => 
-            bookmark.name.toLowerCase().includes(normalizedSearchTerm) ||
+        const filteredBookmarks = category.marcadores.filter(bookmark =>  // Cambiar 'bookmarks' por 'marcadores'
+            bookmark.nombre.toLowerCase().includes(normalizedSearchTerm) ||  // Cambiar 'name' por 'nombre'
             bookmark.url.toLowerCase().includes(normalizedSearchTerm)
         );
         
@@ -78,13 +73,13 @@ function filterBookmarks(searchTerm) {
         if (filteredBookmarks.length > 0) {
             return {
                 ...category,
-                bookmarks: filteredBookmarks
+                marcadores: filteredBookmarks  // Cambiar 'bookmarks' por 'marcadores'
             };
         }
         return null;
-    }).filter(Boolean); // Eliminar categorías que no tienen coincidencias (null)
+    }).filter(Boolean);  // Eliminar categorías que no tienen coincidencias (null)
     
-    renderDashboard(filteredcategories);
+    renderDashboard(filteredCategories);
 }
 
 // Event Listeners
