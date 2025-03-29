@@ -77,7 +77,7 @@ const dashboardData = {
         },
         {
             id: "iconosdashboard",
-            nombre: "Placeholder 2",
+            nombre: "Iconos Dashboard",
             icono: "fas fa-folder",
             marcadores: [
                 { nombre: "Iconos Dashboard", url: "https://fontawesome.com/icons", icono: "fas fa-bookmark" }
