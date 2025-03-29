@@ -49,38 +49,36 @@ const dashboardData = {
         {
             id: "emuladores-roms",
             nombre: "Emuladores y ROMs",
-            icono: "fas fa-gamepad",
+            icono: "fas fa-gamepad", 
             marcadores: [
-                { nombre: "Roms Español", url: " https://archive.org/details/@generalprukogui", icono: "fab fa-youtube" },
-               
-            ]
+                { nombre: "Roms Español (Archive.org)", url: " https://archive.org/details/@generalprukogui", icono: "fas fa-archive" }
         },
         {
             id: "peliculas-series",
             nombre: "Descarga de Pelis y Series",
-            icono: "fas fa-film",
-            marcadores: []
+            icono: "fas fa-download", 
+            marcadores: [] 
         },
         {
             id: "descarga-musica",
             nombre: "Descarga de Música",
-            icono: "fas fa-music",
-            marcadores: []
+            icono: "fas fa-headphones-alt", 
+            marcadores: [] 
         },
         {
             id: "placeholder-1",
             nombre: "Placeholder 1",
-            icono: "fas fa-folder",
+            icono: "fas fa-folder-plus", // Icono para un marcador de posición o carpeta genérica
             marcadores: [
-                { nombre: "Placeholder", url: "#", icono: "fas fa-bookmark" }
+                { nombre: "Placeholder", url: "#", icono: "fas fa-question-circle" } 
             ]
         },
         {
             id: "iconosdashboard",
             nombre: "Iconos Dashboard",
-            icono: "fas fa-folder",
+            icono: "fas fa-icons", 
             marcadores: [
-                { nombre: "Iconos Dashboard", url: "https://fontawesome.com/icons", icono: "fas fa-bookmark" }
+                { nombre: "Font Awesome Icons", url: "https://fontawesome.com/icons", icono: "fab fa-font-awesome" } 
             ]
         }
     ]
