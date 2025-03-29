@@ -50,7 +50,10 @@ const dashboardData = {
             id: "emuladores-roms",
             nombre: "Emuladores y ROMs",
             icono: "fas fa-gamepad",
-            marcadores: []
+            marcadores: [
+{ nombre: "Roms Español", url: " https://archive.org/details/@generalprukogui", icono: "fab fa-youtube" },
+               
+            ]
         },
         {
             id: "peliculas-series",
