@@ -1,18 +1,3 @@
-/**
- * ARCHIVO DE DATOS
- * Aquí es donde deberás añadir tus categorías y marcadores.
- * 
- * Estructura de datos:
- * - categories: Array de categorías
- *   - id: Identificador único para la categoría
- *   - name: Nombre de la categoría
- *   - icon: Clase de Font Awesome para el icono (ej: "fas fa-code")
- *   - bookmarks: Array de marcadores en esa categoría
- *     - name: Nombre del marcador
- *     - url: URL del marcador
- *     - icon: Clase de Font Awesome para el icono (ej: "fab fa-github")
- */
-
 const dashboardData = {
     categories: [
         {
@@ -124,49 +109,16 @@ const dashboardData = {
             ]
         },
         {
-    id: "otros-recursos",           // ID más descriptivo
-    name: "Otros Recursos",         // Nombre más significativo
-    icon: "fas fa-folder",          // Icono más acorde a una categoría genérica
-    bookmarks: [
-        {
-            name: "YouTube",        // Nombre real del marcador
-            url: "https://youtube.com",
-            icon: "fab fa-youtube"
+            id: "otros-recursos",
+            name: "Otros Recursos",
+            icon: "fas fa-folder",
+            bookmarks: [
+                {
+                    name: "YouTube",
+                    url: "https://youtube.com",
+                    icon: "fab fa-youtube"
+                }
+            ]
         }
-    ]                           // Sin coma extra al final
-}
-        
     ]
 };
-
-/**
- * INSTRUCCIONES PARA AÑADIR NUEVAS CATEGORÍAS Y MARCADORES:
- * 
- * 1. Para añadir una nueva categoría, copia este bloque y pégalo antes del último corchete:
- * 
- * {
- *     id: "mi-categoria",
- *     name: "Mi Categoría",
- *     icon: "fas fa-icon-name",
- *     bookmarks: [
- *         {
- *             name: "Mi Marcador",
- *             url: "https://ejemplo.com",
- *             icon: "fas fa-icon-name"
- *         }
- *     ]
- * },
- * 
- * 2. Para añadir un nuevo marcador a una categoría existente, copia este bloque
- *    y pégalo dentro del array 'bookmarks' de la categoría deseada:
- * 
- * {
- *     name: "Mi Marcador",
- *     url: "https://ejemplo.com",
- *     icon: "fas fa-icon-name"
- * },
- * 
- * 3. Para los iconos, puedes usar cualquier icono de Font Awesome:
- *    - Visita https://fontawesome.com/icons para buscar iconos
- *    - Usa "fas" para iconos sólidos, "fab" para marcas y "far" para iconos regulares
- */
