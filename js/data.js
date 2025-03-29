@@ -1,5 +1,5 @@
 const dashboardData = {
-    categorias: [
+    categories: [
         {
             id: "desarrollo",
             nombre: "Desarrollo",
