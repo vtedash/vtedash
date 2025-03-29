@@ -1,0 +1,92 @@
+/* Estilos responsivos */
+
+/* Dispositivos pequeños (teléfonos móviles, 576px y menos) */
+@media (max-width: 576px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0.5rem;
+    }
+    
+    .search-container {
+        width: 100%;
+    }
+    
+    #search-input {
+        width: 100%;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .categories {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .bookmarks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .bookmark {
+        height: 90px;
+    }
+    
+    .bookmark-icon {
+        font-size: 1.5rem;
+    }
+    
+    .bookmark-name {
+        font-size: 0.8rem;
+    }
+}
+
+/* Dispositivos medianos (tablets, 768px y menos) */
+@media (max-width: 768px) {
+    .categories {
+        gap: 1.5rem;
+    }
+    
+    .bookmarks {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Dispositivos grandes (desktops, 992px y menos) */
+@media (max-width: 992px) {
+    main {
+        padding: 1.5rem;
+    }
+}
+
+/* Dispositivos muy grandes (desktops grandes, 1200px y menos) */
+@media (max-width: 1200px) {
+    .categories {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+/* Modo oscuro (si el usuario lo tiene activado en su sistema) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #2980b9;
+        --secondary-color: #1a252f;
+        --background-color: #121212;
+        --card-background: #1e1e1e;
+        --text-color: #e0e0e0;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    #search-input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .bookmark:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    .loading, .no-results {
+        color: #95a5a6;
+    }
+}
