@@ -194,7 +194,6 @@ main#dashboard-container {
 
 /* Indicador de carga */
 .loading-indicator {
-    /* Se oculta por JS, no necesita display: none aquí */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -250,11 +249,10 @@ main#dashboard-container {
  *---------------------------------------------------------------------------*/
 .categories {
     display: grid;
-    /* *** AJUSTE SUTIL: Usar auto-fill y un min ligeramente menor *** */
-    grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+    /* *** PRUEBA DIAGNÓSTICA: Forzar 3 columnas *** */
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
     width: 100%;
-    /* Estilos limpios, sin depuración */
     visibility: visible;
     opacity: 1;
     position: relative;
@@ -269,7 +267,6 @@ main#dashboard-container {
                 box-shadow var(--transition-speed) var(--transition-func);
     display: flex;
     flex-direction: column;
-    /* Estilos limpios, sin depuración */
     visibility: visible;
     opacity: 1;
 }
@@ -313,7 +310,6 @@ main#dashboard-container {
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 1.5rem;
     flex-grow: 1;
-    /* Estilos limpios, sin depuración */
     visibility: visible;
     opacity: 1;
 }
@@ -346,7 +342,6 @@ main#dashboard-container {
     cursor: pointer;
     border: 1px solid transparent;
     box-sizing: border-box;
-    /* Estilos limpios, sin depuración */
     visibility: visible;
     opacity: 1;
 }
@@ -423,10 +418,13 @@ main#dashboard-container {
     main#dashboard-container {
         padding: 1.5rem;
     }
-    .categories {
-         /* Hereda auto-fill, ajustamos el minmax si es necesario */
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1.5rem;
+    /* Hereda 1fr 1fr 1fr de la regla base, A MENOS que queramos cambiarlo aquí */
+     .categories {
+         /* Podríamos volver a auto-fit aquí si la prueba 1fr 1fr 1fr funciona */
+         /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
+         /* O mantener 1fr 1fr 1fr, o poner 1fr 1fr */
+         grid-template-columns: 1fr 1fr; /* Prueba: 2 columnas para tablets */
+         gap: 1.5rem;
     }
     .bookmarks {
         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
@@ -461,9 +459,9 @@ main#dashboard-container {
         padding: 1rem;
         margin-top: 1rem;
     }
-    /* *** REGLA CLAVE: Columna única SOLO aquí *** */
+    /* *** REGLA CLAVE: Columna única SOLO aquí y menores *** */
     .categories {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* ¡Columna única! */
         gap: 1.5rem;
     }
     .bookmarks {
