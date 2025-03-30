@@ -3,41 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título descriptivo y atractivo -->
     <title>Dashboard Personal Pro</title>
 
-    <!-- Favicon (Opcional pero recomendado - crea un archivo favicon.ico o .png) -->
-    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
-
-    <!-- Font Awesome para iconos -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Enlace a la hoja de estilos CSS principal (combinada y mejorada) -->
+    <!-- CSS Principal -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Scripts JavaScript diferidos para mejor rendimiento de carga -->
-    <!-- data.js debe cargarse antes que main.js -->
-    <script src="js/data.js" defer></script>
-    <script src="js/main.js" defer></script>
+    <!-- ***** SCRIPTS SIN DEFER (para prueba) ***** -->
+    <!-- data.js DEBE venir ANTES que main.js -->
+    <script src="js/data.js"></script>
+    <script>console.log("INFO: Script data.js cargado (inline log).");</script>
+    <script src="js/main.js"></script>
+    <script>console.log("INFO: Script main.js cargado (inline log).");</script>
 
-    <!-- Nota: Se eliminaron las directivas agresivas de no-cache y el script de recarga forzada.
-         GitHub Pages maneja bien el cacheo y estas medidas pueden degradar la experiencia del usuario.
-         Para forzar una recarga sin caché durante el desarrollo, usa Ctrl+Shift+R (o Cmd+Shift+R en Mac). -->
 </head>
 <body>
     <header class="site-header">
-        <div class="header-content">
+        <!-- ... (contenido del header sin cambios) ... -->
+         <div class="header-content">
             <h1><i class="fas fa-chart-pie header-icon"></i> Mi Dashboard</h1>
             <div class="search-container">
-                <label for="search-input" class="sr-only">Buscar marcadores</label> <!-- Label para accesibilidad -->
+                <label for="search-input" class="sr-only">Buscar marcadores</label>
                 <input type="search" id="search-input" placeholder="Buscar marcadores..." aria-label="Campo de búsqueda de marcadores">
                 <button id="search-button" aria-label="Iniciar búsqueda"><i class="fas fa-search"></i></button>
             </div>
         </div>
     </header>
 
-    <main id="dashboard-container" aria-live="polite"> <!-- aria-live para notificar cambios en resultados de búsqueda -->
-        <!-- Indicador de carga mejorado -->
+    <main id="dashboard-container" aria-live="polite">
+        <!-- Indicador de carga -->
         <div class="loading-indicator">
             <div class="spinner"></div>
             <span>Cargando dashboard...</span>
@@ -45,7 +41,8 @@
     </main>
 
     <footer class="site-footer">
-        <p>Dashboard Personal &copy; <span id="current-year"></span>. Creado con esmero.</p>
+         <!-- Año se actualiza por JS -->
+        <p>Dashboard Personal © <span id="current-year"></span>. Creado con esmero.</p>
     </footer>
 </body>
 </html>
