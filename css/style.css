@@ -188,13 +188,14 @@ main#dashboard-container {
     padding: 2rem;
     max-width: var(--max-width);
     margin: 2rem auto;
-    display: block; /* Asegura que main sea block */
+    display: block;
     box-sizing: border-box;
 }
 
 /* Indicador de carga */
 .loading-indicator {
-    display: flex; /* Por defecto visible hasta que JS lo oculte */
+    /* Se oculta por JS, no necesita display: none aquí */
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -249,15 +250,14 @@ main#dashboard-container {
  *---------------------------------------------------------------------------*/
 .categories {
     display: grid;
-    /* *** REGLA BASE PARA PANTALLAS GRANDES *** */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* *** AJUSTE SUTIL: Usar auto-fill y un min ligeramente menor *** */
+    grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
     gap: 2rem;
     width: 100%;
-    /* *** ELIMINADOS ESTILOS DE DEPURACIÓN *** */
-    /* visibility: visible !important; */
-    /* opacity: 1 !important; */
-    /* position: relative !important; */
-    /* min-height: 100px; */
+    /* Estilos limpios, sin depuración */
+    visibility: visible;
+    opacity: 1;
+    position: relative;
 }
 
 .category {
@@ -269,10 +269,9 @@ main#dashboard-container {
                 box-shadow var(--transition-speed) var(--transition-func);
     display: flex;
     flex-direction: column;
-    /* *** ELIMINADOS ESTILOS DE DEPURACIÓN *** */
-    /* visibility: visible !important; */
-    /* opacity: 1 !important; */
-    /* min-height: 150px; */
+    /* Estilos limpios, sin depuración */
+    visibility: visible;
+    opacity: 1;
 }
 
 .category:hover {
@@ -311,14 +310,12 @@ main#dashboard-container {
 .bookmarks {
     padding: 1.5rem;
     display: grid;
-    /* *** REGLA BASE PARA PANTALLAS GRANDES *** */
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 1.5rem;
     flex-grow: 1;
-    /* *** ELIMINADOS ESTILOS DE DEPURACIÓN *** */
-    /* min-height: 50px; */
-    /* visibility: visible !important; */
-    /* opacity: 1 !important; */
+    /* Estilos limpios, sin depuración */
+    visibility: visible;
+    opacity: 1;
 }
 
 .no-bookmarks-message {
@@ -349,9 +346,9 @@ main#dashboard-container {
     cursor: pointer;
     border: 1px solid transparent;
     box-sizing: border-box;
-    /* *** ELIMINADOS ESTILOS DE DEPURACIÓN *** */
-    /* visibility: visible !important; */
-    /* opacity: 1 !important; */
+    /* Estilos limpios, sin depuración */
+    visibility: visible;
+    opacity: 1;
 }
 
 .bookmark:hover,
@@ -415,27 +412,23 @@ main#dashboard-container {
 }
 
 /*-----------------------------------------------------------------------------
- * Media Queries para Responsividad (Estructura revisada)
+ * Media Queries para Responsividad (Estructura limpia y verificada)
  *---------------------------------------------------------------------------*/
-
-/* Estilos base (móvil primero implícito, pero aquí aplicamos desktop primero y sobrescribimos) */
-/* Las reglas fuera de @media son para > 992px por defecto o si no hay query que aplique */
 
 /* Tablets y pantallas medianas (769px a 992px) */
 @media (max-width: 992px) {
     :root {
-        --max-width: 960px; /* Ajustar ancho máximo */
+        --max-width: 960px;
     }
     main#dashboard-container {
         padding: 1.5rem;
     }
     .categories {
-        /* Ajustar el tamaño mínimo de las categorías para este rango */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+         /* Hereda auto-fill, ajustamos el minmax si es necesario */
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 1.5rem;
     }
     .bookmarks {
-        /* Ajustar el tamaño mínimo de los marcadores para este rango */
         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
         gap: 1rem;
         padding: 1rem;
@@ -452,7 +445,6 @@ main#dashboard-container {
 }
 
 /* Móviles grandes y tablets pequeñas (481px a 768px) */
-/* Asegurarse que esta query no se solape o contradiga con la anterior */
 @media (max-width: 768px) {
     body {
         font-size: 15px;
@@ -469,12 +461,11 @@ main#dashboard-container {
         padding: 1rem;
         margin-top: 1rem;
     }
-    /* *** APLICA SOLO EN ESTE RANGO Y MENORES *** */
+    /* *** REGLA CLAVE: Columna única SOLO aquí *** */
     .categories {
-        grid-template-columns: 1fr; /* ¡Columna única! */
+        grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    /* Los bookmarks dentro de la columna única */
     .bookmarks {
         grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
         gap: 0.8rem;
@@ -517,7 +508,6 @@ main#dashboard-container {
     }
     /* Hereda grid-template-columns: 1fr de la query anterior */
     .bookmarks {
-        /* Ajuste específico para móviles pequeños */
         grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
         gap: 0.5rem;
     }
