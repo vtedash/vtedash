@@ -4,17 +4,19 @@ console.log("INFO: main.js iniciando ejecución..."); // Log inicial
 
 try {
     // Asegurarse de que data.js se cargó y dashboardData está disponible GLOBALMENTE
+    // Esta verificación se ejecuta ANTES de DOMContentLoaded si main.js no tiene 'defer'
+    // o justo al inicio si tiene 'defer'.
     if (typeof dashboardData === 'undefined' || !dashboardData || !Array.isArray(dashboardData.categories)) {
-         console.error("ERROR CRÍTICO: dashboardData no está definido o es inválido. ¿Se cargó data.js ANTES que main.js?");
-        throw new Error('Variable `dashboardData` no encontrada o con formato incorrecto.');
+         console.error("ERROR CRÍTICO TEMPRANO: dashboardData no está definido o es inválido.");
+        throw new Error('Variable `dashboardData` no encontrada o con formato incorrecto. Asegúrate de que `js/data.js` se carga ANTES que `main.js` y no tiene errores.');
     } else {
-        console.log("INFO: dashboardData encontrado y parece válido.");
+        console.log("INFO: Verificación inicial de dashboardData: OK.");
     }
 
     // Esperar a que el DOM esté completamente cargado
     document.addEventListener('DOMContentLoaded', () => {
-        console.log("INFO: DOMContentLoaded evento disparado."); // Log dentro del listener
-        // Otro try-catch interno para errores específicos del DOMContentLoaded
+        console.log("INFO: DOMContentLoaded evento disparado.");
+        // Try-catch interno para errores específicos del DOMContentLoaded
         try {
             console.log("INFO: Iniciando configuración dentro de DOMContentLoaded...");
             // Elementos del DOM (verificar su existencia)
@@ -36,12 +38,14 @@ try {
             // Variables globales
             let debounceTimer;
 
-            // --- FUNCIONES DE RENDERIZADO --- (Sin cambios aquí, solo confirmando que están dentro)
+            // --- FUNCIONES DE RENDERIZADO ---
 
             function generateBookmarkHTML(bookmark) {
-                const safeName = bookmark.nombre || "Sin Nombre"; // Añadir valor por defecto
-                const iconClass = bookmark.icono || 'fas fa-bookmark';
-                const url = bookmark.url || '#';
+                // Validar bookmark y propiedades mínimas
+                if (!bookmark || typeof bookmark !== 'object') return ''; // Ignorar marcadores inválidos
+                const safeName = typeof bookmark.nombre === 'string' ? bookmark.nombre : "Sin Nombre";
+                const iconClass = typeof bookmark.icono === 'string' ? bookmark.icono : 'fas fa-bookmark';
+                const url = typeof bookmark.url === 'string' ? bookmark.url : '#';
 
                 return `
                     <a href="${url}" class="bookmark" target="_blank" rel="noopener noreferrer" title="${safeName}">
@@ -54,15 +58,23 @@ try {
             }
 
             function generateCategoryHTML(category) {
-                const categoryIconClass = category.icono || 'fas fa-folder';
-                const categoryId = category.id || `category-${Math.random().toString(36).substr(2, 9)}`;
-                const categoryName = category.nombre || "Categoría sin nombre"; // Valor por defecto
+                 // Validar categoría y propiedades mínimas
+                 if (!category || typeof category !== 'object') return ''; // Ignorar categorías inválidas
+                const categoryIconClass = typeof category.icono === 'string' ? category.icono : 'fas fa-folder';
+                const categoryId = typeof category.id === 'string' ? category.id : `category-${Math.random().toString(36).substr(2, 9)}`;
+                const categoryName = typeof category.nombre === 'string' ? category.nombre : "Categoría sin nombre";
 
                 const bookmarksArray = Array.isArray(category.marcadores) ? category.marcadores : [];
 
-                const bookmarksHTML = bookmarksArray.length > 0
-                    ? bookmarksArray.map(generateBookmarkHTML).join('')
-                    : '<p class="no-bookmarks-message">No hay marcadores en esta categoría.</p>';
+                // Filtrar marcadores inválidos antes de mapear
+                const validBookmarksHTML = bookmarksArray
+                    .filter(bm => bm && typeof bm === 'object')
+                    .map(generateBookmarkHTML)
+                    .join('');
+
+                const bookmarksHTML = validBookmarksHTML.length > 0
+                    ? validBookmarksHTML
+                    : '<p class="no-bookmarks-message">No hay marcadores válidos en esta categoría.</p>';
 
                 return `
                     <section class="category" data-category-id="${categoryId}" aria-labelledby="category-title-${categoryId}">
@@ -79,168 +91,241 @@ try {
                 `;
             }
 
+            // *** VERSIÓN REFINADA DE renderDashboard ***
              function renderDashboard(categoriesData = dashboardData.categories) {
-                console.log("INFO: Iniciando renderDashboard...");
-                if (loadingIndicator) {
-                    console.log("INFO: Ocultando indicador de carga.");
-                    loadingIndicator.style.display = 'none';
-                } else {
-                     if (dashboardContainer && dashboardContainer.querySelector('.loading-indicator')) {
-                         dashboardContainer.innerHTML = '';
-                     }
-                }
+                console.log("INFO: [renderDashboard] Iniciando...");
 
-                if (!Array.isArray(categoriesData)) {
-                     console.error("ERROR: categoriesData no es un array en renderDashboard.", categoriesData);
-                     if(dashboardContainer) dashboardContainer.innerHTML = '<div class="error-message">Error interno al procesar categorías.</div>';
-                     return;
-                }
-
-                 // Limpiar contenedor solo si no hay errores previos importantes
-                if(dashboardContainer && !dashboardContainer.querySelector('.error-message')) {
-                    dashboardContainer.innerHTML = '';
-                }
-
-
-                if (categoriesData.length === 0) {
-                    console.log("INFO: No hay categorías para mostrar.");
-                     if(dashboardContainer) {
-                        dashboardContainer.innerHTML = '<div class="no-results">No se encontraron categorías o marcadores que coincidan.</div>';
-                     }
+                // ---- PASO 1: Asegurarse que el contenedor existe ----
+                if (!dashboardContainer) {
+                    console.error("ERROR FATAL: [renderDashboard] dashboardContainer es null.");
                     return;
                 }
 
-                console.log(`INFO: Renderizando ${categoriesData.length} categorías.`);
+                // ---- PASO 2: Ocultar indicador de carga (si existe) ----
+                if (loadingIndicator) {
+                    console.log("INFO: [renderDashboard] Ocultando indicador de carga.");
+                    loadingIndicator.style.display = 'none';
+                }
+
+                 // ---- PASO 3: Limpiar el contenedor SIEMPRE antes de añadir nuevo contenido ----
+                 console.log("INFO: [renderDashboard] Limpiando dashboardContainer...");
+                 dashboardContainer.innerHTML = ''; // Limpieza directa y simple
+                 console.log("INFO: [renderDashboard] dashboardContainer limpiado.");
+
+                 // ---- PASO 4: Validar datos ----
+                 // Usar dashboardData.categories si categoriesData no es un array válido
+                 let dataToRender = Array.isArray(categoriesData) ? categoriesData : dashboardData.categories;
+                 if (!Array.isArray(dataToRender)) {
+                     console.error("ERROR: [renderDashboard] No hay datos de categorías válidos para renderizar.");
+                     dashboardContainer.innerHTML = '<div class="error-message">Error: No se pudieron cargar los datos de las categorías.</div>';
+                     return;
+                 }
+
+
+                // ---- PASO 5: Manejar caso sin resultados ----
+                if (dataToRender.length === 0) {
+                    console.log("INFO: [renderDashboard] No hay categorías para mostrar (datos vacíos o filtrados).");
+                    dashboardContainer.innerHTML = '<div class="no-results">No se encontraron categorías o marcadores que coincidan.</div>';
+                    return;
+                }
+
+                 // ---- PASO 6: Generar y añadir nuevo contenido ----
+                console.log(`INFO: [renderDashboard] Preparando ${dataToRender.length} categorías para renderizar.`);
                 const fragment = document.createDocumentFragment();
                 const categoriesContainer = document.createElement('div');
-                categoriesContainer.className = 'categories';
+                categoriesContainer.className = 'categories'; // Asegurar que la clase se aplica
 
-                categoriesData.forEach(category => {
+                dataToRender.forEach(category => {
                     try {
-                        if (category && typeof category === 'object') {
-                           const categoryHTML = generateCategoryHTML(category);
-                            const tempDiv = document.createElement('div');
-                            tempDiv.innerHTML = categoryHTML;
+                        const categoryHTML = generateCategoryHTML(category);
+                        if (categoryHTML) { // Añadir solo si se generó HTML válido
+                            const tempDiv = document.createElement('div'); // Usar div temporal para parsear
+                            tempDiv.innerHTML = categoryHTML.trim(); // trim() por si acaso
                             if (tempDiv.firstChild) {
                                 categoriesContainer.appendChild(tempDiv.firstChild);
+                            } else {
+                                 console.warn(`WARN: [renderDashboard] Se generó HTML vacío para la categoría:`, category);
                             }
                         } else {
-                             console.warn("WARN: Se encontró una categoría inválida en los datos:", category);
+                             console.warn(`WARN: [renderDashboard] Se ignoró categoría inválida:`, category);
                         }
                     } catch (catError) {
-                        console.error(`ERROR al generar HTML para la categoría: ${category ? category.nombre : 'desconocida'}`, catError);
-                        const errorDiv = document.createElement('div');
-                        errorDiv.className = 'error-message';
-                        errorDiv.innerHTML = `<p>Error al cargar categoría '${category ? category.nombre : 'desconocida'}'.</p>`;
-                        categoriesContainer.appendChild(errorDiv);
+                        console.error(`ERROR: [renderDashboard] Error generando HTML para categoría ${category ? category.nombre : 'desconocida'}`, catError);
+                        // Opcional: añadir marcador de error para esta categoría específica
+                        // const errorDiv = document.createElement('div'); ...
                     }
                 });
 
-                fragment.appendChild(categoriesContainer);
-                if(dashboardContainer) { // Añadir solo si el contenedor existe
-                    dashboardContainer.appendChild(fragment);
-                    console.log("INFO: Categorías añadidas al DOM.");
-                } else {
-                     console.error("ERROR: dashboardContainer no existe al intentar añadir fragmento.");
+                // Verificar si se generó algo para añadir
+                if (categoriesContainer.children.length === 0) {
+                     console.warn("WARN: [renderDashboard] No se generaron elementos de categoría válidos para añadir al DOM.");
+                     dashboardContainer.innerHTML = '<div class="no-results">No hay contenido de categorías para mostrar.</div>';
+                     return; // No añadir un div .categories vacío
                 }
-            }
 
-            // --- FUNCIONES DE FILTRADO --- (Sin cambios)
+                fragment.appendChild(categoriesContainer);
+                console.log("INFO: [renderDashboard] Fragmento listo. Añadiendo al DOM...");
+
+                // *** EL MOMENTO CRÍTICO ***
+                dashboardContainer.appendChild(fragment);
+
+                // ---- PASO 7: Verificar el DOM DESPUÉS de añadir ----
+                console.log("INFO: [renderDashboard] Contenido AÑADIDO a dashboardContainer.");
+
+                // Verificar si el contenedor .categories realmente está en el DOM y tiene hijos
+                const checkCategories = dashboardContainer.querySelector('.categories');
+                if (!checkCategories) {
+                     console.error("ERROR CRÍTICO: [renderDashboard] ¡'.categories' NO se encontró en dashboardContainer DESPUÉS de appendChild!");
+                } else if (checkCategories.children.length === 0) {
+                     console.error("ERROR CRÍTICO: [renderDashboard] ¡'.categories' está en el DOM pero está VACÍO después de appendChild!");
+                } else {
+                     console.log(`INFO: [renderDashboard] Verificación POST-renderizado OK: '.categories' encontrado con ${checkCategories.children.length} hijos.`);
+                }
+                 console.log("INFO: [renderDashboard] Finalizado.");
+            } // Fin renderDashboard
+
+
+            // --- FUNCIONES DE FILTRADO ---
 
              function filterBookmarks(searchTerm) {
-                console.log(`INFO: Filtrando por "${searchTerm}"`);
+                console.log(`INFO: [filterBookmarks] Filtrando por "${searchTerm}"`);
                 const normalizedSearchTerm = searchTerm.toLowerCase().trim();
 
+                // Obtener las categorías base para filtrar (asegurarse que es un array)
+                const baseCategories = Array.isArray(dashboardData?.categories) ? dashboardData.categories : [];
+
                 if (!normalizedSearchTerm) {
-                    renderDashboard(dashboardData.categories);
+                    renderDashboard(baseCategories); // Mostrar todo si no hay búsqueda
                     return;
                 }
 
                 try {
-                    const filteredCategories = dashboardData.categories.map(category => {
+                    const filteredCategories = baseCategories.map(category => {
+                         // Validar categoría y marcadores
                          if (!category || !Array.isArray(category.marcadores)) return null;
 
                         const filteredBookmarks = category.marcadores.filter(bookmark =>
+                             // Validar marcador y propiedades antes de filtrar
                              bookmark && typeof bookmark.nombre === 'string' && typeof bookmark.url === 'string' &&
                              (bookmark.nombre.toLowerCase().includes(normalizedSearchTerm) ||
                               bookmark.url.toLowerCase().includes(normalizedSearchTerm))
                         );
 
                         if (filteredBookmarks.length > 0) {
+                             // Devolver copia de la categoría con SOLO los marcadores filtrados
                             return { ...category, marcadores: filteredBookmarks };
                         }
-                        return null;
-                    }).filter(Boolean);
+                        return null; // Esta categoría no tiene coincidencias
+                    }).filter(Boolean); // Eliminar los null
 
-                    renderDashboard(filteredCategories);
+                    renderDashboard(filteredCategories); // Renderizar las categorías filtradas
                 } catch (filterError) {
-                    console.error("ERROR durante el filtrado:", filterError);
+                    console.error("ERROR: [filterBookmarks] Error durante el filtrado:", filterError);
                      if(dashboardContainer) dashboardContainer.innerHTML = '<div class="error-message">Ocurrió un error al filtrar los marcadores.</div>';
                 }
-            }
+            } // Fin filterBookmarks
+
 
             function debounce(func, delay) {
               clearTimeout(debounceTimer);
               debounceTimer = setTimeout(func, delay);
-            }
+            } // Fin debounce
+
 
             // --- INICIALIZACIÓN Y EVENT LISTENERS ---
 
             function initializeDashboard() {
-                console.log("INFO: Iniciando initializeDashboard...");
+                console.log("INFO: [initializeDashboard] Iniciando...");
                  if (currentYear) {
-                     currentYear.textContent = new Date().getFullYear();
-                     console.log("INFO: Año actualizado en el footer.");
+                     try { // Añadir try-catch aquí también por si acaso
+                         currentYear.textContent = new Date().getFullYear();
+                         console.log("INFO: [initializeDashboard] Año actualizado en el footer.");
+                     } catch (yearError) {
+                          console.error("ERROR: [initializeDashboard] Error al actualizar el año:", yearError);
+                     }
                  } else {
-                     console.warn("WARN: No se pudo actualizar el año del footer.");
+                     console.warn("WARN: [initializeDashboard] No se pudo actualizar el año del footer (elemento no encontrado).");
                  }
 
                 // Renderizar el dashboard inicial
-                renderDashboard();
+                // Asegurarse que dashboardData.categories existe antes de llamar
+                if (Array.isArray(dashboardData?.categories)) {
+                    renderDashboard();
+                } else {
+                     console.error("ERROR: [initializeDashboard] dashboardData.categories no es un array válido. No se puede renderizar inicialmente.");
+                      if(dashboardContainer) dashboardContainer.innerHTML = '<div class="error-message">Error: Faltan los datos iniciales para cargar el dashboard.</div>';
+                }
 
-                // Configurar listeners
+
+                // Configurar listeners (solo si los elementos existen)
                 if (searchInput) {
                     searchInput.addEventListener('input', () => {
-                        debounce(() => filterBookmarks(searchInput.value), 300);
+                        // Usar debounce para evitar llamadas excesivas en cada tecla
+                        debounce(() => filterBookmarks(searchInput.value), 300); // 300ms de espera
                     });
 
+                    // Keypress para Enter (mejor que keyup para esto)
                      searchInput.addEventListener('keypress', (e) => {
                         if (e.key === 'Enter') {
                            filterBookmarks(searchInput.value);
-                           e.preventDefault();
+                           e.preventDefault(); // Evitar posible submit de formulario si estuviera en uno
                         }
                     });
-                    console.log("INFO: Listeners de búsqueda configurados.");
+                    console.log("INFO: [initializeDashboard] Listeners de búsqueda configurados.");
                 } else {
-                     console.warn("WARN: Input de búsqueda no encontrado, listeners no añadidos.");
+                     console.warn("WARN: [initializeDashboard] Input de búsqueda no encontrado, funcionalidad de búsqueda no disponible.");
                 }
 
                 if (searchButton && searchInput) {
                     searchButton.addEventListener('click', () => {
-                        filterBookmarks(searchInput.value);
+                        filterBookmarks(searchInput.value); // Ejecutar inmediatamente al hacer clic
                     });
                 } else {
-                     console.warn("WARN: Botón de búsqueda no encontrado, listener de click no añadido.");
+                     console.warn("WARN: [initializeDashboard] Botón de búsqueda no encontrado, click no funcionará.");
                 }
-                 console.log("INFO: initializeDashboard completado.");
-            }
+                 console.log("INFO: [initializeDashboard] Completado.");
+            } // Fin initializeDashboard
+
 
             // Iniciar la inicialización del dashboard
             initializeDashboard();
 
         } catch (domError) {
+            // Error durante la inicialización DESPUÉS de DOMContentLoaded
             console.error('ERROR FATAL durante la inicialización (DOMContentLoaded):', domError);
             const errorDisplay = document.getElementById('dashboard-container') || document.body;
              if (errorDisplay) {
-                 errorDisplay.innerHTML = `... (mensaje de error HTML como antes) ...`;
+                 // Mostrar mensaje de error en la página
+                 errorDisplay.innerHTML = `
+                     <div class="error-message" style="padding: 2rem; text-align: center;">
+                         <h2><i class="fas fa-exclamation-triangle"></i> Error Crítico al Cargar Dashboard</h2>
+                         <p>No se pudo inicializar correctamente la aplicación.</p>
+                         <p><strong>Detalle:</strong> ${domError.message}</p>
+                         <p><em>Por favor, revisa la consola del desarrollador (F12) para más información.</em></p>
+                     </div>`;
              }
-             const loadingIndicator = document.querySelector('.loading-indicator');
+             // Ocultar spinner si existe
+            const loadingIndicator = document.querySelector('.loading-indicator');
             if(loadingIndicator) loadingIndicator.style.display = 'none';
         }
     }); // Fin DOMContentLoaded listener
 
 } catch (initialError) {
-    // Error ANTES de que DOMContentLoaded se dispare
-    console.error('ERROR CRÍTICO MUY TEMPRANO:', initialError);
-    document.body.innerHTML = `... (mensaje de error HTML como antes) ...`;
+    // Error ANTES de que DOMContentLoaded se dispare (ej. error de sintaxis grave, fallo al cargar script)
+    console.error('ERROR CRÍTICO MUY TEMPRANO (antes de DOMContentLoaded):', initialError);
+    // Intenta mostrar un error básico directamente en el body como último recurso
+    // Es posible que esto no funcione si el error es muy grave.
+     try {
+        document.body.innerHTML = `
+            <div style="padding: 20px; color: red; border: 2px solid red; margin: 20px; font-family: sans-serif;">
+                <h1>Error Crítico</h1>
+                <p>No se pudo cargar el script principal del dashboard.</p>
+                <p><strong>Detalle:</strong> ${initialError.message}</p>
+                <p>Verifica que los archivos JavaScript ('data.js', 'main.js') existan, estén en las rutas correctas y no contengan errores de sintaxis. Revisa la consola del desarrollador (F12).</p>
+            </div>`;
+    } catch(e) {
+         console.error("No se pudo ni siquiera mostrar el mensaje de error en el body.");
+    }
 }
+
+console.log("INFO: main.js finalizando ejecución (puede ser antes de DOMContentLoaded).");

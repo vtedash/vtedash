@@ -59,8 +59,9 @@ const dashboardData = {
                 { nombre: "Archive.org Roms", url: "https://archive.org/details/@generalprukogui", icono: "fas fa-compact-disc" }
             ]
         }
+        // Asegúrate de que no haya comas adicionales después del último objeto de categoría
     ]
-};
+}; // Asegúrate de que el punto y coma final esté presente
 
 // Log para confirmar que data.js se cargó
 console.log("INFO: data.js cargado y dashboardData definido.");

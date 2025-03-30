@@ -42,7 +42,15 @@ body {
     line-height: 1.6;
     font-size: 16px; /* Base de tamaño de fuente */
     overflow-x: hidden; /* Prevenir scroll horizontal accidental */
+    min-height: 100vh; /* Asegurar que el cuerpo ocupe al menos toda la altura */
+    display: flex; /* Usar flex para empujar el footer hacia abajo */
+    flex-direction: column; /* Apilar contenido verticalmente */
 }
+
+main {
+    flex-grow: 1; /* Hacer que el main ocupe el espacio disponible */
+}
+
 
 a {
     color: var(--primary-color);
@@ -51,7 +59,7 @@ a {
 }
 
 a:hover {
-    color: lighten(var(--primary-color), 15%);
+    color: #8ab4f8; /* Azul más claro en hover, evita función lighten() */
 }
 
 img {
@@ -84,6 +92,7 @@ img {
     position: sticky; /* Fijar la cabecera al hacer scroll */
     top: 0;
     z-index: 1000;
+    width: 100%; /* Asegurar que ocupe todo el ancho */
 }
 
 .header-content {
@@ -104,11 +113,13 @@ img {
     align-items: center;
     gap: 0.5rem;
     margin: 0; /* Quitar margen por defecto */
+    white-space: nowrap; /* Evitar que el título se rompa */
 }
 
 .header-icon {
     font-size: 1.2em; /* Relativo al tamaño del h1 */
     opacity: 0.9;
+    flex-shrink: 0; /* Evitar que el icono se encoja */
 }
 
 .search-container {
@@ -164,18 +175,23 @@ img {
     transition: opacity var(--transition-speed) var(--transition-func), transform var(--transition-speed) var(--transition-func);
 }
 
-#search-button:hover {
+#search-button:hover,
+#search-button:focus {
     opacity: 1;
     transform: scale(1.1);
+    outline: none; /* Quitar outline por defecto */
 }
 
 /*-----------------------------------------------------------------------------
  * Contenido Principal (Main) y Contenedor del Dashboard
  *---------------------------------------------------------------------------*/
-main {
+main#dashboard-container { /* Hacer más específico el selector */
     padding: 2rem;
     max-width: var(--max-width);
     margin: 2rem auto; /* Añadir margen superior para compensar header fijo */
+    display: block; /* Asegurarse que es block (aunque es por defecto para main) */
+    min-height: 300px; /* Darle una altura mínima para ver si se renderiza algo */
+    box-sizing: border-box; /* Incluir padding en el tamaño */
 }
 
 /* Indicador de carga */
@@ -188,6 +204,9 @@ main {
     color: var(--text-muted);
     text-align: center;
     gap: 1rem;
+    /* Asegurarse que no esté oculto por defecto */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .spinner {
@@ -209,15 +228,23 @@ main {
     padding: 3rem 1rem;
     background-color: var(--card-background);
     border-radius: var(--border-radius-md);
-    margin: 2rem 0;
+    margin: 2rem auto; /* Centrar horizontalmente */
     color: var(--text-muted);
     font-style: italic;
+    max-width: 80%; /* Evitar que ocupen todo el ancho */
+    box-sizing: border-box;
+    border: 1px solid var(--secondary-color); /* Borde sutil */
 }
 
 .error-message {
     color: #e74c3c; /* Rojo para errores */
     font-weight: 500;
     font-style: normal;
+    border-color: #e74c3c;
+}
+
+.error-message i { /* Estilo para icono de error */
+    margin-right: 0.5rem;
 }
 
 /*-----------------------------------------------------------------------------
@@ -226,8 +253,13 @@ main {
 .categories {
     display: grid;
     /* Columnas responsivas: mínimo 320px, máximo 1fr. Se ajustan automáticamente */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Reducir un poco el minmax */
     gap: 2rem; /* Espacio generoso entre categorías */
+    width: 100%; /* Asegurar que ocupe el ancho del contenedor main */
+    visibility: visible !important; /* Forzar visibilidad por si acaso */
+    opacity: 1 !important; /* Forzar opacidad */
+    position: relative !important; /* Asegurar que no esté posicionado fuera */
+    min-height: 100px; /* Altura mínima para ver si existe */
 }
 
 .category {
@@ -239,7 +271,10 @@ main {
                 box-shadow var(--transition-speed) var(--transition-func);
     display: flex;
     flex-direction: column; /* Asegura que el header y el contenido estén apilados */
-    height: 100%; /* Ocupar toda la altura disponible en la celda del grid */
+    /* Quitar height: 100% para ver si causa problemas */
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: 150px; /* Altura mínima para visibilidad */
 }
 
 .category:hover {
@@ -255,6 +290,7 @@ main {
     align-items: center;
     gap: 0.8rem;
     border-bottom: 3px solid var(--primary-color); /* Línea de acento */
+    flex-shrink: 0; /* Evitar que se encoja */
 }
 
 .category-icon {
@@ -262,6 +298,7 @@ main {
     min-width: 25px; /* Para alineación consistente */
     text-align: center;
     opacity: 0.9;
+    flex-shrink: 0;
 }
 
 .category-name {
@@ -280,7 +317,20 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 1.5rem; /* Buen espacio entre marcadores */
     flex-grow: 1; /* Permitir que esta sección crezca para llenar la categoría */
+    min-height: 50px; /* Altura mínima */
+    visibility: visible !important;
+    opacity: 1 !important;
 }
+
+.no-bookmarks-message { /* Estilo para el mensaje si no hay marcadores */
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
+    grid-column: 1 / -1; /* Ocupar todas las columnas */
+    text-align: center;
+    padding: 1rem 0;
+}
+
 
 .bookmark {
     background-color: transparent; /* Fondo transparente por defecto */
@@ -299,6 +349,9 @@ main {
     min-height: 100px; /* Altura mínima para consistencia */
     cursor: pointer;
     border: 1px solid transparent; /* Borde invisible para mantener layout en hover */
+    box-sizing: border-box;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .bookmark:hover,
@@ -356,8 +409,10 @@ main {
     text-align: center;
     padding: 1.5rem 1rem;
     font-size: 0.9rem;
-    margin-top: 3rem; /* Separación del contenido */
+    margin-top: auto; /* Empujar al fondo si el contenido es corto (con body flex) */
     border-top: 3px solid var(--primary-color);
+    width: 100%; /* Asegurar ancho completo */
+    flex-shrink: 0; /* Evitar que se encoja */
 }
 
 /*-----------------------------------------------------------------------------
@@ -369,7 +424,7 @@ main {
     :root {
         --max-width: 960px; /* Ajustar ancho máximo */
     }
-    main {
+    main#dashboard-container {
         padding: 1.5rem;
     }
     .categories {
@@ -401,19 +456,20 @@ main {
     }
     .header-content {
         padding: 0 1rem; /* Menos padding horizontal */
-        justify-content: center; /* Centrar contenido si se envuelve */
+        /* Mantener space-between, pero permitir envolver */
     }
     .site-header h1 {
-        margin-bottom: 0.5rem; /* Espacio si la búsqueda baja */
-        text-align: center;
-        width: 100%; /* Ocupar ancho si se envuelve */
+        /* Permitir que el título y la búsqueda compartan espacio si caben */
+         /* No forzar width 100% aquí */
+         margin-bottom: 0; /* Resetear margen */
     }
     .search-container {
-        min-width: 100%; /* Ocupar todo el ancho disponible */
-        max-width: 100%;
-        margin: 0 auto; /* Centrar */
+         /* Permitir que crezca un poco si hay espacio */
+         flex-grow: 1;
+         min-width: 180px; /* Reducir ancho mínimo */
+         max-width: 350px; /* Reducir ancho máximo */
     }
-    main {
+    main#dashboard-container {
         padding: 1rem;
         margin-top: 1rem;
     }
@@ -450,7 +506,19 @@ main {
 @media (max-width: 480px) {
     .header-content {
         padding: 0 0.8rem;
+        flex-direction: column; /* Forzar columna en pantallas muy pequeñas */
+        align-items: center; /* Centrar elementos */
     }
+     .site-header h1 {
+        margin-bottom: 0.8rem; /* Añadir espacio debajo del título */
+        text-align: center;
+    }
+    .search-container {
+         width: 100%; /* Ocupar todo el ancho */
+         max-width: none; /* Sin máximo */
+         margin: 0; /* Sin margen auto */
+    }
+
     .bookmarks {
         grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
         gap: 0.5rem;
