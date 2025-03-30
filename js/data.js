@@ -58,8 +58,34 @@ const dashboardData = {
                 { nombre: "Photopea", url: "https://www.photopea.com/", icono: "fas fa-edit" },
                 { nombre: "Archive.org Roms", url: "https://archive.org/details/@generalprukogui", icono: "fas fa-compact-disc" }
             ]
+        },
+        // --- NUEVA CATEGORÍA DE VIDEOJUEGOS ---
+        {
+            id: "videojuegos",
+            nombre: "Videojuegos y GameDev",
+            icono: "fas fa-gamepad", // Icono representativo
+            marcadores: [
+                // Recursos 3D y Modelos
+                { nombre: "Sketchfab (Modelos 3D)", url: "https://sketchfab.com/feed", icono: "fas fa-cube" },
+                { nombre: "Noclip Website (Mapas 3D)", url: "https://noclip.website/", icono: "fas fa-map-marked-alt" },
+                // Sprites y Pixel Art
+                { nombre: "Spriters Resource (Sprites)", url: "https://www.spriters-resource.com/", icono: "fas fa-image" }, // Puedes usar 'fas fa-ghost' si prefieres
+                { nombre: "Piskel (Editor Pixel Art)", url: "https://www.piskelapp.com/", icono: "fas fa-th" }, // Icono de cuadrícula/pixel
+                { nombre: "Lospec (Paletas Pixel Art)", url: "https://lospec.com/", icono: "fas fa-palette" },
+                // Recursos Generales y Assets
+                { nombre: "OpenGameArt (Assets 2D/3D/Sonido)", url: "https://opengameart.org/", icono: "fas fa-images" },
+                { nombre: "Kenney.nl (Assets Gratis)", url: "https://kenney.nl/assets", icono: "fas fa-puzzle-piece" },
+                { nombre: "Itch.io (Assets y Juegos Indie)", url: "https://itch.io/", icono: "fab fa-itch-io" },
+                // Motores y Aprendizaje
+                { nombre: "Unity Asset Store", url: "https://assetstore.unity.com/", icono: "fab fa-unity" },
+                { nombre: "Unity Learn", url: "https://learn.unity.com/", icono: "fas fa-graduation-cap" },
+                { nombre: "Godot Engine Docs", url: "https://docs.godotengine.org/en/stable/", icono: "fas fa-book" }, // Alternativa Open Source
+                // Comunidades y Noticias
+                { nombre: "Game Developer", url: "https://www.gamedeveloper.com/", icono: "fas fa-newspaper" }, // Antes Gamasutra
+                { nombre: "r/gamedev (Reddit)", url: "https://www.reddit.com/r/gamedev/", icono: "fab fa-reddit-alien"}
+            ]
         }
-        // Asegúrate de que no haya comas adicionales después del último objeto de categoría
+        // Asegúrate de que no haya comas adicionales después del último objeto de categoría (videojuegos)
     ]
 }; // Asegúrate de que el punto y coma final esté presente
 
