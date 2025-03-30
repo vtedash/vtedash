@@ -1,65 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título descriptivo y atractivo -->
+    <title>Dashboard Personal Pro</title>
 
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+    <!-- Favicon (Opcional pero recomendado - crea un archivo favicon.ico o .png) -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
 
-<script>
-window.addEventListener('load', () => {
-    fetch(window.location.href, {cache: "reload"}).then(() => {
-        console.log("Página recargada sin caché");
-    });
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(registrations => {
-            for (let registration of registrations) {
-                registration.unregister();
-            }
-        });
-    }
-});
+    <!-- Enlace a la hoja de estilos CSS principal (combinada y mejorada) -->
+    <link rel="stylesheet" href="css/style.css">
 
+    <!-- Scripts JavaScript diferidos para mejor rendimiento de carga -->
+    <!-- data.js debe cargarse antes que main.js -->
+    <script src="js/data.js" defer></script>
+    <script src="js/main.js" defer></script>
 
-        
-
-  window.addEventListener('load', function() {
-    // Forzar recarga desde servidor ignorando caché
-    if (!sessionStorage.getItem('pageLoaded')) {
-      sessionStorage.setItem('pageLoaded', 'true');
-      window.location.reload(true);
-    }
-  });
-</script>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Dashboard de Marcadores</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/responsive.css">
+    <!-- Nota: Se eliminaron las directivas agresivas de no-cache y el script de recarga forzada.
+         GitHub Pages maneja bien el cacheo y estas medidas pueden degradar la experiencia del usuario.
+         Para forzar una recarga sin caché durante el desarrollo, usa Ctrl+Shift+R (o Cmd+Shift+R en Mac). -->
 </head>
 <body>
-    <header>
-        <h1>Mi Dashboard</h1>
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Buscar marcadores...">
-            <button id="search-button"><i class="fas fa-search"></i></button>
+    <header class="site-header">
+        <div class="header-content">
+            <h1><i class="fas fa-chart-pie header-icon"></i> Mi Dashboard</h1>
+            <div class="search-container">
+                <label for="search-input" class="sr-only">Buscar marcadores</label> <!-- Label para accesibilidad -->
+                <input type="search" id="search-input" placeholder="Buscar marcadores..." aria-label="Campo de búsqueda de marcadores">
+                <button id="search-button" aria-label="Iniciar búsqueda"><i class="fas fa-search"></i></button>
+            </div>
         </div>
     </header>
 
-    <main id="dashboard-container">
-        <!-- El contenido del dashboard se genera dinámicamente desde JavaScript -->
-        <div class="loading">Cargando categorías y marcadores...</div>
+    <main id="dashboard-container" aria-live="polite"> <!-- aria-live para notificar cambios en resultados de búsqueda -->
+        <!-- Indicador de carga mejorado -->
+        <div class="loading-indicator">
+            <div class="spinner"></div>
+            <span>Cargando dashboard...</span>
+        </div>
     </main>
 
-    <footer>
-        <p>Dashboard de Marcadores &copy; <span id="current-year"></span></p>
+    <footer class="site-footer">
+        <p>Dashboard Personal © <span id="current-year"></span>. Creado con esmero.</p>
     </footer>
-
-    <!-- Scripts -->
-    <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
 </body>
 </html>
