@@ -2,22 +2,22 @@
  * Variables CSS Globales (Tema Oscuro Moderno por defecto)
  *---------------------------------------------------------------------------*/
 :root {
-    --primary-color: #4a90e2;       /* Azul vibrante pero profesional */
-    --secondary-color: #34495e;     /* Azul grisáceo oscuro */
-    --background-color: #1e1e1e;  /* Negro suave */
-    --card-background: #2c2c2c;     /* Gris oscuro para tarjetas */
-    --text-color: #f0f0f0;          /* Blanco suave */
-    --text-muted: #a0a0a0;        /* Gris claro para texto secundario */
-    --accent-color: #e91e63;        /* Color de acento (opcional, para toques) */
-    --hover-bg-color: rgba(255, 255, 255, 0.08); /* Fondo sutil al pasar el ratón */
+    --primary-color: #4a90e2;
+    --secondary-color: #34495e;
+    --background-color: #1e1e1e;
+    --card-background: #2c2c2c;
+    --text-color: #f0f0f0;
+    --text-muted: #a0a0a0;
+    --accent-color: #e91e63;
+    --hover-bg-color: rgba(255, 255, 255, 0.08);
     --shadow-color: rgba(0, 0, 0, 0.4);
     --shadow: 0 5px 15px var(--shadow-color);
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
     --transition-speed: 0.3s;
     --transition-func: ease-in-out;
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente limpia y moderna */
-    --max-width: 1600px; /* Ancho máximo del contenido */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --max-width: 1600px;
 }
 
 /*-----------------------------------------------------------------------------
@@ -32,7 +32,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Desplazamiento suave */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -40,15 +40,15 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    font-size: 16px; /* Base de tamaño de fuente */
-    overflow-x: hidden; /* Prevenir scroll horizontal accidental */
-    min-height: 100vh; /* Asegurar que el cuerpo ocupe al menos toda la altura */
+    font-size: 16px;
+    overflow-x: hidden;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 main {
-    flex-grow: 1; /* Hacer que el main ocupe el espacio disponible */
+    flex-grow: 1;
 }
 
 
@@ -59,7 +59,7 @@ a {
 }
 
 a:hover {
-    color: #8ab4f8; /* Azul más claro en hover */
+    color: #8ab4f8;
 }
 
 img {
@@ -68,7 +68,6 @@ img {
     display: block;
 }
 
-/* Clase de utilidad para lectores de pantalla */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -192,7 +191,6 @@ main#dashboard-container {
     box-sizing: border-box;
 }
 
-/* Indicador de carga */
 .loading-indicator {
     display: flex;
     flex-direction: column;
@@ -219,7 +217,6 @@ main#dashboard-container {
     to { transform: rotate(360deg); }
 }
 
-/* Mensajes de error y sin resultados */
 .error-message, .no-results {
     text-align: center;
     padding: 3rem 1rem;
@@ -249,13 +246,11 @@ main#dashboard-container {
  *---------------------------------------------------------------------------*/
 .categories {
     display: grid;
-    /* *** PRUEBA DIAGNÓSTICA: Forzar 3 columnas *** */
-    grid-template-columns: 1fr 1fr 1fr;
+    /* *** VERSIÓN FINAL Y FLEXIBLE *** */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     width: 100%;
-    visibility: visible;
-    opacity: 1;
-    position: relative;
+    /* Código limpio sin depuración */
 }
 
 .category {
@@ -267,8 +262,7 @@ main#dashboard-container {
                 box-shadow var(--transition-speed) var(--transition-func);
     display: flex;
     flex-direction: column;
-    visibility: visible;
-    opacity: 1;
+    /* Código limpio sin depuración */
 }
 
 .category:hover {
@@ -310,8 +304,7 @@ main#dashboard-container {
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 1.5rem;
     flex-grow: 1;
-    visibility: visible;
-    opacity: 1;
+    /* Código limpio sin depuración */
 }
 
 .no-bookmarks-message {
@@ -342,8 +335,7 @@ main#dashboard-container {
     cursor: pointer;
     border: 1px solid transparent;
     box-sizing: border-box;
-    visibility: visible;
-    opacity: 1;
+    /* Código limpio sin depuración */
 }
 
 .bookmark:hover,
@@ -418,13 +410,10 @@ main#dashboard-container {
     main#dashboard-container {
         padding: 1.5rem;
     }
-    /* Hereda 1fr 1fr 1fr de la regla base, A MENOS que queramos cambiarlo aquí */
-     .categories {
-         /* Podríamos volver a auto-fit aquí si la prueba 1fr 1fr 1fr funciona */
-         /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
-         /* O mantener 1fr 1fr 1fr, o poner 1fr 1fr */
-         grid-template-columns: 1fr 1fr; /* Prueba: 2 columnas para tablets */
-         gap: 1.5rem;
+    .categories {
+         /* Hereda auto-fit, ajustamos el minmax */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
     }
     .bookmarks {
         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
@@ -461,7 +450,7 @@ main#dashboard-container {
     }
     /* *** REGLA CLAVE: Columna única SOLO aquí y menores *** */
     .categories {
-        grid-template-columns: 1fr; /* ¡Columna única! */
+        grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     .bookmarks {
