@@ -1,4 +1,4 @@
-/* css/style.css - VERSIÓN FINAL LIMPIA */
+/* css/style.css - VERSIÓN FINAL CON COLUMNAS RESPONSIVAS */
 
 /*-----------------------------------------------------------------------------
  * Variables CSS Globales (Tema Oscuro Moderno por defecto)
@@ -189,7 +189,7 @@ main#dashboard-container {
     padding: 2rem;
     max-width: var(--max-width);
     margin: 2rem auto;
-    display: block;
+    display: block; /* Mantenido como block para el contenedor principal */
     box-sizing: border-box;
 }
 
@@ -247,12 +247,12 @@ main#dashboard-container {
  * Estructura de Categorías y Marcadores
  *---------------------------------------------------------------------------*/
 .categories {
-    display: grid;
-    /* *** VERSIÓN FINAL Y FLEXIBLE RESTAURADA *** */
+    display: grid; /* Establece el contenedor como grid */
+    /* Define columnas automáticas: tantas como quepan con un mínimo de 300px,
+       el resto del espacio se reparte (1fr) */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 2rem; /* Espacio entre categorías */
     width: 100%;
-    /* Código limpio sin bordes de depuración */
 }
 
 .category {
@@ -262,9 +262,9 @@ main#dashboard-container {
     overflow: hidden;
     transition: transform var(--transition-speed) var(--transition-func),
                 box-shadow var(--transition-speed) var(--transition-func);
-    display: flex;
-    flex-direction: column;
-    /* Código limpio sin depuración */
+    display: flex; /* Necesario para que el contenido interno se organice */
+    flex-direction: column; /* Organiza header y bookmarks verticalmente */
+    /* La anchura es manejada por el grid, no se necesita aquí */
 }
 
 .category:hover {
@@ -280,7 +280,7 @@ main#dashboard-container {
     align-items: center;
     gap: 0.8rem;
     border-bottom: 3px solid var(--primary-color);
-    flex-shrink: 0;
+    flex-shrink: 0; /* Evita que el header se encoja */
 }
 
 .category-icon {
@@ -303,21 +303,20 @@ main#dashboard-container {
 .bookmarks {
     padding: 1.5rem;
     display: grid;
+    /* Columnas automáticas para marcadores, mínimo 90px */
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 1.5rem;
-    flex-grow: 1;
-    /* Código limpio sin depuración */
+    flex-grow: 1; /* Permite que esta sección crezca para llenar el espacio */
 }
 
 .no-bookmarks-message {
     color: var(--text-muted);
     font-style: italic;
     font-size: 0.9rem;
-    grid-column: 1 / -1;
+    grid-column: 1 / -1; /* Ocupa todo el ancho del grid de bookmarks */
     text-align: center;
     padding: 1rem 0;
 }
-
 
 .bookmark {
     background-color: transparent;
@@ -330,14 +329,13 @@ main#dashboard-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Alinea al inicio */
     text-align: center;
     gap: 0.6rem;
-    min-height: 100px;
+    min-height: 100px; /* Asegura una altura mínima */
     cursor: pointer;
-    border: 1px solid transparent;
+    border: 1px solid transparent; /* Borde placeholder para hover */
     box-sizing: border-box;
-    /* Código limpio sin depuración */
 }
 
 .bookmark:hover,
@@ -345,7 +343,7 @@ main#dashboard-container {
     background-color: var(--hover-bg-color);
     transform: translateY(-3px);
     outline: none;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--primary-color); /* Borde visible en hover/focus */
 }
 
 .bookmark-icon {
@@ -353,7 +351,7 @@ main#dashboard-container {
     color: var(--primary-color);
     margin-bottom: 0.2rem;
     transition: transform var(--transition-speed) var(--transition-func);
-    width: 40px;
+    width: 40px; /* Tamaño fijo para el icono */
     height: 40px;
     display: flex;
     align-items: center;
@@ -372,10 +370,10 @@ main#dashboard-container {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2; /* Limita a 2 líneas */
     -webkit-box-orient: vertical;
-    max-height: 2.6em;
-    word-break: break-word;
+    max-height: 2.6em; /* Altura aproximada de 2 líneas */
+    word-break: break-word; /* Permite romper palabras largas */
     color: var(--text-muted);
     transition: color var(--transition-speed) var(--transition-func);
 }
@@ -394,30 +392,31 @@ main#dashboard-container {
     text-align: center;
     padding: 1.5rem 1rem;
     font-size: 0.9rem;
-    margin-top: auto;
+    margin-top: auto; /* Empuja el footer hacia abajo */
     border-top: 3px solid var(--primary-color);
     width: 100%;
-    flex-shrink: 0;
+    flex-shrink: 0; /* Evita que el footer se encoja */
 }
 
 /*-----------------------------------------------------------------------------
- * Media Queries para Responsividad (RESTAURADAS Y LIMPIAS)
+ * Media Queries para Responsividad
  *---------------------------------------------------------------------------*/
 
 /* Tablets y pantallas medianas (769px a 992px) */
 @media (max-width: 992px) {
     :root {
-        --max-width: 960px;
+        --max-width: 960px; /* Ajusta el ancho máximo */
     }
     main#dashboard-container {
         padding: 1.5rem;
     }
     .categories {
-         /* Ajuste para tablets */
+         /* Reduce el ancho mínimo de las columnas de categoría */
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
     }
     .bookmarks {
+        /* Ajusta el grid de marcadores */
         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
         gap: 1rem;
         padding: 1rem;
@@ -450,9 +449,9 @@ main#dashboard-container {
         padding: 1rem;
         margin-top: 1rem;
     }
-    /* *** REGLA CLAVE: Columna única SOLO aquí y menores *** */
+    /* *** FUERZA UNA SOLA COLUMNA PARA LAS CATEGORÍAS *** */
     .categories {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Solo una columna */
         gap: 1.5rem;
     }
     .bookmarks {
@@ -470,7 +469,7 @@ main#dashboard-container {
     }
     .bookmark-name {
         font-size: 0.75rem;
-         -webkit-line-clamp: 1;
+         -webkit-line-clamp: 1; /* Limita a 1 línea en móviles */
          max-height: 1.3em;
     }
     .site-footer {
@@ -483,7 +482,7 @@ main#dashboard-container {
 @media (max-width: 480px) {
     .header-content {
         padding: 0 0.8rem;
-        flex-direction: column;
+        flex-direction: column; /* Apila logo y búsqueda */
         align-items: center;
     }
      .site-header h1 {
@@ -491,13 +490,15 @@ main#dashboard-container {
         text-align: center;
     }
     .search-container {
-         width: 100%;
+         width: 100%; /* Ocupa todo el ancho */
          max-width: none;
          margin: 0;
     }
-    /* Hereda grid-template-columns: 1fr de la query anterior */
+    /* Las categorías heredan grid-template-columns: 1fr de la query anterior */
     .bookmarks {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+        /* Para pantallas muy pequeñas, quizás 3 columnas fijas sea mejor
+           que auto-fill con mínimo muy pequeño */
+        grid-template-columns: repeat(3, 1fr);
         gap: 0.5rem;
     }
      .bookmark {
