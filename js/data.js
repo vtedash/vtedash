@@ -59,33 +59,64 @@ const dashboardData = {
                 { nombre: "Archive.org Roms", url: "https://archive.org/details/@generalprukogui", icono: "fas fa-compact-disc" }
             ]
         },
-        // --- NUEVA CATEGORÍA DE VIDEOJUEGOS ---
+        // --- NUEVAS CATEGORÍAS DE VIDEOJUEGOS Y GAMEDEV ---
         {
-            id: "videojuegos",
-            nombre: "Videojuegos y GameDev",
-            icono: "fas fa-gamepad", // Icono representativo
+            id: "gamedev-assets",
+            nombre: "GameDev: Arte y Assets",
+            icono: "fas fa-palette", // Icono relacionado con arte/paleta
             marcadores: [
-                // Recursos 3D y Modelos
-                { nombre: "Sketchfab (Modelos 3D)", url: "https://sketchfab.com/feed", icono: "fas fa-cube" },
-                { nombre: "Noclip Website (Mapas 3D)", url: "https://noclip.website/", icono: "fas fa-map-marked-alt" },
+                // Assets Generales y Marketplaces
+                { nombre: "OpenGameArt", url: "https://opengameart.org/", icono: "fas fa-images" },
+                { nombre: "Kenney.nl", url: "https://kenney.nl/assets", icono: "fas fa-puzzle-piece" },
+                { nombre: "Itch.io Assets", url: "https://itch.io/game-assets", icono: "fab fa-itch-io" },
+                { nombre: "Unity Asset Store", url: "https://assetstore.unity.com/", icono: "fab fa-unity" }, // Aunque específico de Unity, es un store de assets
+                // Recursos 3D
+                { nombre: "Sketchfab", url: "https://sketchfab.com/feed", icono: "fas fa-cube" },
                 // Sprites y Pixel Art
-                { nombre: "Spriters Resource (Sprites)", url: "https://www.spriters-resource.com/", icono: "fas fa-image" }, // Puedes usar 'fas fa-ghost' si prefieres
-                { nombre: "Piskel (Editor Pixel Art)", url: "https://www.piskelapp.com/", icono: "fas fa-th" }, // Icono de cuadrícula/pixel
-                { nombre: "Lospec (Paletas Pixel Art)", url: "https://lospec.com/", icono: "fas fa-palette" },
-                // Recursos Generales y Assets
-                { nombre: "OpenGameArt (Assets 2D/3D/Sonido)", url: "https://opengameart.org/", icono: "fas fa-images" },
-                { nombre: "Kenney.nl (Assets Gratis)", url: "https://kenney.nl/assets", icono: "fas fa-puzzle-piece" },
-                { nombre: "Itch.io (Assets y Juegos Indie)", url: "https://itch.io/", icono: "fab fa-itch-io" },
-                // Motores y Aprendizaje
-                { nombre: "Unity Asset Store", url: "https://assetstore.unity.com/", icono: "fab fa-unity" },
-                { nombre: "Unity Learn", url: "https://learn.unity.com/", icono: "fas fa-graduation-cap" },
-                { nombre: "Godot Engine Docs", url: "https://docs.godotengine.org/en/stable/", icono: "fas fa-book" }, // Alternativa Open Source
-                // Comunidades y Noticias
-                { nombre: "Game Developer", url: "https://www.gamedeveloper.com/", icono: "fas fa-newspaper" }, // Antes Gamasutra
-                { nombre: "r/gamedev (Reddit)", url: "https://www.reddit.com/r/gamedev/", icono: "fab fa-reddit-alien"}
+                { nombre: "Spriters Resource", url: "https://www.spriters-resource.com/", icono: "fas fa-image" }, // O 'fas fa-ghost'
+                { nombre: "Lospec (Paletas)", url: "https://lospec.com/", icono: "fas fa-palette" }, // Reutilizo paleta, o 'fas fa-swatchbook'
+            ]
+        },
+        {
+            id: "gamedev-tools",
+            nombre: "GameDev: Motores y Herramientas",
+            icono: "fas fa-cogs", // Icono de engranajes/configuración
+            marcadores: [
+                // Motores Principales
+                { nombre: "Unity Hub", url: "https://unity.com/download", icono: "fab fa-unity" },
+                { nombre: "Unreal Engine", url: "https://www.unrealengine.com/en-US/download", icono: "fas fa-infinity" }, // No hay icono oficial de UE en FA free
+                { nombre: "Godot Engine", url: "https://godotengine.org/download/", icono: "fas fa-feather-alt" }, // Icono no oficial pero representativo
+                // Herramientas de Arte
+                { nombre: "Piskel (Pixel Art Editor)", url: "https://www.piskelapp.com/", icono: "fas fa-th" },
+                { nombre: "Aseprite", url: "https://www.aseprite.org/", icono: "fas fa-pencil-ruler" }, // Muy popular, aunque de pago
+                // Herramientas Útiles / Visualización
+                { nombre: "Noclip Website (Mapas 3D)", url: "https://noclip.website/", icono: "fas fa-map-marked-alt" },
+            ]
+        },
+        {
+            id: "gamedev-learning",
+            nombre: "GameDev: Aprendizaje",
+            icono: "fas fa-graduation-cap", // Icono de aprendizaje
+            marcadores: [
+                { nombre: "Unity Learn", url: "https://learn.unity.com/", icono: "fab fa-unity" },
+                { nombre: "Unreal Learning", url: "https://www.unrealengine.com/en-US/onlinelearning-courses", icono: "fas fa-chalkboard-teacher" },
+                { nombre: "Godot Docs", url: "https://docs.godotengine.org/en/stable/", icono: "fas fa-book" },
+                { nombre: "GameDev.tv", url: "https://www.gamedev.tv/", icono: "fas fa-tv" }, // Cursos populares
+            ]
+        },
+        {
+            id: "gamedev-community",
+            nombre: "GameDev: Comunidades y Noticias",
+            icono: "fas fa-users", // Icono de grupo/comunidad
+            marcadores: [
+                { nombre: "Game Developer (Gamasutra)", url: "https://www.gamedeveloper.com/", icono: "fas fa-newspaper" },
+                { nombre: "r/gamedev (Reddit)", url: "https://www.reddit.com/r/gamedev/", icono: "fab fa-reddit-alien"},
+                { nombre: "IndieDB", url: "https://www.indiedb.com/", icono: "fas fa-database" }, // Comunidad y showcase indie
+                { nombre: "Itch.io Community", url: "https://itch.io/community", icono: "fab fa-itch-io" },
+                { nombre: "Polycount (Foro Arte 3D)", url: "https://polycount.com/forum", icono: "fas fa-cubes" }, // Enfocado en arte 3D
             ]
         }
-        // Asegúrate de que no haya comas adicionales después del último objeto de categoría (videojuegos)
+        // Asegúrate de que no haya comas adicionales después del último objeto de categoría
     ]
 }; // Asegúrate de que el punto y coma final esté presente
 
