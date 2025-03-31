@@ -1,4 +1,4 @@
-/* css/style.css - ÚLTIMA PRUEBA DE LAYOUT */
+/* css/style.css - CON LAYOUT MEJORADO */
 
 /* --- Variables y Reseteo Básico (Sin Cambios) --- */
 :root {
@@ -8,7 +8,7 @@
     --shadow-color: rgba(0, 0, 0, 0.4); --shadow: 0 5px 15px var(--shadow-color);
     --border-radius-sm: 4px; --border-radius-md: 8px; --transition-speed: 0.3s;
     --transition-func: ease-in-out; --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* --max-width: 1600px; */ /* Quitamos max-width temporalmente */
+    /* --max-width: 1600px; */ /* Mantenemos sin max-width por ahora */
 }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -22,7 +22,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* --- Header y Footer (Sin Cambios Relevantes) --- */
 .site-header { background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); color: white; padding: 1rem 0; box-shadow: 0 2px 8px var(--shadow-color); position: sticky; top: 0; z-index: 1000; width: 100%; }
-.header-content { /* max-width: var(--max-width); */ /* Quitamos max-width temporalmente */ width: 100%; /* Ocupar todo */ margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; box-sizing: border-box; }
+.header-content { /* max-width: var(--max-width); */ width: 100%; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; box-sizing: border-box; }
 .site-header h1 { font-size: clamp(1.5rem, 4vw, 1.8rem); font-weight: 600; display: flex; align-items: center; gap: 0.5rem; margin: 0; white-space: nowrap; }
 .header-icon { font-size: 1.2em; opacity: 0.9; flex-shrink: 0; }
 .search-container { display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.1); border-radius: var(--border-radius-md); padding: 0.4rem 0.5rem 0.4rem 1rem; transition: background-color var(--transition-speed) var(--transition-func); flex-grow: 0; flex-shrink: 1; min-width: 200px; max-width: 400px; }
@@ -34,15 +34,14 @@ img { max-width: 100%; height: auto; display: block; }
 #search-button:hover, #search-button:focus { opacity: 1; transform: scale(1.1); outline: none; }
 .site-footer { background-color: var(--secondary-color); color: var(--text-muted); text-align: center; padding: 1.5rem 1rem; font-size: 0.9rem; margin-top: auto; border-top: 3px solid var(--primary-color); width: 100%; flex-shrink: 0; }
 
-/* --- Contenido Principal (Sin max-width) --- */
+/* --- Contenido Principal (Sin Cambios) --- */
 main#dashboard-container {
     padding: 2rem;
-    /* max-width: var(--max-width); */ /* Quitamos max-width temporalmente */
-    width: 100%; /* Ocupar todo el ancho disponible */
+    /* max-width: var(--max-width); */
+    width: 100%;
     margin: 2rem auto;
     display: block;
     box-sizing: border-box;
-    /* border: 1px dotted yellow; */ /* Puedes descomentar para ver el borde */
 }
 
 /* --- Indicador de Carga, Errores (Sin Cambios) --- */
@@ -54,36 +53,188 @@ main#dashboard-container {
 .error-message i { margin-right: 0.5rem; }
 
 /*-----------------------------------------------------------------------------
- * Estructura de Categorías y Marcadores (INTENTO FINAL)
+ * Estructura de Categorías y Marcadores (LAYOUT MEJORADO)
  *---------------------------------------------------------------------------*/
 .categories {
     display: grid;
-    /* *** Usar auto-fill y asegurar ancho 100% *** */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Mantiene las categorías responsivas */
     gap: 2rem;
-    width: 100%; /* Asegurar que intenta usar todo el ancho del padre */
-    box-sizing: border-box; /* Incluir padding/border en el ancho */
-    /* border: 1px dotted lime; */ /* Puedes descomentar para ver el borde */
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* --- Resto de estilos (.category, .bookmarks, etc. y Media Queries) --- */
-/* --- Deben ser idénticos a la versión final limpia anterior --- */
+.category {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow);
+    overflow: hidden; /* Asegura que el borde inferior del header no se salga */
+    transition: transform var(--transition-speed) var(--transition-func), box-shadow var(--transition-speed) var(--transition-func);
+    display: flex; /* Necesario para que .bookmarks pueda usar flex-grow */
+    flex-direction: column; /* Apila header y bookmarks */
+    /* border: 1px solid cyan; */ /* Debug */
+}
+.category:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
 
-.category { background-color: var(--card-background); border-radius: var(--border-radius-md); box-shadow: var(--shadow); overflow: hidden; transition: transform var(--transition-speed) var(--transition-func), box-shadow var(--transition-speed) var(--transition-func); display: flex; flex-direction: column; }
-.category:hover { transform: translateY(-5px) scale(1.01); box-shadow: 0 10px 25px var(--shadow-color); }
-.category-header { background-color: var(--secondary-color); color: white; padding: 1rem 1.2rem; display: flex; align-items: center; gap: 0.8rem; border-bottom: 3px solid var(--primary-color); flex-shrink: 0; }
-.category-icon { font-size: 1.4rem; min-width: 25px; text-align: center; opacity: 0.9; flex-shrink: 0; }
-.category-name { font-size: 1.2rem; font-weight: 600; flex-grow: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.bookmarks { padding: 1.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 1.5rem; flex-grow: 1; }
-.no-bookmarks-message { color: var(--text-muted); font-style: italic; font-size: 0.9rem; grid-column: 1 / -1; text-align: center; padding: 1rem 0; }
-.bookmark { background-color: transparent; padding: 0.8rem 0.4rem; border-radius: var(--border-radius-sm); transition: background-color var(--transition-speed) var(--transition-func), transform var(--transition-speed) var(--transition-func); text-decoration: none; color: var(--text-color); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; gap: 0.6rem; min-height: 100px; cursor: pointer; border: 1px solid transparent; box-sizing: border-box; }
-.bookmark:hover, .bookmark:focus { background-color: var(--hover-bg-color); transform: translateY(-3px); outline: none; border: 1px solid var(--primary-color); }
-.bookmark-icon { font-size: 2rem; color: var(--primary-color); margin-bottom: 0.2rem; transition: transform var(--transition-speed) var(--transition-func); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
-.bookmark:hover .bookmark-icon, .bookmark:focus .bookmark-icon { transform: scale(1.15); }
-.bookmark-name { font-size: 0.85rem; font-weight: 500; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; max-height: 2.6em; word-break: break-word; color: var(--text-muted); transition: color var(--transition-speed) var(--transition-func); }
-.bookmark:hover .bookmark-name, .bookmark:focus .bookmark-name { color: var(--text-color); }
+.category-header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-bottom: 3px solid var(--primary-color);
+    flex-shrink: 0; /* Evita que el header se encoja */
+}
+.category-icon {
+    font-size: 1.4rem;
+    min-width: 25px; /* Asegura espacio para el icono */
+    text-align: center;
+    opacity: 0.9;
+    flex-shrink: 0;
+}
+.category-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    flex-grow: 1; /* Ocupa el espacio restante */
+    white-space: nowrap; /* Evita que el texto salte de línea */
+    overflow: hidden; /* Oculta el texto que no cabe */
+    text-overflow: ellipsis; /* Añade "..." al texto cortado */
+}
 
-/* --- Media Queries (Sin Cambios respecto a versión final limpia) --- */
-@media (max-width: 992px) { /* :root { --max-width: 960px; } */ /* max-width quitado temporalmente */ main#dashboard-container { padding: 1.5rem; } .categories { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; } .bookmarks { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 1rem; padding: 1rem; } .bookmark { min-height: 90px; } .bookmark-icon { font-size: 1.8rem; } .bookmark-name { font-size: 0.8rem; } }
-@media (max-width: 768px) { body { font-size: 15px; } .header-content { padding: 0 1rem; } .search-container { flex-grow: 1; min-width: 180px; max-width: 350px; } main#dashboard-container { padding: 1rem; margin-top: 1rem; } .categories { grid-template-columns: 1fr; gap: 1.5rem; } .bookmarks { grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap: 0.8rem; } .bookmark { min-height: 85px; padding: 0.6rem 0.3rem; } .bookmark-icon { font-size: 1.6rem; width: 35px; height: 35px; } .bookmark-name { font-size: 0.75rem; -webkit-line-clamp: 1; max-height: 1.3em; } .site-footer { padding: 1rem; font-size: 0.85rem; } }
-@media (max-width: 480px) { .header-content { padding: 0 0.8rem; flex-direction: column; align-items: center; } .site-header h1 { margin-bottom: 0.8rem; text-align: center; } .search-container { width: 100%; max-width: none; margin: 0; } .bookmarks { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; } .bookmark { min-height: 80px; } .bookmark-icon { font-size: 1.5rem; width: 30px; height: 30px; } .bookmark-name { font-size: 0.7rem; } }
+.bookmarks {
+    padding: 1.5rem; /* Espacio interno */
+    display: grid;
+    /* *** CAMBIO CLAVE: Número fijo de columnas *** */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 1.5rem; /* Espacio entre marcadores */
+    flex-grow: 1; /* Permite que esta área crezca si la tarjeta es más alta */
+    align-content: start; /* Alinea las filas al principio, evitando estiramiento vertical */
+    /* border: 1px dashed yellow; */ /* Debug */
+}
+
+.no-bookmarks-message { /* Mensaje si no hay marcadores (ej. búsqueda) */
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
+    grid-column: 1 / -1; /* Ocupa todas las columnas */
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.bookmark {
+    background-color: transparent; /* Fondo por defecto */
+    padding: 0.8rem 0.4rem; /* Espaciado interno */
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-speed) var(--transition-func), transform var(--transition-speed) var(--transition-func), border-color var(--transition-speed) var(--transition-func); /* Añadida transición de borde */
+    text-decoration: none; /* Quita subrayado del enlace */
+    color: var(--text-color); /* Color del texto */
+    display: flex; /* Para alinear icono y texto */
+    flex-direction: column; /* Icono encima de texto */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente el contenido */
+    text-align: center; /* Centra el texto */
+    gap: 0.6rem; /* Espacio entre icono y texto */
+    min-height: 100px; /* Altura mínima para consistencia */
+    cursor: pointer; /* Indica que es clickeable */
+    border: 1px solid transparent; /* Borde invisible para mantener layout en hover */
+    box-sizing: border-box; /* Incluye padding y borde en el tamaño */
+    position: relative; /* Necesario si se añaden tooltips customizados avanzados */
+}
+
+.bookmark:hover,
+.bookmark:focus {
+    background-color: var(--hover-bg-color); /* Fondo al pasar el cursor */
+    transform: translateY(-3px); /* Ligero efecto de elevación */
+    outline: none; /* Quita el outline por defecto del focus */
+    border-color: var(--primary-color); /* Muestra un borde al hacer hover/focus */
+}
+
+.bookmark-icon {
+    font-size: 2rem; /* Tamaño del icono */
+    color: var(--primary-color); /* Color del icono */
+    margin-bottom: 0.2rem; /* Pequeño espacio bajo el icono */
+    transition: transform var(--transition-speed) var(--transition-func);
+    width: 40px; /* Ancho fijo para el contenedor del icono */
+    height: 40px; /* Alto fijo para el contenedor del icono */
+    display: flex; /* Para centrar el icono dentro del contenedor */
+    align-items: center;
+    justify-content: center;
+}
+.bookmark:hover .bookmark-icon,
+.bookmark:focus .bookmark-icon {
+    transform: scale(1.15); /* Agranda el icono en hover/focus */
+}
+
+.bookmark-name {
+    font-size: 0.85rem; /* Tamaño del nombre */
+    font-weight: 500;
+    line-height: 1.3; /* Interlineado */
+    overflow: hidden; /* Oculta texto largo */
+    text-overflow: ellipsis; /* Añade "..." */
+    /* Limita a 2 líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 2.6em; /* Altura aprox para 2 líneas (ajustar si cambia line-height o font-size) */
+    word-break: break-word; /* Permite romper palabras largas */
+    color: var(--text-muted); /* Color por defecto */
+    transition: color var(--transition-speed) var(--transition-func);
+}
+.bookmark:hover .bookmark-name,
+.bookmark:focus .bookmark-name {
+    color: var(--text-color); /* Cambia color del texto en hover/focus */
+}
+
+/* --- Media Queries (Ajustadas para el nuevo layout de bookmarks) --- */
+@media (max-width: 992px) {
+    main#dashboard-container { padding: 1.5rem; }
+    .categories { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .bookmarks {
+        /* Mantenemos 3 columnas si el espacio lo permite */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .bookmark { min-height: 90px; }
+    .bookmark-icon { font-size: 1.8rem; }
+    .bookmark-name { font-size: 0.8rem; }
+}
+
+@media (max-width: 768px) {
+    body { font-size: 15px; }
+    .header-content { padding: 0 1rem; }
+    .search-container { flex-grow: 1; min-width: 180px; max-width: 350px; }
+    main#dashboard-container { padding: 1rem; margin-top: 1rem; }
+    .categories {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Reducir minmax para categorías */
+        gap: 1.5rem;
+    }
+    .bookmarks {
+        /* Todavía intentamos 3 columnas, pero el espacio es menor */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.8rem;
+    }
+    .bookmark { min-height: 85px; padding: 0.6rem 0.3rem; }
+    .bookmark-icon { font-size: 1.6rem; width: 35px; height: 35px; }
+    .bookmark-name { font-size: 0.75rem; -webkit-line-clamp: 2; max-height: 2.6em; } /* Permitir 2 líneas si caben */
+}
+
+@media (max-width: 480px) {
+    .header-content { padding: 0 0.8rem; flex-direction: column; align-items: center; }
+    .site-header h1 { margin-bottom: 0.8rem; text-align: center; }
+    .search-container { width: 100%; max-width: none; margin: 0; }
+    .categories {
+        grid-template-columns: 1fr; /* Una sola columna para categorías */
+    }
+    .bookmarks {
+        /* *** CAMBIO CLAVE MÓVIL: 2 columnas en pantallas muy pequeñas *** */
+        grid-template-columns: repeat(2, 1fr); /* Cambiamos a 2 columnas */
+        gap: 1rem; /* Un poco más de espacio que antes */
+    }
+    .bookmark { min-height: 85px; } /* Ajustar altura si es necesario */
+    .bookmark-icon { font-size: 1.6rem; width: 35px; height: 35px; } /* Mantenemos tamaño icono */
+    .bookmark-name { font-size: 0.75rem; } /* Mantenemos tamaño fuente */
+}
